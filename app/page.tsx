@@ -144,7 +144,7 @@ export default function Portfolio() {
                 </p>
                 <div className="flex gap-4">
                   <a
-                    href="https://chargingthefuture.discourse.group/invites/zJVpEoKuNKm"
+                    href="https://chargingthefuture.discourse.group"
                     className="border-2 border-white px-3 py-1 hover:bg-white hover:text-black flex items-center gap-2"
                   >
                     <ExternalLink size={16} />
