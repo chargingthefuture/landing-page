@@ -8,7 +8,7 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto">
           <div className="border-2 border-white p-3 md:p-4 mb-4">
             <h1 className="text-2xl md:text-4xl font-bold mb-2">CHARGING THE FUTURE</h1>
-            <p className="text-base md:text-xl text-green-400">psyop-free products and content</p>
+            <p className="text-base md:text-xl text-green-400">world's first-ever TI economy powered by psyop-free products and services</p>
           </div>
           <nav className="flex flex-col sm:flex-row gap-3 md:gap-6">
             <a
@@ -33,7 +33,7 @@ export default function Portfolio() {
           <h2 className="text-3xl font-bold mb-6 border-b-2 border-white pb-2">ABOUT_US.TXT</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="border-2 border-white p-6">
-              <h3 className="text-xl font-bold mb-4 text-green-400">DESCRIPTION:</h3>
+              <h3 className="text-xl font-bold mb-4 text-green-400">COMMITMENT:</h3>
               <p className="mb-4 leading-relaxed">
                 Together, we commit to clarity, critical thinking, and authenticity, supporting one another as we navigate the complexities of our world and make choices that reflect our values and aspirations.
               </p>
@@ -91,7 +91,7 @@ export default function Portfolio() {
             {/* Project 1 */}
             <div className="border-2 border-white">
               <div className="border-b-2 border-white p-4 bg-green-400 text-black">
-                <h3 className="text-xl font-bold">SUPPORT MATCH</h3>
+                <h3 className="text-xl font-bold">SUPPORTMATCH</h3>
               </div>
               <div className="p-6">
                 <img
