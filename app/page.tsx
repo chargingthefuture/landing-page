@@ -35,14 +35,7 @@ export default function Portfolio() {
             <div className="border-2 border-white p-6">
               <h3 className="text-xl font-bold mb-4 text-green-400">DESCRIPTION:</h3>
               <p className="mb-4 leading-relaxed">
-                we believe in illuminating paths to clarity and authenticity. Our mission at CTF is to empower you to
-                think critically and make informed choices without hidden agendas. explore our insightful articles,
-                videos, and resources designed to spark genuine understanding and awareness.
-              </p>
-              <h3 className="text-xl font-bold mb-4 text-green-400 mt-6">PHILOSOPHY:</h3>
-              <p className="leading-relaxed">
-                our philosophy is a commitment to clarity, critical thinking, and authenticity. together we can navigate
-                the complexities of our world and make choices that reflect our values and aspirations.
+                Together, we commit to clarity, critical thinking, and authenticity, supporting one another as we navigate the complexities of our world and make choices that reflect our values and aspirations.
               </p>
             </div>
             <div className="border-2 border-white p-6">
@@ -107,7 +100,7 @@ export default function Portfolio() {
                   className="w-full h-48 object-cover border-2 border-white mb-4"
                 />
                 <p className="mb-4">
-                  match with TIs for collaboration, friendship, and shared experiences in a welcoming community.
+                  match to others with similar experiences for collaboration or friendship
                 </p>
                 <div className="flex gap-4">
                   <a
@@ -131,7 +124,7 @@ export default function Portfolio() {
             {/* Project 2 */}
             <div className="border-2 border-white">
               <div className="border-b-2 border-white p-4 bg-green-400 text-black">
-                <h3 className="text-xl font-bold">COMMUNITY FORUM</h3>
+                <h3 className="text-xl font-bold">TOWNSQUARE</h3>
               </div>
               <div className="p-6">
                 <img
@@ -140,7 +133,7 @@ export default function Portfolio() {
                   className="w-full h-48 object-cover border-2 border-white mb-4"
                 />
                 <p className="mb-4">
-                  TIs sharing knowledge in a welcoming community.
+                  CTF townsquare
                 </p>
                 <div className="flex gap-4">
                   <a
