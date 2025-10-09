@@ -8,7 +8,9 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto">
           <div className="border-2 border-white p-3 md:p-4 mb-4">
             <h1 className="text-2xl md:text-4xl font-bold mb-2">CHARGING THE FUTURE</h1>
-            <p className="text-base md:text-xl text-green-400">world's first-ever TI economy powered by psyop-free products and services</p>
+            <p className="text-base md:text-xl text-green-400">
+              world's first-ever TI economy powered by psyop-free products and services
+            </p>
           </div>
           <nav className="flex flex-col sm:flex-row gap-3 md:gap-6">
             <a
@@ -35,7 +37,8 @@ export default function Portfolio() {
             <div className="border-2 border-white p-6">
               <h3 className="text-xl font-bold mb-4 text-green-400">COMMITMENT:</h3>
               <p className="mb-4 leading-relaxed">
-                Together, we commit to clarity, critical thinking, and authenticity, supporting one another as we navigate the complexities of our world and make choices that reflect our values and aspirations.
+                Together, we commit to clarity, critical thinking, and authenticity, supporting one another as we
+                navigate the complexities of our world and make choices that reflect our values and aspirations.
               </p>
             </div>
             <div className="border-2 border-white p-6">
@@ -46,38 +49,13 @@ export default function Portfolio() {
     "September 14 2025"
   ],
   "minimal": [
-    "At CTF, we prioritize your
-    privacy and are committed
-    to collecting as little
-    information as possible.
-    We only gather the essential
-    data needed to provide our
-    services, such as your
-    name and email address
-    for account creation and
-    communication."
+    "At CTF, we prioritize your privacy and are committed to collecting as little information as possible. We only gather the essential data needed to provide our services, such as your name and email address for account creation and communication."
   ],
   "do not sell": [
-    "We do not sell your data to
-    third parties. Your information
-    is shared minimally and only
-    with trusted partners necessary
-    for service delivery, such as
-    payment processors. We ensure
-    that any third parties we work
-    with adhere to
-    strict privacy standards."
+    "We do not sell your data to third parties. Your information is shared minimally and only with trusted partners necessary for service delivery, such as payment processors. We ensure that any third parties we work with adhere to strict privacy standards."
   ],
   "control": [
-    "You have full control over
-    your account. You can delete your
-    account at any time, and upon
-    deletion, we will remove your
-    personal information
-    from our systems. If you have
-    any questions or
-    concerns about your privacy,
-    feel free to contact us.
+    "You have full control over your account. You can delete your account at any time, and upon deletion, we will remove your personal information from our systems. If you have any questions or concerns about your privacy, feel free to contact us."
   ]
 }`}
               </pre>
@@ -102,9 +80,7 @@ export default function Portfolio() {
                   alt="Distributed Cache System Architecture"
                   className="w-full h-48 object-cover border-2 border-white mb-4"
                 />
-                <p className="mb-4">
-                  match to others with similar experiences for collaboration or friendship
-                </p>
+                <p className="mb-4">match to others with similar experiences for collaboration or friendship</p>
                 <div className="flex gap-4">
                   <a
                     href="https://github.com/chargingthefuture/supportmatch"
@@ -123,7 +99,7 @@ export default function Portfolio() {
                 </div>
               </div>
             </div>
-            
+
             {/* Project 2 */}
             <div className="border-2 border-white">
               <div className="border-b-2 border-white p-4 bg-green-400 text-black">
@@ -135,9 +111,7 @@ export default function Portfolio() {
                   alt="Distributed Cache System Architecture"
                   className="w-full h-48 object-cover border-2 border-white mb-4"
                 />
-                <p className="mb-4">
-                  CTF online forum
-                </p>
+                <p className="mb-4">CTF online forum</p>
                 <div className="flex gap-4">
                   <a
                     href="https://chargingthefuture.discourse.group"
