@@ -8,7 +8,7 @@ import "./globals.css"
 
 export const metadata: Metadata = {
   title: "Charging the Future",
-  description: "psyop-free products and content",
+  description: "psyop-free products and services",
   generator: "v0.app",
 }
 
