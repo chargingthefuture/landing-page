@@ -46,13 +46,16 @@ export default function Portfolio() {
     "September 14 2025"
   ],
   "minimal": [
-    "At CTF, we prioritize your privacy
-    and are committed to collecting as
-    little information as possible.
-    We only gather the essential data
-    needed to provide our services,
-    such as your name and email address
-    for account creation and communication."
+    "At CTF, we prioritize your
+    privacy and are committed
+    to collecting as little
+    information as possible.
+    We only gather the essential
+    data needed to provide our
+    services, such as your
+    name and email address
+    for account creation and
+    communication."
   ],
   "do not sell": [
     "We do not sell your data to
@@ -133,7 +136,7 @@ export default function Portfolio() {
                   className="w-full h-48 object-cover border-2 border-white mb-4"
                 />
                 <p className="mb-4">
-                  CTF townsquare
+                  CTF online forum
                 </p>
                 <div className="flex gap-4">
                   <a
