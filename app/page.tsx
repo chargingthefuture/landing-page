@@ -32,21 +32,19 @@ export default function Portfolio() {
       {/* About Section */}
       <section id="about" className="border-b-4 border-green-400 p-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-6 border-b-2 border-white pb-2">ABOUT_US.TXT</h2>
+          <h2 className="text-3xl font-bold mb-6 border-b-2 border-white pb-2">ABOUT US</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="border-2 border-white p-6">
-              <h3 className="text-xl font-bold mb-4 text-green-400">COMMITMENT:</h3>
+              <h3 className="text-xl font-bold mb-4 text-green-400">COMMITMENT</h3>
               <p className="mb-4 leading-relaxed">
                 Together, we commit to clarity, critical thinking, and authenticity, supporting one another as we
                 navigate the complexities of our world and make choices that reflect our values and aspirations.
               </p>
             </div>
-            <div className="border-2 border-white p-6">
+            {/*<div className="border-2 border-white p-6">
               <h3 className="text-xl font-bold mb-4 text-green-400"></h3>
-              <pre className="text-sm leading-relaxed">
-
-              </pre>
-            </div>
+              <pre className="text-sm leading-relaxed"></pre>
+            </div>*/}
           </div>
         </div>
       </section>
@@ -54,9 +52,8 @@ export default function Portfolio() {
       {/* Products Section */}
       <section id="projects" className="border-b-4 border-green-400 p-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-6 border-b-2 border-white pb-2">PRODUCTS.DIR</h2>
+          <h2 className="text-3xl font-bold mb-6 border-b-2 border-white pb-2">PRODUCTS & SERVICES</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-
             {/* Project 1 */}
             <div className="border-2 border-white">
               <div className="border-b-2 border-white p-4 bg-green-400 text-black">
@@ -113,6 +110,30 @@ export default function Portfolio() {
             </div>
 
             {/* Project 3 */}
+            <div className="border-2 border-white">
+              <div className="border-b-2 border-white p-4 bg-green-400 text-black">
+                <h3 className="text-xl font-bold">"CRAIGSLIST"</h3>
+              </div>
+              <div className="p-6">
+                <img
+                  src="/placeholder.svg?height=200&width=400"
+                  alt="Sleep Stories Audio Content"
+                  className="w-full h-48 object-cover border-2 border-white mb-4"
+                />
+                <p className="mb-4">community exchange</p>
+                <div className="flex gap-4">
+                  <a
+                    href="https://chargingthefuture.discourse.group/t/about-the-craigslist-category/24?u=farah"
+                    className="border-2 border-white px-3 py-1 hover:bg-white hover:text-black flex items-center gap-2"
+                  >
+                    <ExternalLink size={16} />
+                    GO TO
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 4 */}
             <div className="border-2 border-white">
               <div className="border-b-2 border-white p-4 bg-green-400 text-black">
                 <h3 className="text-xl font-bold">SLEEP STORIES</h3>
