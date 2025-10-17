@@ -121,30 +121,6 @@ export default function Portfolio() {
             {/* Project 3 */}
             <div className="border-2 border-white">
               <div className="border-b-2 border-white p-4 bg-green-400 text-black">
-                <h3 className="text-xl font-bold">"CRAIGSLIST"</h3>
-              </div>
-              <div className="p-6">
-                <img
-                  src="/placeholder.svg?height=200&width=400"
-                  alt="Sleep Stories Audio Content"
-                  className="w-full h-48 object-cover border-2 border-white mb-4"
-                />
-                <p className="mb-4">community exchange</p>
-                <div className="flex gap-4">
-                  <a
-                    href="https://chargingthefuture.discourse.group/t/about-the-craigslist-category/24?u=farah"
-                    className="border-2 border-white px-3 py-1 hover:bg-white hover:text-black flex items-center gap-2"
-                  >
-                    <ExternalLink size={16} />
-                    GO TO
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Project 4 */}
-            <div className="border-2 border-white">
-              <div className="border-b-2 border-white p-4 bg-green-400 text-black">
                 <h3 className="text-xl font-bold">SIGNAL CHAT GROUP LINKS</h3>
               </div>
               <div className="p-6">
