@@ -33,19 +33,28 @@ export default function Portfolio() {
       <section id="about" className="border-b-4 border-green-400 p-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-6 border-b-2 border-white pb-2">ABOUT US</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div className="border-2 border-white p-6">
-              <h3 className="text-xl font-bold mb-4 text-green-400">COMMITMENT</h3>
+              <h3 className="text-xl font-bold mb-4 text-green-400">MISSION</h3>
               <p className="mb-4 leading-relaxed">
-                Together, we commit to clarity, critical thinking, and authenticity, supporting one another as we
-                navigate the complexities of our world and make choices that reflect our values and aspirations.
+                At Charging the Future, we strive to empower individuals to Live, Work, & Conquer in a world where clarity, critical thinking, and authenticity guide every decision. As pioneers of the world’s first TI economy, we focus on offering psyop-free products and services that foster a safe and thriving community.
               </p>
             </div>
-            {/*<div className="border-2 border-white p-6">
-              <h3 className="text-xl font-bold mb-4 text-green-400"></h3>
-              <pre className="text-sm leading-relaxed"></pre>
-            </div>*/}
+                        <div className="border-2 border-white p-6">
+              <h3 className="text-xl font-bold mb-4 text-green-400">COMMITMENT</h3>
+              <p className="mb-4 leading-relaxed">
+                We are dedicated to supporting one another as we navigate the complexities of life. Together, we commit to choices that align with our core values and aspirations, ensuring that everyone has the opportunity to live without fear.
+              </p>
+            </div>
+                        <div className="border-2 border-white p-6">
+              <h3 className="text-xl font-bold mb-4 text-green-400">PURPOSE</h3>
+              <p className="mb-4 leading-relaxed">
+                Founded with a vision to prevent the tragic consequences of human trafficking, we seek to create an economy that not only uplifts those who have been affected but also empowers every individual to reclaim their power. By building a sustainable and ethical marketplace, we aim to pave the way for a brighter future where every person can thrive.
+              </p>
+            </div>
           </div>
+
+
         </div>
       </section>
 
