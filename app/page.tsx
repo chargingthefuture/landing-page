@@ -145,7 +145,7 @@ export default function Portfolio() {
             {/* Project 4 */}
             <div className="border-2 border-white">
               <div className="border-b-2 border-white p-4 bg-green-400 text-black">
-                <h3 className="text-xl font-bold">SLEEP STORIES</h3>
+                <h3 className="text-xl font-bold">SIGNAL CHAT GROUP LINKS</h3>
               </div>
               <div className="p-6">
                 <img
@@ -153,10 +153,10 @@ export default function Portfolio() {
                   alt="Sleep Stories Audio Content"
                   className="w-full h-48 object-cover border-2 border-white mb-4"
                 />
-                <p className="mb-4">audio only stories to help you wind down and sleep</p>
+                <p className="mb-4">list of all the invite-only chat group links. click the respective link to request an invite. if 24/hours has passed and your invite is not approved, let us know.</p>
                 <div className="flex gap-4">
                   <a
-                    href="https://chargingthefuture.discourse.group/t/introducing-sleep-stories/106?u=farah"
+                    href="https://sleek.bio/farah"
                     className="border-2 border-white px-3 py-1 hover:bg-white hover:text-black flex items-center gap-2"
                   >
                     <ExternalLink size={16} />
