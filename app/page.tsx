@@ -90,7 +90,7 @@ export default function Portfolio() {
             {/* Project 2 */}
             <div className="border-2 border-white">
               <div className="border-b-2 border-white p-4 bg-green-400 text-black">
-                <h3 className="text-xl font-bold">SUPPORTMATCH</h3>
+                <h3 className="text-xl font-bold">APP</h3>
               </div>
               <div className="p-6">
                 <img
@@ -98,7 +98,7 @@ export default function Portfolio() {
                   alt="Distributed Cache System Architecture"
                   className="w-full h-48 object-cover border-2 border-white mb-4"
                 />
-                <p className="mb-4">match to others with similar experiences for collaboration or friendship</p>
+                <p className="mb-4">hub of psyop-free products and services</p>
                 <div className="flex gap-4">
                   <a
                     href="https://github.com/chargingthefuture/supportmatch"
