@@ -108,7 +108,7 @@ export default function Portfolio() {
                     CODE
                   </a>
                   <a
-                    href="https://supportmatch.chargingthefuture.com"
+                    href="https://app.chargingthefuture.com"
                     className="border-2 border-white px-3 py-1 hover:bg-white hover:text-black flex items-center gap-2"
                   >
                     <ExternalLink size={16} />
