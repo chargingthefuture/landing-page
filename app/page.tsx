@@ -101,7 +101,7 @@ export default function Portfolio() {
                 <p className="mb-4">hub of psyop-free products and services</p>
                 <div className="flex gap-4">
                   <a
-                    href="https://github.com/chargingthefuture/supportmatch"
+                    href="https://github.com/chargingthefuture/app"
                     className="border-2 border-white px-3 py-1 hover:bg-white hover:text-black flex items-center gap-2"
                   >
                     <Github size={16} />
