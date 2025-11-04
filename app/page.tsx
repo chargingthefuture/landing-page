@@ -118,29 +118,6 @@ export default function Portfolio() {
               </div>
             </div>
 
-            {/* Project 3 */}
-            <div className="border-2 border-white">
-              <div className="border-b-2 border-white p-4 bg-green-400 text-black">
-                <h3 className="text-xl font-bold">SIGNAL CHAT GROUP LINKS</h3>
-              </div>
-              <div className="p-6">
-                <img
-                  src="/placeholder.svg?height=200&width=400"
-                  alt="Sleep Stories Audio Content"
-                  className="w-full h-48 object-cover border-2 border-white mb-4"
-                />
-                <p className="mb-4">list of all the invite-only chat group links. click the respective link to request an invite. if 24/hours has passed and your invite is not approved, let us know.</p>
-                <div className="flex gap-4">
-                  <a
-                    href="https://sleek.bio/farah"
-                    className="border-2 border-white px-3 py-1 hover:bg-white hover:text-black flex items-center gap-2"
-                  >
-                    <ExternalLink size={16} />
-                    GO TO
-                  </a>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
