@@ -37,19 +37,19 @@ export default function Portfolio() {
             <div className="border-2 border-white p-6">
               <h3 className="text-xl font-bold mb-4 text-green-400">MISSION</h3>
               <p className="mb-4 leading-relaxed">
-                At Charging the Future, we strive to empower individuals to Live, Work, & Conquer in a world where clarity, critical thinking, and authenticity guide every decision. As pioneers of the world’s first TI economy, we focus on offering psyop-free products and services that foster a safe and thriving community.
+                Charging the Future empowers people to Live, Work, and Prevail with clarity, critical thinking, and authenticity. As pioneers of the world's first psyop-free TI economy, we provide products and services that create a safe, resilient community.
               </p>
             </div>
                         <div className="border-2 border-white p-6">
               <h3 className="text-xl font-bold mb-4 text-green-400">COMMITMENT</h3>
               <p className="mb-4 leading-relaxed">
-                We are dedicated to supporting one another as we navigate the complexities of life. Together, we commit to choices that align with our core values and aspirations, ensuring that everyone has the opportunity to live without fear.
+                We support one another through life's challenges and make choices aligned with our core values so everyone can live without fear.
               </p>
             </div>
                         <div className="border-2 border-white p-6">
               <h3 className="text-xl font-bold mb-4 text-green-400">PURPOSE</h3>
               <p className="mb-4 leading-relaxed">
-                Founded with a vision to prevent the tragic consequences of human trafficking, we seek to create an economy that not only uplifts those who have been affected but also empowers every individual to reclaim their power. By building a sustainable and ethical marketplace, we aim to pave the way for a brighter future where every person can thrive.
+                We exist to prevent human trafficking and its harms by building a sustainable, ethical marketplace that restores agency, heals survivors, and enables all people to thrive.
               </p>
             </div>
           </div>
