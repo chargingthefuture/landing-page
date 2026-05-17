@@ -108,16 +108,13 @@ const FEATURE_COLOR_MAP: Record<string, string> = {
   "GDP":            "#06B6D4",
   "ServiceCredits": "#F59E0B",
   "Workforce":      "#B45309",
-  "Workforce Recruiter": "#B45309",
   "GentlePulse":    "#14B8A6",
-  "GentlePusle":    "#14B8A6",
   "Mood":           "#EC4899",
   "SocketRelay":    "#FB923C",
   "Feed":           "#84CC16",
   "SkillsHunt":     "#D946EF",
   "LevelUp":        "#10B981",
   "Trust":          "#0284C7",
-  "LostMail":       "#9CA3AF",
 };
 
 function NavBar() {
