@@ -29,20 +29,20 @@ const FEATURES: {
   { id: "trusttransport",name: "TrustTransport",   emoji: "📦", icon: Navigation, color: "#F97316", bg: "#1c0a03", desc: "Vetted transportation for safe travel. Drivers screened by the community, for the community.", youtubeId: "myHI3xB-fMQ" },
   { id: "directory",     name: "Directory",        emoji: "📇", icon: BookOpen,   color: "#3B82F6", bg: "#0c1a3d", desc: "Skills directory and professional listings. Find a survivor-run service for almost anything.", youtubeId: "W1cZm9F0D78" },
   { id: "foundation",    name: "Foundation",       emoji: "🪛", icon: Hammer,     color: "#EF4444", bg: "#1c0505", desc: "Tools, repairs, and infrastructure support. Logs changes in your area so nothing happens in the dark.", youtubeId: "n4Tkw01PmX8" },
-  { id: "peerprog",      name: "Peer Programming", emoji: "🏘️", icon: Code,       color: "#8B5CF6", bg: "#150d2e", desc: "Tech mentorship and coding support. Weekly global masterminds — survivors teaching survivors.", youtubeId: "ReJ-HjM4dvo" },
+  { id: "peerprog",      name: "PeerProgramming",  emoji: "🏘️", icon: Code,       color: "#8B5CF6", bg: "#150d2e", desc: "Tech mentorship and coding support. Weekly global masterminds — survivors teaching survivors.", youtubeId: "ReJ-HjM4dvo" },
   { id: "gdp",           name: "GDP",              emoji: "🗺️", icon: Globe,      color: "#06B6D4", bg: "#011c26", desc: "Real-time $300B global survivor economic tracker. Your contributions counted, recorded, visible." },
-  { id: "credits",       name: "Service Credits",  emoji: "⚙️", icon: Coins,      color: "#F59E0B", bg: "#1c1200", desc: "Alternative economy and credits exchange. Trade value inside the network — no outside systems needed." },
+  { id: "credits",       name: "ServiceCredits",   emoji: "⚙️", icon: Coins,      color: "#F59E0B", bg: "#1c1200", desc: "Alternative economy and credits exchange. Trade value inside the network — no outside systems needed." },
   { id: "workforce",     name: "Workforce",        emoji: "💼", icon: Briefcase,  color: "#6366F1", bg: "#0e0f30", desc: "Trafficking-informed job matching. Employers vetted for survivor-safe workplaces.", protonLink: "https://drive.proton.me/urls/2C3V6KQZDC#IPmuHxdRmzOh" },
   { id: "gentlepulse",   name: "GentlePulse",      emoji: "💚", icon: Heart,      color: "#14B8A6", bg: "#011c1a", desc: "Wellness check-ins and emotional support. Gentle, consistent, non-intrusive." },
   { id: "mood",          name: "Mood",             emoji: "😁", icon: Smile,      color: "#EC4899", bg: "#1c0416", desc: "Anonymous mood tracking and pattern awareness. Know yourself. See patterns. Take back control." },
   { id: "socketrelay",   name: "SocketRelay",      emoji: "🔂", icon: Share2,     color: "#F43F5E", bg: "#1c0409", desc: "Mutual aid network for urgent needs. Real-time resource sharing when it matters most.", youtubeId: "WTXpioRV2Bw" },
   { id: "feed",          name: "Feed",             emoji: "📣", icon: Activity,   color: "#8B5CF6", bg: "#150d2e", desc: "Community announcements and opportunities. Signal only — no noise, no algorithm games.", youtubeId: "l4tE1eLco6k" },
-  { id: "skillshunt",    name: "Skills Hunt",      emoji: "🎓", icon: Award,      color: "#A855F7", bg: "#1a0d2e", desc: "Skill discovery, credentialing, and education. Learn, prove it, get paid for it.", youtubeId: "OfojmleoDEc" },
+  { id: "skillshunt",    name: "SkillsHunt",       emoji: "🎓", icon: Award,      color: "#A855F7", bg: "#1a0d2e", desc: "Skill discovery, credentialing, and education. Learn, prove it, get paid for it.", youtubeId: "OfojmleoDEc" },
   { id: "levelup",       name: "LevelUp",          emoji: "🎯", icon: Target,     color: "#22C55E", bg: "#052e16", desc: "Goal tracking and progress milestones. Your journey, documented and celebrated." },
   { id: "trust",         name: "Trust",            emoji: "🛡️", icon: ShieldCheck,color: "#0EA5E9", bg: "#011826", desc: "Community reputation and verification. Trust signals built through real participation — your credibility, visible and portable." },
 ];
 
-const ALL_APPS = ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "Peer Programming", "GDP", "Service Credits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "Skills Hunt", "LevelUp", "Trust"];
+const ALL_APPS = ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"];
 
 // All 50 problems — every app is a solution to every problem
 const LOOK_MA_ITEMS: { q: string; solutions: string[] }[] = [
@@ -107,9 +107,9 @@ const FEATURE_COLOR_MAP: Record<string, string> = {
   "TrustTransport": "#F97316",
   "Directory":      "#3B82F6",
   "Foundation":     "#EF4444",
-  "Peer Programming": "#8B5CF6",
+  "PeerProgramming": "#8B5CF6",
   "GDP":            "#06B6D4",
-  "Service Credits": "#F59E0B",
+  "ServiceCredits": "#F59E0B",
   "Workforce":      "#6366F1",
   "Workforce Recruiter": "#6366F1",
   "GentlePulse":    "#14B8A6",
@@ -117,7 +117,6 @@ const FEATURE_COLOR_MAP: Record<string, string> = {
   "Mood":           "#EC4899",
   "SocketRelay":    "#F43F5E",
   "Feed":           "#8B5CF6",
-  "Skills Hunt":    "#A855F7",
   "SkillsHunt":     "#A855F7",
   "LevelUp":        "#22C55E",
   "SupportMatch":   "#0EA5E9",
