@@ -32,14 +32,14 @@ const FEATURES: {
   { id: "peerprog",      name: "PeerProgramming",  emoji: "🏘️", icon: Code,       color: "#8B5CF6", bg: "#150d2e", desc: "Tech mentorship and coding support. Weekly global masterminds — survivors teaching survivors.", youtubeId: "ReJ-HjM4dvo" },
   { id: "gdp",           name: "GDP",              emoji: "🗺️", icon: Globe,      color: "#06B6D4", bg: "#011c26", desc: "Real-time $300B global survivor economic tracker. Your contributions counted, recorded, visible." },
   { id: "credits",       name: "ServiceCredits",   emoji: "⚙️", icon: Coins,      color: "#F59E0B", bg: "#1c1200", desc: "Alternative economy and credits exchange. Trade value inside the network — no outside systems needed." },
-  { id: "workforce",     name: "Workforce",        emoji: "💼", icon: Briefcase,  color: "#6366F1", bg: "#0e0f30", desc: "Trafficking-informed job matching. Employers vetted for survivor-safe workplaces.", protonLink: "https://drive.proton.me/urls/2C3V6KQZDC#IPmuHxdRmzOh" },
+  { id: "workforce",     name: "Workforce",        emoji: "💼", icon: Briefcase,  color: "#B45309", bg: "#1c0e00", desc: "Trafficking-informed job matching. Employers vetted for survivor-safe workplaces.", protonLink: "https://drive.proton.me/urls/2C3V6KQZDC#IPmuHxdRmzOh" },
   { id: "gentlepulse",   name: "GentlePulse",      emoji: "💚", icon: Heart,      color: "#14B8A6", bg: "#011c1a", desc: "Wellness check-ins and emotional support. Gentle, consistent, non-intrusive." },
   { id: "mood",          name: "Mood",             emoji: "😁", icon: Smile,      color: "#EC4899", bg: "#1c0416", desc: "Anonymous mood tracking and pattern awareness. Know yourself. See patterns. Take back control." },
-  { id: "socketrelay",   name: "SocketRelay",      emoji: "🔂", icon: Share2,     color: "#F43F5E", bg: "#1c0409", desc: "Mutual aid network for urgent needs. Real-time resource sharing when it matters most.", youtubeId: "WTXpioRV2Bw" },
+  { id: "socketrelay",   name: "SocketRelay",      emoji: "🔂", icon: Share2,     color: "#FB923C", bg: "#1c0e00", desc: "Mutual aid network for urgent needs. Real-time resource sharing when it matters most.", youtubeId: "WTXpioRV2Bw" },
   { id: "feed",          name: "Feed",             emoji: "📣", icon: Activity,   color: "#84CC16", bg: "#0f1f00", desc: "Community announcements and opportunities. Signal only — no noise, no algorithm games.", youtubeId: "l4tE1eLco6k" },
   { id: "skillshunt",    name: "SkillsHunt",       emoji: "🎓", icon: Award,      color: "#D946EF", bg: "#2a0a2e", desc: "Skill discovery, credentialing, and education. Learn, prove it, get paid for it.", youtubeId: "OfojmleoDEc" },
   { id: "levelup",       name: "LevelUp",          emoji: "🎯", icon: Target,     color: "#10B981", bg: "#012e1a", desc: "Goal tracking and progress milestones. Your journey, documented and celebrated." },
-  { id: "trust",         name: "Trust",            emoji: "🛡️", icon: ShieldCheck,color: "#A855F7", bg: "#1e0a2e", desc: "Community reputation and verification. Trust signals built through real participation — your credibility, visible and portable." },
+  { id: "trust",         name: "Trust",            emoji: "🛡️", icon: ShieldCheck,color: "#0284C7", bg: "#001826", desc: "Community reputation and verification. Trust signals built through real participation — your credibility, visible and portable." },
 ];
 
 const ALL_APPS = ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"];
@@ -110,16 +110,16 @@ const FEATURE_COLOR_MAP: Record<string, string> = {
   "PeerProgramming": "#8B5CF6",
   "GDP":            "#06B6D4",
   "ServiceCredits": "#F59E0B",
-  "Workforce":      "#6366F1",
-  "Workforce Recruiter": "#6366F1",
+  "Workforce":      "#B45309",
+  "Workforce Recruiter": "#B45309",
   "GentlePulse":    "#14B8A6",
   "GentlePusle":    "#14B8A6",
   "Mood":           "#EC4899",
-  "SocketRelay":    "#F43F5E",
+  "SocketRelay":    "#FB923C",
   "Feed":           "#84CC16",
   "SkillsHunt":     "#D946EF",
   "LevelUp":        "#10B981",
-  "Trust":          "#A855F7",
+  "Trust":          "#0284C7",
   "LostMail":       "#9CA3AF",
 };
 
