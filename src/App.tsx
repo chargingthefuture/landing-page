@@ -490,7 +490,7 @@ function LandingPage() {
             href={APP_URL}
             className="inline-flex items-center gap-3 border-4 border-black bg-white text-black font-bold py-4 px-8 md:py-6 md:px-12 text-lg md:text-2xl uppercase tracking-widest hover:bg-black hover:text-white transition-colors brutal-shadow"
           >
-            Enter The App <ArrowRight strokeWidth={3} size={22} />
+            Enter The Economy <ArrowRight strokeWidth={3} size={22} />
           </a>
         </div>
         <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: "radial-gradient(#000 2px, transparent 2px)", backgroundSize: "30px 30px" }} />
