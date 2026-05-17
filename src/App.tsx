@@ -13,7 +13,7 @@ import {
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
-const BASE = "/";
+const BASE = import.meta.env.BASE_URL;
 const APP_URL = "https://app.chargingthefuture.com";
 const HERO_IMG = `${BASE}hero-walking-dead.png`;
 
@@ -315,11 +315,11 @@ function LandingPage() {
         <div className="relative w-full md:w-1/2 min-h-[50vh] md:min-h-screen overflow-hidden">
           <img
             src={HERO_IMG}
-            alt="Chapter Two — Survivor community rising"
+            alt="Chapter One — Survivor community rising"
             className="absolute inset-0 w-full h-full object-cover object-top"
           />
           <div className="absolute top-6 left-6 bg-white text-black border-4 border-black p-3 max-w-[200px] brutal-shadow">
-            <p className="font-bold text-xs uppercase leading-tight">CHAPTER TWO:</p>
+            <p className="font-bold text-xs uppercase leading-tight">CHAPTER ONE:</p>
             <p className="text-xs leading-tight mt-1">The people around us changed. But we survived.</p>
           </div>
           <div className="absolute inset-0 bg-gradient-to-r from-transparent to-background hidden md:block" />
@@ -341,9 +341,9 @@ function LandingPage() {
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display leading-[0.88] uppercase text-white mb-6 md:mb-8">
               The Next<br />
-              <span className="text-primary">Weapon</span><br />
+              <span className="text-primary">Shield</span><br />
               In Your<br />
-              Arsenal.
+              Corner.
             </h1>
             <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-xl mb-8 md:mb-10 leading-relaxed">
               Not a charity. Not a support group. An invite-only circular economy that turns survivors into active participants in a $300B opportunity — built from the ground up with 17 features.
@@ -389,7 +389,7 @@ function LandingPage() {
               17 Apps.<br /><span className="text-secondary">One</span> Account.
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              We don't need another forum. We need infrastructure. Every feature is a weapon against isolation, financial drain, and surveillance. We built all 17. Watch them in action.
+              We don't need another forum. We need infrastructure. Every feature is a shield against isolation, financial drain, and surveillance. We built all 17. Watch them in action.
             </p>
           </div>
           <Link
@@ -751,7 +751,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <WouterRouter base="">
+        <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
           <Router />
         </WouterRouter>
         <Toaster />
