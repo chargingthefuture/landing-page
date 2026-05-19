@@ -15,7 +15,7 @@ import NotFound from "@/pages/not-found";
 const queryClient = new QueryClient();
 const BASE = import.meta.env.BASE_URL;
 const APP_URL = "https://app.chargingthefuture.com";
-const HERO_IMG = `${BASE}hero-walking-dead.png`;
+const HERO_IMG = `${BASE}hero-image.png`;
 
 // Exact colors from the app (Desktop.tsx MINI_APPS)
 const FEATURES: {
@@ -23,34 +23,34 @@ const FEATURES: {
   color: string; bg: string; desc: string;
   youtubeId?: string; protonLink?: string;
 }[] = [
-  { id: "hub",           name: "Hub",             emoji: "🏠", icon: Users,      color: "#38BDF8", bg: "#011c26", desc: "The main community: AI-powered chat, safe channels, 5M members. Your base camp.", youtubeId: "Z9Gw3Jz0ids" },
-  { id: "chyme",         name: "Chyme",            emoji: "🎙️", icon: Radio,      color: "#22C55E", bg: "#052e16", desc: "Live social audio rooms. Record, broadcast, listen, and connect in real time.", youtubeId: "oVESU60zbPg" },
-  { id: "lighthouse",    name: "LightHouse",       emoji: "🏠", icon: HomeIcon,   color: "#EAB308", bg: "#1c1407", desc: "Safe and verified housing listings. Community trust scores so you know your neighbors.", youtubeId: "KfyZsemVU8A" },
+  { id: "hub",           name: "Hub",             emoji: "🏠", icon: Users,      color: "#38BDF8", bg: "#011c26", desc: "Ask a question and get AI-powered answers from our community. Your base camp.", youtubeId: "Z9Gw3Jz0ids" },
+  { id: "chyme",         name: "Chyme",            emoji: "🎙️", icon: Radio,      color: "#22C55E", bg: "#052e16", desc: "Live social audio rooms. Broadcast, listen, and connect in real time.", youtubeId: "oVESU60zbPg" },
+  { id: "lighthouse",    name: "LightHouse",       emoji: "🏠", icon: HomeIcon,   color: "#EAB308", bg: "#1c1407", desc: "Verified survivor housing listings.", youtubeId: "KfyZsemVU8A" },
   { id: "trusttransport",name: "TrustTransport",   emoji: "📦", icon: Navigation, color: "#F97316", bg: "#1c0a03", desc: "Vetted transportation for safe travel. Drivers screened by the community, for the community.", youtubeId: "myHI3xB-fMQ" },
-  { id: "directory",     name: "Directory",        emoji: "📇", icon: BookOpen,   color: "#3B82F6", bg: "#0c1a3d", desc: "Skills directory and professional listings. Find a survivor-run service for almost anything.", youtubeId: "W1cZm9F0D78" },
-  { id: "foundation",    name: "Foundation",       emoji: "🪛", icon: Hammer,     color: "#EF4444", bg: "#1c0505", desc: "Tools, repairs, and infrastructure support. Logs changes in your area so nothing happens in the dark.", youtubeId: "n4Tkw01PmX8" },
-  { id: "peerprog",      name: "PeerProgramming",  emoji: "🏘️", icon: Code,       color: "#8B5CF6", bg: "#150d2e", desc: "Tech mentorship and coding support. Weekly global masterminds — survivors teaching survivors.", youtubeId: "ReJ-HjM4dvo" },
-  { id: "gdp",           name: "GDP",              emoji: "🗺️", icon: Globe,      color: "#06B6D4", bg: "#011c26", desc: "Real-time $300B global survivor economic tracker. Your contributions counted, recorded, visible." },
+  { id: "directory",     name: "Directory",        emoji: "📇", icon: BookOpen,   color: "#3B82F6", bg: "#0c1a3d", desc: "Browse skills across the survivor community.", youtubeId: "W1cZm9F0D78" },
+  { id: "foundation",    name: "Foundation",       emoji: "🪛", icon: Hammer,     color: "#EF4444", bg: "#1c0505", desc: "Find talent, tools, repairs, and infrastructure support in real time.", youtubeId: "n4Tkw01PmX8" },
+  { id: "peerprog",      name: "PeerProgramming",  emoji: "🏘️", icon: Code,       color: "#8B5CF6", bg: "#150d2e", desc: "Weekly global mastermind sessions.", youtubeId: "ReJ-HjM4dvo" },
+  { id: "gdp",           name: "GDP",              emoji: "🗺️", icon: Globe,      color: "#06B6D4", bg: "#011c26", desc: "Real time $300B global survivor economic tracker. Your contributions counted, recorded, visible." },
   { id: "credits",       name: "ServiceCredits",   emoji: "⚙️", icon: Coins,      color: "#F59E0B", bg: "#1c1200", desc: "Alternative economy and credits exchange. Trade value inside the network — no outside systems needed." },
-  { id: "workforce",     name: "Workforce",        emoji: "💼", icon: Briefcase,  color: "#B45309", bg: "#1c0e00", desc: "Trafficking-informed job matching. Employers vetted for survivor-safe workplaces.", protonLink: "https://drive.proton.me/urls/2C3V6KQZDC#IPmuHxdRmzOh" },
-  { id: "gentlepulse",   name: "GentlePulse",      emoji: "💚", icon: Heart,      color: "#14B8A6", bg: "#011c1a", desc: "Wellness check-ins and emotional support. Gentle, consistent, non-intrusive." },
+  { id: "workforce",     name: "Workforce",        emoji: "💼", icon: Briefcase,  color: "#B45309", bg: "#1c0e00", desc: "Real-time work and skills distribution amongst 5 million survivors globally.", protonLink: "https://drive.proton.me/urls/2C3V6KQZDC#IPmuHxdRmzOh" },
+  { id: "gentlepulse",   name: "GentlePulse",      emoji: "💚", icon: Heart,      color: "#14B8A6", bg: "#011c1a", desc: "Meditations: gentle, consistent, non-intrusive." },
   { id: "mood",          name: "Mood",             emoji: "😁", icon: Smile,      color: "#EC4899", bg: "#1c0416", desc: "Anonymous mood tracking and pattern awareness. Know yourself. See patterns. Take back control." },
-  { id: "socketrelay",   name: "SocketRelay",      emoji: "🔂", icon: Share2,     color: "#FB923C", bg: "#1c0e00", desc: "Mutual aid network for urgent needs. Real-time resource sharing when it matters most.", youtubeId: "WTXpioRV2Bw" },
+  { id: "socketrelay",   name: "SocketRelay",      emoji: "🔂", icon: Share2,     color: "#FB923C", bg: "#1c0e00", desc: "Real-time resource sharing across the network.", youtubeId: "WTXpioRV2Bw" },
   { id: "feed",          name: "Feed",             emoji: "📣", icon: Activity,   color: "#84CC16", bg: "#0f1f00", desc: "Community announcements and opportunities. Signal only — no noise, no algorithm games.", youtubeId: "l4tE1eLco6k" },
-  { id: "skillshunt",    name: "SkillsHunt",       emoji: "🎓", icon: Award,      color: "#D946EF", bg: "#2a0a2e", desc: "Skill discovery, credentialing, and education. Learn, prove it, get paid for it.", youtubeId: "OfojmleoDEc" },
+  { id: "skillshunt",    name: "SkillsHunt",       emoji: "🎓", icon: Award,      color: "#D946EF", bg: "#2a0a2e", desc: "Discover skills across the network.", youtubeId: "OfojmleoDEc" },
   { id: "levelup",       name: "LevelUp",          emoji: "🎯", icon: Target,     color: "#10B981", bg: "#012e1a", desc: "Goal tracking and progress milestones. Your journey, documented and celebrated." },
   { id: "trust",         name: "Trust",            emoji: "🛡️", icon: ShieldCheck,color: "#0284C7", bg: "#001826", desc: "Community reputation and verification. Trust signals built through real participation — your credibility, visible and portable." },
 ];
 
 const LOOK_MA_ITEMS: { q: string; solutions: string[] }[] = [
   { q: "Do idiots constantly try to get close to you physically, while aiming their cell phones at you and/or staring at their cell phones while invading your personal space?", solutions: ["Hub", "Chyme", "PeerProgramming", "GentlePulse", "Mood"] },
-  { q: "Do your co-workers that you have always been friendly with, suddenly start acting strange towards you and distancing themselves from you? Or they begin to lie about your work performance, try to get you to quit or begin bumping shoulders with you?", solutions: ["Hub", "Chyme", "Directory", "PeerProgramming", "Workforce", "GentlePulse", "Mood", "SkillsHunt", "LevelUp"] },
+  { q: "Do your co-workers that you have always been friendly with, suddenly start acting strange towards you and distancing themselves from you? Or they begin to lie about your work performance, try to get you to quit or begin bumping shoulders with you?", solutions: ["Directory", "PeerProgramming", "Workforce", "GentlePulse", "Mood", "LevelUp"] },
   { q: "Do idiots sit parked in their cars outside your home all the time?", solutions: ["Hub", "Chyme", "LightHouse", "PeerProgramming"] },
-  { q: "Do morons constantly get in your way and block you from where you are going out in public? / cut you in line? / hold up the line?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Did all your neighbors suddenly move, have their houses quickly sold and construction work done on them, then quickly have 'new neighbors' (who don't seem to live there) move in?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Have any new street lamps/antennas been installed around your home/work recently?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do drones hover around you/your home/work all the time?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do you experience tinnitus/ringing in ears?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "Do morons constantly get in your way and block you from where you are going out in public? / cut you in line? / hold up the line?", solutions: ["ServiceCredits", "GentlePulse", "Mood", "SocketRelay"] },
+  { q: "Did all your neighbors suddenly move, have their houses quickly sold and construction work done on them, then quickly have 'new neighbors' (who don't seem to live there) move in?", solutions: ["LightHouse", "GentlePulse", "Mood"] },
+  { q: "Have any new street lamps/antennas been installed around your home/work recently?", solutions: ["LightHouse", "GentlePulse", "Mood"] },
+  { q: "Do drones hover around you/your home/work all the time?", solutions: ["LightHouse", "GentlePulse", "Mood"] },
+  { q: "Do you experience tinnitus/ringing in ears?", solutions: ["Directory", "Foundation", "PeerProgramming", "GentlePulse", "Mood"] },
   { q: "Do police officers follow/harass you for no good reason?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
   { q: "Do your neighbors always seem to come outside when you are there, then go inside when you do?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
   { q: "Do different people seem to be coming and going from neighbors houses around you all the time?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
@@ -629,7 +629,7 @@ function LookMaPage() {
               <span className="text-accent">Look Ma,</span><br />I Fixed It!
             </h1>
             <p className="text-base md:text-xl lg:text-2xl text-muted-foreground max-w-3xl leading-relaxed">
-              50 problems. 50 answers. Everything you've experienced — the stalking, the workplace sabotage, the neighbors, the lights, the vehicles — we built a feature in Survivor Hub for every single one. Click any problem to see the fix.
+              50+ problems. 50+ answers. Everything you've experienced — the stalking, the workplace sabotage, the neighbors, the lights, the vehicles — we built a feature in Survivor Hub for every single one. Click any problem to see the fix.
             </p>
           </motion.div>
         </div>
