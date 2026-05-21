@@ -457,7 +457,7 @@ function LandingPage() {
               <span className="text-accent">Look Ma,</span><br />I Fixed It!
             </h2>
             <p className="text-xl text-muted-foreground mb-4 leading-relaxed">
-              50 real problems survivors experience — strange cars, workplace sabotage, new antennas on your block, dogs being commanded to bark at you. You've noticed. We've built the answer for every single one.
+              50+ real problems survivors experience — strange cars, workplace sabotage, new antennas on your block, dogs being commanded to bark at you. You've noticed. We've built the answer for every single one.
             </p>
             <p className="text-lg font-bold text-foreground/80">
               Click each problem. See exactly which feature of the app solves it.
@@ -467,7 +467,7 @@ function LandingPage() {
             href="/look-ma"
             className="w-full lg:w-auto flex-shrink-0 brutal-border brutal-shadow-accent brutal-shadow-hover bg-accent text-black font-bold py-4 px-8 text-lg uppercase tracking-widest flex items-center justify-center gap-3"
           >
-            See All 50 Fixes <ArrowRight strokeWidth={3} size={20} />
+            See All 50+ Fixes <ArrowRight strokeWidth={3} size={20} />
           </Link>
         </div>
       </section>
