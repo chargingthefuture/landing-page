@@ -384,7 +384,7 @@ function LandingPage() {
               17 Apps.<br /><span className="text-secondary">One</span> Account.
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              We don't need another forum. We need infrastructure. Every feature is a shield against isolation, financial drain, and surveillance. We built all 17. Watch them in action.
+              We don't need another forum. We need infrastructure. Every feature is a shield against isolation, financial drain, and exploitation. We built all 17. Watch them in action.
             </p>
           </div>
           <Link
