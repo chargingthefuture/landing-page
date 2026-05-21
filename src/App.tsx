@@ -39,7 +39,7 @@ const FEATURES: {
   { id: "feed",          name: "Feed",             emoji: "📣", icon: Activity,   color: "#84CC16", bg: "#0f1f00", desc: "Community announcements and opportunities. Signal only — no noise, no algorithm games.", youtubeId: "l4tE1eLco6k" },
   { id: "skillshunt",    name: "SkillsHunt",       emoji: "🎓", icon: Award,      color: "#D946EF", bg: "#2a0a2e", desc: "Discover skills across the network.", youtubeId: "OfojmleoDEc" },
   { id: "levelup",       name: "LevelUp",          emoji: "🎯", icon: Target,     color: "#10B981", bg: "#012e1a", desc: "Goal tracking and progress milestones. Your journey, documented and celebrated.", youtubeId: "sZZMyDVdEvA" },
-  { id: "trust",         name: "Trust",            emoji: "🛡️", icon: ShieldCheck,color: "#0284C7", bg: "#001826", desc: "Community reputation and verification. Trust signals built through real participation — your credibility, visible and portable." },
+  { id: "trust",         name: "Trust",            emoji: "🛡️", icon: ShieldCheck,color: "#0284C7", bg: "#001826", desc: "Community reputation and verification. Trust signals built through real participation — your credibility, visible and portable.", youtubeId: "OuPnVsQ4PnE" },
 ];
 
 const LOOK_MA_ITEMS: { q: string; solutions: string[] }[] = [
