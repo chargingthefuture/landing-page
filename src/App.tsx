@@ -318,6 +318,50 @@ function VideoPlaceholder({ name, color }: { name: string; color: string }) {
   );
 }
 
+function ServiceCreditsBounty() {
+  return (
+    <a
+      href={APP_URL}
+      className="flex items-stretch border-4 border-foreground overflow-hidden group transition-transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-400"
+      style={{ boxShadow: "4px 4px 0px 0px #F59E0B", textDecoration: "none" }}
+      aria-label="Sign up and receive 100 ServiceCredits"
+    >
+      {/* Token stamp — left */}
+      <div
+        className="flex flex-col items-center justify-center px-5 py-4 border-r-4 border-foreground flex-shrink-0 group-hover:brightness-110 transition-all"
+        style={{ background: "#F59E0B", minWidth: 80 }}
+      >
+        <span className="font-display text-5xl leading-none text-black select-none">100</span>
+        <div className="flex items-center gap-1 mt-1">
+          <Coins size={13} strokeWidth={2.5} className="text-black/60" />
+          <span className="font-black text-xs uppercase tracking-widest text-black/60">SC</span>
+        </div>
+      </div>
+
+      {/* Copy — right */}
+      <div className="flex-1 px-5 py-4" style={{ background: "#1c1200" }}>
+        <div className="flex items-center gap-2 mb-1.5">
+          <span className="font-black text-xs uppercase tracking-widest" style={{ color: "#F59E0B" }}>
+            Sign-Up Reward
+          </span>
+          <span
+            className="font-bold text-[10px] px-1.5 py-0.5 uppercase tracking-wider border"
+            style={{ color: "#F59E0B", borderColor: "rgba(245,158,11,0.35)" }}
+          >
+            Free
+          </span>
+        </div>
+        <p className="font-display text-base uppercase text-foreground leading-tight mb-1.5 tracking-widest">
+          100 ServiceCredits — Yours On Day One
+        </p>
+        <p className="text-sm leading-snug" style={{ color: "rgba(245,158,11,0.6)" }}>
+          The psyop-free utility token. Spend on housing, rides, repairs, or skills inside the network. No bank. No exchange.
+        </p>
+      </div>
+    </a>
+  );
+}
+
 function Footer() {
   return (
     <footer className="bg-background py-12 px-6 border-t-4 border-foreground">
@@ -396,6 +440,9 @@ function LandingPage() {
               >
                 See All 18 Apps
               </Link>
+            </div>
+            <div className="mb-6">
+              <ServiceCreditsBounty />
             </div>
             <div className="flex flex-wrap gap-4 text-sm font-bold uppercase tracking-widest text-muted-foreground">
               <span className="flex items-center gap-2"><span className="text-primary">✓</span> Invite Only</span>
