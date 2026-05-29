@@ -8,7 +8,7 @@ import {
   ArrowRight, Play, Menu, X, Home, Tv, Wrench as FixIt,
   Users, Radio, HomeIcon, Navigation, BookOpen, Hammer,
   Code, Globe, Coins, Briefcase, Heart, Smile, Share2,
-  Activity, Award, Target, ShieldCheck, UsersRound,
+  Activity, Award, Target, ShieldCheck, UsersRound, AlertTriangle,
 } from "lucide-react";
 import NotFound from "@/pages/not-found";
 
@@ -18,6 +18,14 @@ const APP_URL = "https://app.chargingthefuture.com";
 const HERO_IMG = `${BASE}hero-image.png`;
 
 // Exact colors from the app (Desktop.tsx MINI_APPS)
+//
+// SOURCE OF TRUTH NOTE (read before editing this array):
+//   • Demo links (youtubeId / protonLink) and plugin descriptions (desc) live HERE,
+//     in this file — NOT in the design repo (github.com/chargingthefuture/design).
+//   • The design mocks are intentionally out of date on demo links (they change
+//     frequently) and on copy. Do NOT sync demo links or descriptions from design.
+//   • Plugin descriptions are owned by the maintainer and edited directly in code.
+//     Do NOT modify any existing `desc` without explicit approval.
 const FEATURES: {
   id: string; name: string; emoji: string; icon: React.ElementType;
   color: string; bg: string; desc: string;
@@ -40,6 +48,7 @@ const FEATURES: {
   { id: "skillshunt",    name: "SkillsHunt",       emoji: "🎓", icon: Award,      color: "#D946EF", bg: "#2a0a2e", desc: "Discover skills across the network.", youtubeId: "OfojmleoDEc" },
   { id: "levelup",       name: "LevelUp",          emoji: "🎯", icon: Target,     color: "#10B981", bg: "#012e1a", desc: "Goal tracking and progress milestones. Your journey, documented and celebrated.", youtubeId: "sZZMyDVdEvA" },
   { id: "trust",         name: "Trust",            emoji: "🛡️", icon: ShieldCheck,color: "#0284C7", bg: "#001826", desc: "Community reputation and verification. Trust signals built through real participation — your credibility, visible and portable.", youtubeId: "OuPnVsQ4PnE" },
+  { id: "clicklog",      name: "ClickLog",         emoji: "🚨", icon: AlertTriangle, color: "#E91E8C", bg: "#1a0515", desc: "Safety check-in and incident logging — location optional. Log what happened, check in when you're safe." },
 ];
 
 const LOOK_MA_ITEMS: { q: string; solutions: string[] }[] = [
@@ -146,6 +155,7 @@ const FEATURE_COLOR_MAP: Record<string, string> = {
   "SkillsHunt":     "#D946EF",
   "LevelUp":        "#10B981",
   "Trust":          "#0284C7",
+  "ClickLog":       "#E91E8C",
 };
 
 function NavBar() {
@@ -155,7 +165,7 @@ function NavBar() {
   const links = [
     { href: "/", label: "Home", icon: Home },
     { href: "/look-ma", label: "Look Ma, I Fixed It", icon: FixIt },
-    { href: "/demos", label: "17 Demos", icon: Tv },
+    { href: "/demos", label: "18 Demos", icon: Tv },
   ];
 
   return (
@@ -225,7 +235,7 @@ function NavBar() {
 }
 
 function StatMarquee() {
-  const stats = ["5M Survivors", "$300B Economy", "127 Countries", "17 Apps, One Account", "Free to join", "Invite Only"];
+  const stats = ["5M Survivors", "$300B Economy", "127 Countries", "18 Apps, One Account", "Free to join", "Invite Only"];
   const doubled = [...stats, ...stats];
   return (
     <div className="border-y-4 border-foreground bg-secondary py-5 overflow-hidden flex whitespace-nowrap">
@@ -317,7 +327,7 @@ function Footer() {
         </div>
         <div className="flex flex-wrap gap-4 text-sm font-bold uppercase tracking-widest text-muted-foreground">
           <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
-          <Link href="/demos" className="hover:text-foreground transition-colors">17 Demos</Link>
+          <Link href="/demos" className="hover:text-foreground transition-colors">18 Demos</Link>
           <Link href="/look-ma" className="hover:text-foreground transition-colors">Look Ma, I Fixed It</Link>
           <a href="https://github.com/chargingthefuture/chargingthefuture" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">GitHub ↗</a>
           <a href={APP_URL} className="hover:text-primary transition-colors text-primary">Open App →</a>
@@ -371,7 +381,7 @@ function LandingPage() {
               Corner.
             </h1>
             <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-xl mb-8 md:mb-10 leading-relaxed">
-              Not a charity. Not a support group. An invite-only circular economy that turns survivors into active participants in a $300B opportunity — built from the ground up with 17 features.
+              Not a charity. Not a support group. An invite-only circular economy that turns survivors into active participants in a $300B opportunity — built from the ground up with 18 features.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-6">
               <a
@@ -384,7 +394,7 @@ function LandingPage() {
                 href="/demos"
                 className="brutal-border brutal-shadow brutal-shadow-hover bg-transparent text-foreground font-bold py-4 px-8 text-lg uppercase tracking-widest text-center flex items-center justify-center gap-3"
               >
-                See All 17 Apps
+                See All 18 Apps
               </Link>
             </div>
             <div className="flex flex-wrap gap-4 text-sm font-bold uppercase tracking-widest text-muted-foreground">
@@ -398,7 +408,7 @@ function LandingPage() {
 
       <StatMarquee />
 
-      {/* 17 Apps teaser */}
+      {/* 18 Apps teaser */}
       <section className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -411,17 +421,17 @@ function LandingPage() {
               The Arsenal
             </div>
             <h2 className="text-5xl md:text-6xl font-display uppercase mb-6 leading-[0.9]">
-              17 Apps.<br /><span className="text-secondary">One</span> Account.
+              18 Apps.<br /><span className="text-secondary">One</span> Account.
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              We don't need another forum. We need infrastructure. Every feature is a shield against isolation, financial drain, and exploitation. We built all 17. Watch them in action.
+              We don't need another forum. We need infrastructure. Every feature is a shield against isolation, financial drain, and exploitation. We built all 18. Watch them in action.
             </p>
           </div>
           <Link
             href="/demos"
             className="w-full lg:w-auto flex-shrink-0 brutal-border brutal-shadow-secondary brutal-shadow-hover bg-secondary text-white font-bold py-4 px-8 text-lg uppercase tracking-widest flex items-center justify-center gap-3"
           >
-            Watch All 17 Demos <ArrowRight strokeWidth={3} size={20} />
+            Watch All 18 Demos <ArrowRight strokeWidth={3} size={20} />
           </Link>
         </motion.div>
 
@@ -471,7 +481,7 @@ function LandingPage() {
         </div>
         <div className="mt-4 text-center">
           <Link href="/demos" className="text-muted-foreground hover:text-foreground font-bold uppercase tracking-widest text-sm underline decoration-2 underline-offset-4 inline-flex items-center gap-2">
-            + 9 more apps — see all 17 demos <ArrowRight size={14} />
+            + 10 more apps — see all 18 demos <ArrowRight size={14} />
           </Link>
         </div>
       </section>
@@ -550,10 +560,10 @@ function DemosPage() {
       <div className="pt-32 pb-8 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
           <div className="inline-block border-4 border-secondary bg-secondary/10 text-secondary font-bold px-4 py-2 uppercase tracking-widest mb-6 brutal-shadow text-sm">
-            The Arsenal — All 17
+            The Arsenal — All 18
           </div>
           <h1 className="text-4xl sm:text-6xl md:text-8xl font-display uppercase mb-6 leading-[0.9]">
-            17 Apps.<br /><span className="text-secondary">One</span> Account.<br />All Demos.
+            18 Apps.<br /><span className="text-secondary">One</span> Account.<br />All Demos.
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mb-4 leading-relaxed">
             Every feature of Survivor Hub has its own walkthrough demo. Watch how each tool works — built by survivors, for survivors.
@@ -586,7 +596,7 @@ function DemosPage() {
                 </div>
                 <div>
                   <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1">
-                    App {String(i + 1).padStart(2, "0")} of 17
+                    App {String(i + 1).padStart(2, "0")} of 18
                   </div>
                   <h3 className="text-2xl font-display uppercase leading-none" style={{ color: feat.color }}>
                     {feat.emoji} {feat.name}
@@ -733,7 +743,7 @@ function LookMaPage() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
             <h2 className="text-4xl md:text-5xl font-display uppercase mb-4 leading-[0.9]">
-              Want to see<br /><span className="text-primary">all 17 apps</span> in action?
+              Want to see<br /><span className="text-primary">all 18 apps</span> in action?
             </h2>
             <p className="text-lg text-muted-foreground max-w-lg">
               Every feature above has a full walkthrough demo. Watch how it works before you join.
@@ -744,7 +754,7 @@ function LookMaPage() {
               href="/demos"
               className="brutal-border brutal-shadow-primary brutal-shadow-hover bg-primary text-black font-bold py-4 px-8 text-lg uppercase tracking-widest flex items-center justify-center gap-3"
             >
-              Watch All 17 Demos <ArrowRight strokeWidth={3} />
+              Watch All 18 Demos <ArrowRight strokeWidth={3} />
             </Link>
             <a
               href={APP_URL}
