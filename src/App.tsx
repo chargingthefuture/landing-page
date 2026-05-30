@@ -374,6 +374,7 @@ function Footer() {
           <Link href="/demos" className="hover:text-foreground transition-colors">18 Demos</Link>
           <Link href="/look-ma" className="hover:text-foreground transition-colors">Look Ma, I Fixed It</Link>
           <a href="https://github.com/chargingthefuture/chargingthefuture" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">GitHub ↗</a>
+          <a href="https://chargingthefuture.github.io/chargingthefuture/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Blog ↗</a>
           <a href={APP_URL} className="hover:text-primary transition-colors text-primary">Open App →</a>
         </div>
         <p className="text-muted-foreground uppercase font-bold tracking-widest text-xs">
