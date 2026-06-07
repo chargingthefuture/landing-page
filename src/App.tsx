@@ -9,12 +9,14 @@ import {
   Users, Radio, HomeIcon, Navigation, BookOpen, Hammer,
   Code, Globe, Coins, Briefcase, Heart, Smile, Share2,
   ListChecks, Award, Target, ShieldCheck, UsersRound, AlertTriangle,
+  Download,
 } from "lucide-react";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
 const BASE = import.meta.env.BASE_URL;
 const APP_URL = "https://app.chargingthefuture.com";
+const ANDROID_URL = "https://github.com/chargingthefuture/chargingthefuture/releases";
 const HERO_IMG = `${BASE}hero-image.png`;
 
 // Exact colors from the app (Desktop.tsx MINI_APPS)
@@ -375,6 +377,7 @@ function Footer() {
           <Link href="/look-ma" className="hover:text-foreground transition-colors">Look Ma, I Fixed It</Link>
           <a href="https://github.com/chargingthefuture/chargingthefuture" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">GitHub ↗</a>
           <a href="https://chargingthefuture.github.io/chargingthefuture/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Blog ↗</a>
+          <a href={ANDROID_URL} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors flex items-center gap-1.5"><Download size={13} /> Android APK</a>
           <a href={APP_URL} className="hover:text-primary transition-colors text-primary">Open App →</a>
         </div>
         <p className="text-muted-foreground uppercase font-bold tracking-widest text-xs">
@@ -575,6 +578,16 @@ function LandingPage() {
           >
             Enter The App <ArrowRight strokeWidth={3} size={22} />
           </a>
+          <div className="mt-6">
+            <a
+              href={ANDROID_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border-2 border-black/40 text-black/70 font-bold py-2 px-5 text-sm uppercase tracking-widest hover:border-black hover:text-black transition-colors"
+            >
+              <Download size={15} strokeWidth={2.5} /> Download for Android (APK)
+            </a>
+          </div>
         </div>
         <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: "radial-gradient(#000 2px, transparent 2px)", backgroundSize: "30px 30px" }} />
       </section>
