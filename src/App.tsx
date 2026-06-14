@@ -19,7 +19,13 @@ const APP_URL = "https://app.chargingthefuture.com";
 const ANDROID_URL = "https://github.com/chargingthefuture/chargingthefuture/releases";
 const HERO_IMG = `${BASE}hero-image.png`;
 
-// Exact colors from the app (Desktop.tsx MINI_APPS)
+// Plugin accent (color) and background (bg) values match the canonical
+// App | Accent | Background table in the design repo's DESIGN_GUIDE.md
+// (artifacts/mockup-sandbox/DESIGN_GUIDE.md), not the mockup Desktop.tsx
+// MINI_APPS values (which are deprecated where they differ). The bg is the
+// accent RGB channel × 0.11 per that table. Hub uses #7C3AED (resolved from a
+// prior #38BDF8 collision with TrustTransport). Plugins not featured here
+// (Unlock, SkillsTaxonomy, Account & Data) live only in the design table.
 //
 // SOURCE OF TRUTH NOTE (read before editing this array):
 //   • Demo links (youtubeId / protonLink) and plugin descriptions (desc) live HERE,
@@ -33,24 +39,24 @@ const FEATURES: {
   color: string; bg: string; desc: string;
   youtubeId?: string; protonLink?: string;
 }[] = [
-  { id: "hub",           name: "Hub",             emoji: "🏠", icon: Users,      color: "#38BDF8", bg: "#011c26", desc: "Ask a question and get AI-powered answers from our community. Your base camp.", youtubeId: "Z9Gw3Jz0ids" },
-  { id: "chyme",         name: "Chyme",            emoji: "🎙️", icon: Radio,      color: "#22C55E", bg: "#052e16", desc: "Live social audio rooms. Broadcast, listen, and connect in real time.", youtubeId: "oVESU60zbPg" },
-  { id: "lighthouse",    name: "LightHouse",       emoji: "🏠", icon: HomeIcon,   color: "#EAB308", bg: "#1c1407", desc: "Verified survivor housing listings.", youtubeId: "KfyZsemVU8A" },
-  { id: "trusttransport",name: "TrustTransport",   emoji: "📦", icon: Navigation, color: "#F97316", bg: "#1c0a03", desc: "Vetted transportation for safe travel. Drivers screened by the community, for the community.", youtubeId: "myHI3xB-fMQ" },
-  { id: "directory",     name: "Directory",        emoji: "📇", icon: BookOpen,   color: "#3B82F6", bg: "#0c1a3d", desc: "Browse skills across the survivor community.", youtubeId: "W1cZm9F0D78" },
-  { id: "foundation",    name: "Foundation",       emoji: "🪛", icon: Hammer,     color: "#EF4444", bg: "#1c0505", desc: "Find talent, tools, repairs, and infrastructure support in real time.", youtubeId: "n4Tkw01PmX8" },
-  { id: "peerprog",      name: "PeerProgramming",  emoji: "🏘️", icon: Code,       color: "#8B5CF6", bg: "#150d2e", desc: "Weekly global mastermind sessions.", youtubeId: "ReJ-HjM4dvo" },
-  { id: "gdp",           name: "GDP",              emoji: "🗺️", icon: Globe,      color: "#06B6D4", bg: "#011c26", desc: "Real time $300B global survivor economic tracker. Your contributions counted, recorded, visible.", youtubeId: "cBdspGWldE4" },
-  { id: "credits",       name: "ServiceCredits",   emoji: "⚙️", icon: Coins,      color: "#F59E0B", bg: "#1c1200", desc: "Alternative economy and credits exchange. Trade value inside the network — no outside systems needed.", youtubeId: "KytNHghNtQ8" },
-  { id: "workforce",     name: "Workforce",        emoji: "💼", icon: Briefcase,  color: "#B45309", bg: "#1c0e00", desc: "Real-time work and skills distribution amongst 5 million survivors globally.", protonLink: "https://drive.proton.me/urls/2C3V6KQZDC#IPmuHxdRmzOh" },
-  { id: "gentlepulse",   name: "GentlePulse",      emoji: "💚", icon: Heart,      color: "#14B8A6", bg: "#011c1a", desc: "Meditations: gentle, consistent, non-intrusive.", youtubeId: "1BIa3uxIYgU" },
-  { id: "mood",          name: "Mood",             emoji: "😁", icon: Smile,      color: "#EC4899", bg: "#1c0416", desc: "Anonymous mood tracking and pattern awareness. Know yourself. See patterns. Take back control.", youtubeId: "BtUp06iEXTc" },
-  { id: "socketrelay",   name: "SocketRelay",      emoji: "🔂", icon: Share2,     color: "#FB923C", bg: "#1c0e00", desc: "Real-time resource sharing across the network.", youtubeId: "WTXpioRV2Bw" },
-  { id: "whatworks",     name: "WhatWorks",        emoji: "✅", icon: ListChecks, color: "#84CC16", bg: "#0f1f00", desc: "One shared, survivor-verified list of tools — organized by the exact problems survivors face. No ads, no affiliates." },
-  { id: "skillshunt",    name: "SkillsHunt",       emoji: "🎓", icon: Award,      color: "#D946EF", bg: "#2a0a2e", desc: "Discover skills across the network.", youtubeId: "OfojmleoDEc" },
-  { id: "levelup",       name: "LevelUp",          emoji: "🎯", icon: Target,     color: "#10B981", bg: "#012e1a", desc: "Goal tracking and progress milestones. Your journey, documented and celebrated.", youtubeId: "sZZMyDVdEvA" },
-  { id: "trust",         name: "Trust",            emoji: "🛡️", icon: ShieldCheck,color: "#0284C7", bg: "#001826", desc: "Community reputation and verification. Trust signals built through real participation — your credibility, visible and portable.", youtubeId: "OuPnVsQ4PnE" },
-  { id: "clicklog",      name: "ClickLog",         emoji: "🚨", icon: AlertTriangle, color: "#E91E8C", bg: "#1a0515", desc: "Safety check-in and incident logging — location optional. Log what happened, check in when you're safe." },
+  { id: "hub",           name: "Hub",             emoji: "🏠", icon: Users,      color: "#7C3AED", bg: "#0E061A", desc: "Ask a question and get AI-powered answers from our community. Your base camp.", youtubeId: "Z9Gw3Jz0ids" },
+  { id: "chyme",         name: "Chyme",            emoji: "🎙️", icon: Radio,      color: "#22C55E", bg: "#04160A", desc: "Live social audio rooms. Broadcast, listen, and connect in real time.", youtubeId: "oVESU60zbPg" },
+  { id: "lighthouse",    name: "LightHouse",       emoji: "🏠", icon: HomeIcon,   color: "#60A5FA", bg: "#0B121C", desc: "Verified survivor housing listings.", youtubeId: "KfyZsemVU8A" },
+  { id: "trusttransport",name: "TrustTransport",   emoji: "📦", icon: Navigation, color: "#38BDF8", bg: "#06151B", desc: "Vetted transportation for safe travel. Drivers screened by the community, for the community.", youtubeId: "myHI3xB-fMQ" },
+  { id: "directory",     name: "Directory",        emoji: "📇", icon: BookOpen,   color: "#93C5FD", bg: "#10161C", desc: "Browse skills across the survivor community.", youtubeId: "W1cZm9F0D78" },
+  { id: "foundation",    name: "Foundation",       emoji: "🪛", icon: Hammer,     color: "#F59E0B", bg: "#1B1101", desc: "Find talent, tools, repairs, and infrastructure support in real time.", youtubeId: "n4Tkw01PmX8" },
+  { id: "peerprog",      name: "PeerProgramming",  emoji: "🏘️", icon: Code,       color: "#6EE7B7", bg: "#0C1914", desc: "Weekly global mastermind sessions.", youtubeId: "ReJ-HjM4dvo" },
+  { id: "gdp",           name: "GDP",              emoji: "🗺️", icon: Globe,      color: "#06B6D4", bg: "#011417", desc: "Real time $300B global survivor economic tracker. Your contributions counted, recorded, visible.", youtubeId: "cBdspGWldE4" },
+  { id: "credits",       name: "ServiceCredits",   emoji: "⚙️", icon: Coins,      color: "#A855F7", bg: "#12091B", desc: "Alternative economy and credits exchange. Trade value inside the network — no outside systems needed.", youtubeId: "KytNHghNtQ8" },
+  { id: "workforce",     name: "Workforce",        emoji: "💼", icon: Briefcase,  color: "#F97316", bg: "#1B0D02", desc: "Real-time work and skills distribution amongst 5 million survivors globally.", protonLink: "https://drive.proton.me/urls/2C3V6KQZDC#IPmuHxdRmzOh" },
+  { id: "gentlepulse",   name: "GentlePulse",      emoji: "💚", icon: Heart,      color: "#34D399", bg: "#061711", desc: "Meditations: gentle, consistent, non-intrusive.", youtubeId: "1BIa3uxIYgU" },
+  { id: "mood",          name: "Mood",             emoji: "😁", icon: Smile,      color: "#4ADE80", bg: "#08180E", desc: "Anonymous mood tracking and pattern awareness. Know yourself. See patterns. Take back control.", youtubeId: "BtUp06iEXTc" },
+  { id: "socketrelay",   name: "SocketRelay",      emoji: "🔂", icon: Share2,     color: "#FB923C", bg: "#1C1007", desc: "Real-time resource sharing across the network.", youtubeId: "WTXpioRV2Bw" },
+  { id: "whatworks",     name: "WhatWorks",        emoji: "✅", icon: ListChecks, color: "#84CC16", bg: "#0F1602", desc: "One shared, survivor-verified list of tools — organized by the exact problems survivors face. No ads, no affiliates." },
+  { id: "skillshunt",    name: "SkillsHunt",       emoji: "🎓", icon: Award,      color: "#FBBF24", bg: "#1C1504", desc: "Discover skills across the network.", youtubeId: "OfojmleoDEc" },
+  { id: "levelup",       name: "LevelUp",          emoji: "🎯", icon: Target,     color: "#10B981", bg: "#02140E", desc: "Goal tracking and progress milestones. Your journey, documented and celebrated.", youtubeId: "sZZMyDVdEvA" },
+  { id: "trust",         name: "Trust",            emoji: "🛡️", icon: ShieldCheck,color: "#0EA5E9", bg: "#02121A", desc: "Community reputation and verification. Trust signals built through real participation — your credibility, visible and portable.", youtubeId: "OuPnVsQ4PnE" },
+  { id: "clicklog",      name: "ClickLog",         emoji: "🚨", icon: AlertTriangle, color: "#EC4899", bg: "#1A0811", desc: "Safety check-in and incident logging — location optional. Log what happened, check in when you're safe." },
 ];
 
 const LOOK_MA_ITEMS: { q: string; solutions: string[] }[] = [
@@ -139,25 +145,25 @@ const LOOK_MA_ITEMS: { q: string; solutions: string[] }[] = [
 
 // Map feature names to their colors for the solution badges
 const FEATURE_COLOR_MAP: Record<string, string> = {
-  "Hub":            "#38BDF8",
+  "Hub":            "#7C3AED",
   "Chyme":          "#22C55E",
-  "LightHouse":     "#EAB308",
-  "Lighthouse":     "#EAB308",
-  "TrustTransport": "#F97316",
-  "Directory":      "#3B82F6",
-  "Foundation":     "#EF4444",
-  "PeerProgramming": "#8B5CF6",
+  "LightHouse":     "#60A5FA",
+  "Lighthouse":     "#60A5FA",
+  "TrustTransport": "#38BDF8",
+  "Directory":      "#93C5FD",
+  "Foundation":     "#F59E0B",
+  "PeerProgramming": "#6EE7B7",
   "GDP":            "#06B6D4",
-  "ServiceCredits": "#F59E0B",
-  "Workforce":      "#B45309",
-  "GentlePulse":    "#14B8A6",
-  "Mood":           "#EC4899",
+  "ServiceCredits": "#A855F7",
+  "Workforce":      "#F97316",
+  "GentlePulse":    "#34D399",
+  "Mood":           "#4ADE80",
   "SocketRelay":    "#FB923C",
   "WhatWorks":      "#84CC16",
-  "SkillsHunt":     "#D946EF",
+  "SkillsHunt":     "#FBBF24",
   "LevelUp":        "#10B981",
-  "Trust":          "#0284C7",
-  "ClickLog":       "#E91E8C",
+  "Trust":          "#0EA5E9",
+  "ClickLog":       "#EC4899",
 };
 
 function NavBar() {
