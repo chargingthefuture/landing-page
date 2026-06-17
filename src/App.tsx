@@ -9,7 +9,7 @@ import {
   Users, Radio, HomeIcon, Navigation, BookOpen, Hammer,
   Code, Globe, Coins, Briefcase, Heart, Smile, Share2,
   ListChecks, Award, Target, ShieldCheck, UsersRound, AlertTriangle,
-  Download,
+  Download, MessageSquare, Send, RotateCcw, Sparkles,
 } from "lucide-react";
 import NotFound from "@/pages/not-found";
 
@@ -166,12 +166,43 @@ const FEATURE_COLOR_MAP: Record<string, string> = {
   "ClickLog":       "#EC4899",
 };
 
+// Lookup feature metadata by id (color, icon, name) for the chat variant.
+const FEATURE_BY_ID: Record<string, (typeof FEATURES)[number]> = Object.fromEntries(
+  FEATURES.map((f) => [f.id, f]),
+);
+
+// Chat variant data. ONE app (the Hub chat) that quietly does the work of the
+// other 17 features. Each entry is a "random" question a survivor might type on
+// mobile, paired with an actionable answer that demonstrates one feature WITHOUT
+// naming or pitching it. Order mirrors FEATURES (excluding Hub). The `id` links
+// each answer to its feature for color + an optional "open it" handoff.
+const HUB_QA: { id: string; q: string; a: string }[] = [
+  { id: "chyme",         q: "I feel really isolated tonight and just want to hear another human voice.", a: "There's a live audio room going right now — 14 people listening, no pressure to talk. You can just listen, or take the mic whenever you're ready. Want me to drop you in?" },
+  { id: "lighthouse",    q: "I need to leave my place fast. Where's somewhere safe I can actually stay?", a: "Found 3 safe listings within 20 miles, each one vouched for by people who've stayed there. The closest has a private entrance and is open this week. Want me to flag your interest?" },
+  { id: "trusttransport",q: "I have a court date Thursday, my car's dead, and I don't trust rideshare apps.", a: "Two community-screened drivers are free Thursday morning near you — both vetted by people in the network. I can hold the 8:15 pickup. Book it?" },
+  { id: "directory",     q: "My laptop keeps overheating and I can't afford a repair shop.", a: "Three people near you list hardware repair — one is 6 miles out and handles overheating specifically. Here's their availability this week." },
+  { id: "foundation",    q: "I need a drill and someone who can mount a security camera by tomorrow.", a: "There's a loanable drill 2 blocks away and a member who's done 40+ camera installs. They're open tomorrow afternoon. Want the intro?" },
+  { id: "peerprog",      q: "I keep starting things and never finishing them. I do better around other people.", a: "There's a weekly small-group session — same time, every week, global. Next one is Sunday. I can save you a seat." },
+  { id: "gdp",           q: "Does any of the work we all do here actually add up to anything?", a: "It does. The network has tracked $300B in survivor economic activity. Your part this month: 12 hours, logged and counted. Here's the live tracker." },
+  { id: "credits",       q: "I'm broke but I can fix bikes. Any way to get groceries without cash?", a: "Yes — log your repairs and you earn credits you can spend inside the network. A member nearby will do a grocery run for 40 credits. Two repairs covers it." },
+  { id: "workforce",     q: "I lost my job last week. I need paid work I can start right away.", a: "Six paid tasks matched to your skills are open right now. Two can start today. Want me to put you forward for the closest one?" },
+  { id: "gentlepulse",   q: "My chest is tight and I can't slow my breathing down.", a: "Let's do 90 seconds together — nothing to download, no streak to keep. Breathe in for 4... I'll guide the rest. Starting now." },
+  { id: "mood",          q: "I've felt off for weeks. I can't tell if it's getting worse or I'm imagining it.", a: "You're not imagining it. Your last 30 private check-ins show a clear dip every Sunday night. Here's the pattern — naming it is how you start to take control." },
+  { id: "socketrelay",   q: "Someone gave me 200 masks. I don't need them all and don't want them wasted.", a: "Three members within 5 miles need exactly these right now. I can relay it — pickup or drop-off. Post it to the live share board?" },
+  { id: "whatworks",     q: "What actually works for blocking unknown numbers that keep harassing me?", a: "Verified by people who faced the same thing — no ads, no affiliates. 4 tools, ranked. The top one is free and works on your phone. Here's the short list." },
+  { id: "skillshunt",    q: "I want to learn something new but I don't even know what's out there.", a: "Members teach everything from welding to grant-writing. Based on what you've asked before, here are 5 skills you could start this week — free, peer-taught." },
+  { id: "levelup",       q: "I want to save $1,000 in 90 days but I always lose track.", a: "Done — $1,000 over 90 days, broken into weekly milestones. I'll check in and keep score. Day 1 of 90 starts now." },
+  { id: "trust",         q: "Someone offered to help me move but I just met them. How do I know they're real?", a: "They check out — 23 vouches, 0 flags, active 2 years. Their trust score is visible and portable. Here's the profile." },
+  { id: "clicklog",      q: "Something happened on my walk home. I want a record, but I don't want to call police.", a: "Logged — time-stamped, location optional, private to you. Want a safety check-in for when you get home? No one's alerted unless you miss it." },
+];
+
 function NavBar() {
   const [open, setOpen] = useState(false);
   const [location] = useLocation();
 
   const links = [
     { href: "/", label: "Home", icon: Home },
+    { href: "/hub", label: "The Hub", icon: MessageSquare },
     { href: "/look-ma", label: "Look Ma, I Fixed It", icon: FixIt },
     { href: "/demos", label: "18 Demos", icon: Tv },
   ];
@@ -242,8 +273,9 @@ function NavBar() {
   );
 }
 
-function StatMarquee() {
-  const stats = ["5M Survivors", "$300B Economy", "127 Countries", "18 Apps, One Account", "Free to join", "Invite Only"];
+const DEFAULT_STATS = ["5M Survivors", "$300B Economy", "127 Countries", "18 Apps, One Account", "Free to join", "Invite Only"];
+
+function StatMarquee({ stats = DEFAULT_STATS }: { stats?: string[] } = {}) {
   const doubled = [...stats, ...stats];
   return (
     <div className="border-y-4 border-foreground bg-secondary py-5 overflow-hidden flex whitespace-nowrap">
@@ -838,10 +870,745 @@ function LookMaPage() {
   );
 }
 
+type ChatMessage = { role: "user" | "bot"; text: string; id?: string };
+
+const HUB_INTRO: ChatMessage = {
+  role: "bot",
+  text: "Hey. I'm the Hub. Don't worry about learning the app — just tell me what's going on. Housing, a ride, paid work, or someone to talk to at 2am. Tap a question below to see how this works.",
+};
+
+function HubChatDemo() {
+  const [messages, setMessages] = useState<ChatMessage[]>([HUB_INTRO]);
+  const [asked, setAsked] = useState<Set<string>>(new Set());
+  const [thinking, setThinking] = useState(false);
+  const [autoPlaying, setAutoPlaying] = useState(false);
+  const [draft, setDraft] = useState("");
+
+  const askedRef = React.useRef<Set<string>>(new Set());
+  const thinkingRef = React.useRef(false);
+  const autoRef = React.useRef(false);
+  const threadRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const el = threadRef.current;
+    if (el) el.scrollTop = el.scrollHeight;
+  }, [messages, thinking]);
+
+  const askedCount = asked.size;
+  const suggestions = HUB_QA.filter((qa) => !asked.has(qa.id)).slice(0, 3);
+
+  const ask = (id: string) =>
+    new Promise<void>((resolve) => {
+      const qa = HUB_QA.find((x) => x.id === id);
+      if (!qa || thinkingRef.current || askedRef.current.has(id)) {
+        resolve();
+        return;
+      }
+      askedRef.current.add(id);
+      setAsked(new Set(askedRef.current));
+      setMessages((prev) => [...prev, { role: "user", text: qa.q, id }]);
+      thinkingRef.current = true;
+      setThinking(true);
+      window.setTimeout(() => {
+        setMessages((prev) => [...prev, { role: "bot", text: qa.a, id }]);
+        thinkingRef.current = false;
+        setThinking(false);
+        resolve();
+      }, 850);
+    });
+
+  const sleep = (ms: number) => new Promise((r) => window.setTimeout(r, ms));
+
+  const autoPlay = async () => {
+    if (autoRef.current) return;
+    autoRef.current = true;
+    setAutoPlaying(true);
+    for (const qa of HUB_QA) {
+      if (!autoRef.current) break;
+      if (askedRef.current.has(qa.id)) continue;
+      await ask(qa.id);
+      await sleep(650);
+    }
+    autoRef.current = false;
+    setAutoPlaying(false);
+  };
+
+  const reset = () => {
+    autoRef.current = false;
+    thinkingRef.current = false;
+    askedRef.current = new Set();
+    setAutoPlaying(false);
+    setThinking(false);
+    setAsked(new Set());
+    setMessages([HUB_INTRO]);
+    setDraft("");
+  };
+
+  const sendDraft = () => {
+    if (thinkingRef.current) return;
+    const next = HUB_QA.find((qa) => !askedRef.current.has(qa.id));
+    if (next) ask(next.id);
+    setDraft("");
+  };
+
+  return (
+    <div className="w-full max-w-sm mx-auto">
+      {/* Phone frame */}
+      <div className="border-4 border-foreground bg-background overflow-hidden" style={{ boxShadow: "8px 8px 0px 0px #7C3AED" }}>
+        {/* Status bar */}
+        <div className="flex items-center justify-between px-4 py-2 bg-[#0E061A] border-b-4 border-foreground text-[10px] font-bold uppercase tracking-widest text-white/50">
+          <span>9:41</span>
+          <span className="text-primary">●●●●● Survivor Hub</span>
+          <span>100%</span>
+        </div>
+
+        {/* Header */}
+        <div className="flex items-center gap-3 px-4 py-3 bg-[#0E061A] border-b-4 border-foreground">
+          <div className="w-9 h-9 border-2 border-foreground flex items-center justify-center flex-shrink-0" style={{ background: "#7C3AED25" }}>
+            <Users size={18} style={{ color: "#7C3AED" }} />
+          </div>
+          <div className="leading-tight">
+            <div className="font-display text-lg uppercase tracking-wide text-white">Hub</div>
+            <div className="text-[10px] font-bold uppercase tracking-widest text-primary flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block" /> Online · always
+            </div>
+          </div>
+        </div>
+
+        {/* Thread */}
+        <div ref={threadRef} className="h-[360px] overflow-y-auto px-3 py-4 flex flex-col gap-3 bg-background scroll-smooth">
+          {messages.map((m, i) => {
+            if (m.role === "user") {
+              return (
+                <div key={i} className="self-end max-w-[80%]">
+                  <div className="border-2 border-foreground bg-primary text-black px-3 py-2 text-sm leading-snug" style={{ boxShadow: "3px 3px 0px 0px #000" }}>
+                    {m.text}
+                  </div>
+                </div>
+              );
+            }
+            const feat = m.id ? FEATURE_BY_ID[m.id] : undefined;
+            const accent = feat?.color ?? "#7C3AED";
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.25 }}
+                className="self-start max-w-[85%]"
+              >
+                <div className="border-2 border-foreground bg-card text-foreground px-3 py-2 text-sm leading-snug" style={{ boxShadow: `3px 3px 0px 0px ${accent}` }}>
+                  {m.text}
+                  {feat && (
+                    <Link
+                      href={`/demos#${feat.id}`}
+                      className="mt-2 flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest hover:underline"
+                      style={{ color: accent }}
+                    >
+                      <feat.icon size={12} /> Open it directly ↗
+                    </Link>
+                  )}
+                </div>
+              </motion.div>
+            );
+          })}
+          {thinking && (
+            <div className="self-start">
+              <div className="border-2 border-foreground bg-card px-3 py-2.5 flex items-center gap-1" style={{ boxShadow: "3px 3px 0px 0px #7C3AED" }}>
+                <motion.span className="w-1.5 h-1.5 rounded-full bg-primary" animate={{ opacity: [0.3, 1, 0.3] }} transition={{ repeat: Infinity, duration: 1, delay: 0 }} />
+                <motion.span className="w-1.5 h-1.5 rounded-full bg-primary" animate={{ opacity: [0.3, 1, 0.3] }} transition={{ repeat: Infinity, duration: 1, delay: 0.2 }} />
+                <motion.span className="w-1.5 h-1.5 rounded-full bg-primary" animate={{ opacity: [0.3, 1, 0.3] }} transition={{ repeat: Infinity, duration: 1, delay: 0.4 }} />
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Suggestions */}
+        <div className="border-t-4 border-foreground bg-[#0E061A] px-3 py-3">
+          {suggestions.length > 0 ? (
+            <div className="flex flex-col gap-2">
+              {suggestions.map((qa) => (
+                <button
+                  key={qa.id}
+                  type="button"
+                  onClick={() => ask(qa.id)}
+                  disabled={thinking || autoPlaying}
+                  className="text-left border-2 border-foreground bg-background px-3 py-2 text-xs leading-snug text-muted-foreground hover:text-foreground hover:border-primary transition-colors disabled:opacity-40"
+                >
+                  {qa.q}
+                </button>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center text-xs font-bold uppercase tracking-widest text-primary py-2">
+              That was 17 different tools — one chat ✓
+            </div>
+          )}
+
+          {/* Input row (visual) */}
+          <div className="flex items-center gap-2 mt-3">
+            <input
+              value={draft}
+              onChange={(e) => setDraft(e.target.value)}
+              onKeyDown={(e) => { if (e.key === "Enter") sendDraft(); }}
+              placeholder="Ask the Hub anything…"
+              disabled={thinking || autoPlaying}
+              className="flex-1 border-2 border-foreground bg-background px-3 py-2 text-xs text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary disabled:opacity-40"
+            />
+            <button
+              type="button"
+              onClick={sendDraft}
+              disabled={thinking || autoPlaying}
+              aria-label="Send"
+              className="w-9 h-9 flex-shrink-0 border-2 border-foreground bg-primary text-black flex items-center justify-center disabled:opacity-40"
+            >
+              <Send size={15} strokeWidth={2.5} />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Demo controls + progress */}
+      <div className="mt-5 flex flex-col items-center gap-3">
+        <div className="w-full h-3 border-2 border-foreground bg-background overflow-hidden">
+          <motion.div
+            className="h-full bg-primary"
+            animate={{ width: `${(askedCount / HUB_QA.length) * 100}%` }}
+            transition={{ duration: 0.4 }}
+          />
+        </div>
+        <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
+          {askedCount} of {HUB_QA.length} tools reached — without ever leaving the chat
+        </p>
+        <div className="flex gap-3">
+          <button
+            type="button"
+            onClick={autoPlay}
+            disabled={autoPlaying || askedCount === HUB_QA.length}
+            className="brutal-border brutal-shadow-primary bg-primary text-black font-bold py-2.5 px-5 text-sm uppercase tracking-widest flex items-center gap-2 disabled:opacity-40"
+          >
+            <Play size={15} fill="black" /> {autoPlaying ? "Playing…" : "Watch full demo"}
+          </button>
+          <button
+            type="button"
+            onClick={reset}
+            className="brutal-border brutal-shadow bg-transparent text-foreground font-bold py-2.5 px-5 text-sm uppercase tracking-widest flex items-center gap-2"
+          >
+            <RotateCcw size={15} /> Reset
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ChatLandingPage() {
+  return (
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden font-sans">
+      <NavBar />
+
+      {/* HERO */}
+      <section className="pt-28 md:pt-32 pb-12 px-6 md:px-12 lg:px-24 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[45vw] h-[45vw] rounded-full bg-primary/15 blur-[120px] pointer-events-none" />
+        <div className="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <div className="inline-block border-4 border-primary bg-primary/10 text-primary font-bold px-4 py-2 uppercase tracking-widest mb-6 brutal-shadow text-sm">
+              New · Chat-First Experience
+            </div>
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-display uppercase leading-[0.9] mb-6">
+              Don't learn<br />18 apps.<br /><span className="text-primary">Just ask.</span>
+            </h1>
+            <p className="text-base md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-xl">
+              18 features is a lot to face when you're already overwhelmed. So we put one chat in front of all of them. Tell the Hub what's wrong — a ride, a safe place, paid work, a panic at 2am — and it quietly pulls the right tool. No menus. No choosing. And anytime you want, you can skip the chat and open a feature directly.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href={APP_URL}
+                className="brutal-border brutal-shadow-primary brutal-shadow-hover bg-primary text-black font-bold py-4 px-8 text-lg uppercase tracking-widest text-center flex items-center justify-center gap-3"
+              >
+                Open The Hub <ArrowRight strokeWidth={3} size={20} />
+              </a>
+              <Link
+                href="/demos"
+                className="brutal-border brutal-shadow brutal-shadow-hover bg-transparent text-foreground font-bold py-4 px-8 text-lg uppercase tracking-widest text-center flex items-center justify-center gap-3"
+              >
+                Prefer the full menu?
+              </Link>
+            </div>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.15 }}>
+            <HubChatDemo />
+          </motion.div>
+        </div>
+      </section>
+
+      <StatMarquee />
+
+      {/* The reveal */}
+      <section className="py-24 px-6 md:px-12 lg:px-24 max-w-5xl mx-auto text-center">
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+          <div className="inline-flex items-center gap-2 border-4 border-secondary bg-secondary/10 text-secondary font-bold px-4 py-2 uppercase tracking-widest mb-6 brutal-shadow text-sm">
+            <Sparkles size={15} /> The trick
+          </div>
+          <h2 className="text-4xl md:text-6xl font-display uppercase leading-[0.9] mb-6">
+            One chat.<br /><span className="text-primary">Seventeen</span> tools doing the work.
+          </h2>
+          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+            Every "random" question in the demo above quietly reached a different part of the platform — housing, transport, paid work, repairs, breathing, mood patterns, safety logging — without ever asking you to learn its name. The Hub does the navigating. You just talk.
+          </p>
+        </motion.div>
+      </section>
+
+      {/* What's behind the chat */}
+      <section className="pb-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {HUB_QA.map((qa, i) => {
+            const feat = FEATURE_BY_ID[qa.id];
+            if (!feat) return null;
+            return (
+              <motion.div
+                key={qa.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: (i % 4) * 0.05 }}
+              >
+                <Link
+                  href={`/demos#${feat.id}`}
+                  className="flex items-center gap-3 border-4 border-foreground p-3 group hover:-translate-y-1 transition-transform duration-200 h-full"
+                  style={{ background: feat.bg, boxShadow: `4px 4px 0px 0px ${feat.color}` }}
+                >
+                  <div className="w-9 h-9 border-2 border-foreground flex items-center justify-center flex-shrink-0" style={{ background: `${feat.color}25` }}>
+                    <feat.icon size={18} style={{ color: feat.color }} />
+                  </div>
+                  <span className="font-display text-sm uppercase leading-tight">{feat.name}</span>
+                </Link>
+              </motion.div>
+            );
+          })}
+        </div>
+        <p className="mt-6 text-center text-sm font-bold uppercase tracking-widest text-muted-foreground">
+          17 features, reachable through one conversation — or opened directly, your call.
+        </p>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-28 px-6 md:px-12 bg-primary border-t-4 border-foreground text-black text-center relative overflow-hidden">
+        <div className="max-w-4xl mx-auto relative z-10">
+          <h2 className="text-4xl sm:text-6xl md:text-7xl font-display uppercase mb-6 leading-[0.9]">
+            Less to learn.<br />More that helps.
+          </h2>
+          <p className="text-lg md:text-2xl font-bold mb-10 max-w-2xl mx-auto">
+            Start with a single question. The Hub handles the rest.
+          </p>
+          <a
+            href={APP_URL}
+            className="inline-flex items-center gap-3 border-4 border-black bg-white text-black font-bold py-4 px-8 md:py-6 md:px-12 text-lg md:text-2xl uppercase tracking-widest hover:bg-black hover:text-white transition-colors brutal-shadow"
+          >
+            Ask The Hub <ArrowRight strokeWidth={3} size={22} />
+          </a>
+        </div>
+        <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: "radial-gradient(#000 2px, transparent 2px)", backgroundSize: "30px 30px" }} />
+      </section>
+
+      <Footer />
+    </div>
+  );
+}
+
+// Variant 3 chat demo. Same conversation engine as HubChatDemo, but the chat
+// IS the app (the place you land on sign-up) — so: no "Hub" name label on the
+// thread, no per-answer "open the feature" handoffs, and no counts or
+// references to the underlying services. The focal point is purely the chat.
+const ASK_INTRO: ChatMessage = {
+  role: "bot",
+  text: "Hey. Whatever's going on, just say it the way you'd say it out loud. I'll find you something you can actually use right now. Tap one below to see how it works.",
+};
+
+function AskHubDemo() {
+  const [messages, setMessages] = useState<ChatMessage[]>([ASK_INTRO]);
+  const [asked, setAsked] = useState<Set<string>>(new Set());
+  const [thinking, setThinking] = useState(false);
+  const [autoPlaying, setAutoPlaying] = useState(false);
+  const [draft, setDraft] = useState("");
+
+  const askedRef = React.useRef<Set<string>>(new Set());
+  const thinkingRef = React.useRef(false);
+  const autoRef = React.useRef(false);
+  const threadRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const el = threadRef.current;
+    if (el) el.scrollTop = el.scrollHeight;
+  }, [messages, thinking]);
+
+  const askedCount = asked.size;
+  const suggestions = HUB_QA.filter((qa) => !asked.has(qa.id)).slice(0, 3);
+
+  // Auto-play pacing: a longer "thinking" beat, then a long pause so each
+  // answer is readable before the next question scrolls in.
+  const THINK_MS = 6000;
+  const PAUSE_MS = 7000;
+
+  const ask = (id: string) =>
+    new Promise<void>((resolve) => {
+      const qa = HUB_QA.find((x) => x.id === id);
+      if (!qa || thinkingRef.current || askedRef.current.has(id)) {
+        resolve();
+        return;
+      }
+      askedRef.current.add(id);
+      setAsked(new Set(askedRef.current));
+      setMessages((prev) => [...prev, { role: "user", text: qa.q, id }]);
+      thinkingRef.current = true;
+      setThinking(true);
+      window.setTimeout(() => {
+        setMessages((prev) => [...prev, { role: "bot", text: qa.a, id }]);
+        thinkingRef.current = false;
+        setThinking(false);
+        resolve();
+      }, THINK_MS);
+    });
+
+  const sleep = (ms: number) => new Promise((r) => window.setTimeout(r, ms));
+
+  const autoPlay = async () => {
+    if (autoRef.current) return;
+    autoRef.current = true;
+    setAutoPlaying(true);
+    for (const qa of HUB_QA) {
+      if (!autoRef.current) break;
+      if (askedRef.current.has(qa.id)) continue;
+      await ask(qa.id);
+      await sleep(PAUSE_MS);
+    }
+    autoRef.current = false;
+    setAutoPlaying(false);
+  };
+
+  const reset = () => {
+    autoRef.current = false;
+    thinkingRef.current = false;
+    askedRef.current = new Set();
+    setAutoPlaying(false);
+    setThinking(false);
+    setAsked(new Set());
+    setMessages([ASK_INTRO]);
+    setDraft("");
+  };
+
+  const sendDraft = () => {
+    if (thinkingRef.current) return;
+    const next = HUB_QA.find((qa) => !askedRef.current.has(qa.id));
+    if (next) ask(next.id);
+    setDraft("");
+  };
+
+  return (
+    <div className="w-full max-w-sm mx-auto">
+      {/* Phone frame */}
+      <div className="border-4 border-foreground bg-background overflow-hidden" style={{ boxShadow: "8px 8px 0px 0px #7C3AED" }}>
+        {/* Status bar */}
+        <div className="flex items-center justify-between px-4 py-2 bg-[#0E061A] border-b-4 border-foreground text-[10px] font-bold uppercase tracking-widest text-white/50">
+          <span>9:41</span>
+          <span className="text-primary">●●●●● Survivor Hub</span>
+          <span>100%</span>
+        </div>
+
+        {/* Header — no app name; the chat is simply where you land */}
+        <div className="flex items-center gap-3 px-4 py-3 bg-[#0E061A] border-b-4 border-foreground">
+          <div className="w-9 h-9 border-2 border-foreground flex items-center justify-center flex-shrink-0" style={{ background: "#7C3AED25" }}>
+            <Sparkles size={18} style={{ color: "#7C3AED" }} />
+          </div>
+          <div className="leading-tight">
+            <div className="text-[10px] font-bold uppercase tracking-widest text-primary flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block" /> Online · always here
+            </div>
+            <div className="text-xs text-muted-foreground">Ask anything. Get something you can use.</div>
+          </div>
+        </div>
+
+        {/* Thread */}
+        <div ref={threadRef} className="h-[360px] overflow-y-auto px-3 py-4 flex flex-col gap-3 bg-background scroll-smooth">
+          {messages.map((m, i) => {
+            if (m.role === "user") {
+              return (
+                <div key={i} className="self-end max-w-[80%]">
+                  <div className="border-2 border-foreground bg-primary text-black px-3 py-2 text-sm leading-snug" style={{ boxShadow: "3px 3px 0px 0px #000" }}>
+                    {m.text}
+                  </div>
+                </div>
+              );
+            }
+            const accent = m.id ? FEATURE_BY_ID[m.id]?.color ?? "#7C3AED" : "#7C3AED";
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.25 }}
+                className="self-start max-w-[85%]"
+              >
+                <div className="border-2 border-foreground bg-card text-foreground px-3 py-2 text-sm leading-snug" style={{ boxShadow: `3px 3px 0px 0px ${accent}` }}>
+                  {m.text}
+                </div>
+              </motion.div>
+            );
+          })}
+          {thinking && (
+            <div className="self-start">
+              <div className="border-2 border-foreground bg-card px-3 py-2.5 flex items-center gap-1" style={{ boxShadow: "3px 3px 0px 0px #7C3AED" }}>
+                <motion.span className="w-1.5 h-1.5 rounded-full bg-primary" animate={{ opacity: [0.3, 1, 0.3] }} transition={{ repeat: Infinity, duration: 1, delay: 0 }} />
+                <motion.span className="w-1.5 h-1.5 rounded-full bg-primary" animate={{ opacity: [0.3, 1, 0.3] }} transition={{ repeat: Infinity, duration: 1, delay: 0.2 }} />
+                <motion.span className="w-1.5 h-1.5 rounded-full bg-primary" animate={{ opacity: [0.3, 1, 0.3] }} transition={{ repeat: Infinity, duration: 1, delay: 0.4 }} />
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Suggestions */}
+        <div className="border-t-4 border-foreground bg-[#0E061A] px-3 py-3">
+          {suggestions.length > 0 ? (
+            <div className="flex flex-col gap-2">
+              {suggestions.map((qa) => (
+                <button
+                  key={qa.id}
+                  type="button"
+                  onClick={() => ask(qa.id)}
+                  disabled={thinking || autoPlaying}
+                  className="text-left border-2 border-foreground bg-background px-3 py-2 text-xs leading-snug text-muted-foreground hover:text-foreground hover:border-primary transition-colors disabled:opacity-40"
+                >
+                  {qa.q}
+                </button>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center text-xs font-bold uppercase tracking-widest text-primary py-2">
+              Ask it anything — it's all one conversation ✓
+            </div>
+          )}
+
+          {/* Input row */}
+          <div className="flex items-center gap-2 mt-3">
+            <input
+              value={draft}
+              onChange={(e) => setDraft(e.target.value)}
+              onKeyDown={(e) => { if (e.key === "Enter") sendDraft(); }}
+              placeholder="Say what's going on…"
+              disabled={thinking || autoPlaying}
+              className="flex-1 border-2 border-foreground bg-background px-3 py-2 text-xs text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary disabled:opacity-40"
+            />
+            <button
+              type="button"
+              onClick={sendDraft}
+              disabled={thinking || autoPlaying}
+              aria-label="Send"
+              className="w-9 h-9 flex-shrink-0 border-2 border-foreground bg-primary text-black flex items-center justify-center disabled:opacity-40"
+            >
+              <Send size={15} strokeWidth={2.5} />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Demo controls */}
+      <div className="mt-5 flex flex-col items-center gap-3">
+        <div className="w-full h-3 border-2 border-foreground bg-background overflow-hidden">
+          <motion.div
+            className="h-full bg-primary"
+            animate={{ width: `${(askedCount / HUB_QA.length) * 100}%` }}
+            transition={{ duration: 0.4 }}
+          />
+        </div>
+        <div className="flex gap-3">
+          <button
+            type="button"
+            onClick={autoPlay}
+            disabled={autoPlaying || askedCount === HUB_QA.length}
+            className="brutal-border brutal-shadow-primary bg-primary text-black font-bold py-2.5 px-5 text-sm uppercase tracking-widest flex items-center gap-2 disabled:opacity-40"
+          >
+            <Play size={15} fill="black" /> {autoPlaying ? "Playing…" : "Watch it work"}
+          </button>
+          <button
+            type="button"
+            onClick={reset}
+            className="brutal-border brutal-shadow bg-transparent text-foreground font-bold py-2.5 px-5 text-sm uppercase tracking-widest flex items-center gap-2"
+          >
+            <RotateCcw size={15} /> Reset
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function HubLandingPage() {
+  return (
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden font-sans">
+      <NavBar />
+
+      {/* HERO — split screen (same comic-book header as variant 1) */}
+      <section className="pt-20 min-h-screen flex flex-col md:flex-row">
+        <div className="relative w-full md:w-1/2 min-h-[50vh] md:min-h-screen overflow-hidden">
+          <img
+            src={HERO_IMG}
+            alt="Chapter One — Survivor community rising"
+            className="absolute inset-0 w-full h-full object-cover object-top"
+          />
+          <div className="absolute top-6 left-6 bg-white text-black border-4 border-black p-3 max-w-[200px] brutal-shadow">
+            <p className="font-bold text-xs uppercase leading-tight">CHAPTER ONE:</p>
+            <p className="text-xs leading-tight mt-1">The people around us changed. But we survived.</p>
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-background hidden md:block" />
+        </div>
+
+        <div className="w-full md:w-1/2 flex flex-col justify-center px-8 md:px-12 lg:px-16 py-16 bg-background relative">
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-1/4 right-0 w-[40vw] h-[40vw] rounded-full bg-primary/15 blur-[100px]" />
+            <div className="absolute bottom-0 left-0 w-[30vw] h-[30vw] rounded-full bg-secondary/15 blur-[80px]" />
+          </div>
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="relative z-10 max-w-2xl"
+          >
+            <div className="inline-block border-4 border-accent bg-accent/10 text-accent font-bold px-4 py-2 uppercase tracking-widest mb-8 brutal-shadow text-sm">
+              World's First Psyop-Free TI Economy
+            </div>
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display leading-[0.88] uppercase text-white mb-6 md:mb-8">
+              The Next<br />
+              <span className="text-primary">Shield</span><br />
+              In Your<br />
+              Corner.
+            </h1>
+            <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-xl mb-8 md:mb-10 leading-relaxed">
+              Not a charity. Not a support group. An invite-only circular economy that turns survivors into active participants in a $300B opportunity — built from the ground up with 18 features.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 mb-6">
+              <a
+                href={APP_URL}
+                className="brutal-border brutal-shadow-primary brutal-shadow-hover bg-primary text-black font-bold py-4 px-8 text-lg uppercase tracking-widest text-center flex items-center justify-center gap-3"
+              >
+                Claim Your Access <ArrowRight strokeWidth={3} size={20} />
+              </a>
+              <Link
+                href="/demos"
+                className="brutal-border brutal-shadow brutal-shadow-hover bg-transparent text-foreground font-bold py-4 px-8 text-lg uppercase tracking-widest text-center flex items-center justify-center gap-3"
+              >
+                See All 18 Apps
+              </Link>
+            </div>
+            <div className="mb-6">
+              <ServiceCreditsBounty />
+            </div>
+            <div className="flex flex-wrap gap-4 text-sm font-bold uppercase tracking-widest text-muted-foreground">
+              <span className="flex items-center gap-2"><span className="text-primary">✓</span> Invite Only</span>
+              <span className="flex items-center gap-2"><span className="text-primary">✓</span> WCAG AAA</span>
+              <span className="flex items-center gap-2"><span className="text-primary">✓</span> 5M Survivors</span>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <StatMarquee stats={["5M Survivors", "$300B Economy", "127 Countries", "Free to join", "Invite Only"]} />
+
+      {/* The Arsenal — replaced with the hub chat as the single focal point */}
+      <section className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-2xl mb-14"
+        >
+          <div className="inline-block border-4 border-primary bg-primary/10 text-primary font-bold px-4 py-2 uppercase tracking-widest mb-6 brutal-shadow text-sm">
+            The Arsenal
+          </div>
+          <h2 className="text-5xl md:text-6xl font-display uppercase mb-6 leading-[0.9]">
+            Just<br /><span className="text-secondary">Ask.</span>
+          </h2>
+          <p className="text-xl text-muted-foreground leading-relaxed">
+            However you'd say it out loud — type it. Whatever you're facing, you get something you can act on, right now. No menus to learn. No choosing where to start. You just talk.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <AskHubDemo />
+        </motion.div>
+      </section>
+
+      {/* Look Ma teaser — kept from variant 1 (plain-language inspiration for what to ask) */}
+      <section className="py-24 px-6 md:px-12 lg:px-24 bg-card/40 border-y-4 border-foreground">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10">
+          <div className="max-w-2xl">
+            <div className="inline-block border-4 border-accent bg-accent/10 text-accent font-bold px-4 py-2 uppercase tracking-widest mb-6 brutal-shadow text-sm">
+              You Know The Patterns
+            </div>
+            <h2 className="text-5xl md:text-6xl font-display uppercase mb-6 leading-[0.9]">
+              <span className="text-accent">Look Ma,</span><br />I Fixed It!
+            </h2>
+            <p className="text-xl text-muted-foreground mb-4 leading-relaxed">
+              50+ real problems survivors experience — strange cars, workplace sabotage, new antennas on your block, dogs being commanded to bark at you. You've noticed. We've built the answer for every single one.
+            </p>
+            <p className="text-lg font-bold text-foreground/80">
+              Click each problem. See exactly which feature of the app solves it.
+            </p>
+          </div>
+          <Link
+            href="/look-ma"
+            className="w-full lg:w-auto flex-shrink-0 brutal-border brutal-shadow-accent brutal-shadow-hover bg-accent text-black font-bold py-4 px-8 text-lg uppercase tracking-widest flex items-center justify-center gap-3"
+          >
+            See All 50+ Fixes <ArrowRight strokeWidth={3} size={20} />
+          </Link>
+        </div>
+      </section>
+
+      {/* Final CTA — kept from variant 1 */}
+      <section className="py-32 px-6 md:px-12 bg-primary border-t-4 border-foreground text-black text-center relative overflow-hidden">
+        <div className="max-w-4xl mx-auto relative z-10">
+          <h2 className="text-4xl sm:text-6xl md:text-8xl font-display uppercase mb-6 md:mb-8 leading-[0.9]">
+            Stop Surviving.<br />Start Thriving.
+          </h2>
+          <p className="text-lg md:text-2xl font-bold mb-8 md:mb-12 max-w-2xl mx-auto">
+            The platform is live. The community is waiting. You've already fought the hard battles — now it's time to build.
+          </p>
+          <a
+            href={APP_URL}
+            className="inline-flex items-center gap-3 border-4 border-black bg-white text-black font-bold py-4 px-8 md:py-6 md:px-12 text-lg md:text-2xl uppercase tracking-widest hover:bg-black hover:text-white transition-colors brutal-shadow"
+          >
+            Enter The App <ArrowRight strokeWidth={3} size={22} />
+          </a>
+          <div className="mt-6">
+            <a
+              href={ANDROID_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border-2 border-black/40 text-black/70 font-bold py-2 px-5 text-sm uppercase tracking-widest hover:border-black hover:text-black transition-colors"
+            >
+              <Download size={15} strokeWidth={2.5} /> Download for Android (APK)
+            </a>
+          </div>
+        </div>
+        <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: "radial-gradient(#000 2px, transparent 2px)", backgroundSize: "30px 30px" }} />
+      </section>
+
+      <Footer />
+    </div>
+  );
+}
+
 function Router() {
   return (
     <Switch>
       <Route path="/" component={LandingPage} />
+      <Route path="/hub" component={HubLandingPage} />
+      <Route path="/chat" component={ChatLandingPage} />
       <Route path="/demos" component={DemosPage} />
       <Route path="/look-ma" component={LookMaPage} />
       <Route component={NotFound} />
