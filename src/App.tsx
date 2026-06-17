@@ -202,7 +202,6 @@ function NavBar() {
 
   const links = [
     { href: "/", label: "Home", icon: Home },
-    { href: "/hub", label: "The Hub", icon: MessageSquare },
     { href: "/look-ma", label: "Look Ma, I Fixed It", icon: FixIt },
     { href: "/demos", label: "18 Demos", icon: Tv },
   ];
@@ -1606,7 +1605,8 @@ function HubLandingPage() {
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={LandingPage} />
+      <Route path="/" component={HubLandingPage} />
+      <Route path="/classic" component={LandingPage} />
       <Route path="/hub" component={HubLandingPage} />
       <Route path="/chat" component={ChatLandingPage} />
       <Route path="/demos" component={DemosPage} />
