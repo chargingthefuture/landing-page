@@ -1246,6 +1246,11 @@ function AskHubDemo() {
   const askedCount = asked.size;
   const suggestions = HUB_QA.filter((qa) => !asked.has(qa.id)).slice(0, 3);
 
+  // Auto-play pacing: a longer "thinking" beat, then a long pause so each
+  // answer is readable before the next question scrolls in.
+  const THINK_MS = 1300;
+  const PAUSE_MS = 2600;
+
   const ask = (id: string) =>
     new Promise<void>((resolve) => {
       const qa = HUB_QA.find((x) => x.id === id);
@@ -1263,7 +1268,7 @@ function AskHubDemo() {
         thinkingRef.current = false;
         setThinking(false);
         resolve();
-      }, 850);
+      }, THINK_MS);
     });
 
   const sleep = (ms: number) => new Promise((r) => window.setTimeout(r, ms));
@@ -1276,7 +1281,7 @@ function AskHubDemo() {
       if (!autoRef.current) break;
       if (askedRef.current.has(qa.id)) continue;
       await ask(qa.id);
-      await sleep(650);
+      await sleep(PAUSE_MS);
     }
     autoRef.current = false;
     setAutoPlaying(false);
