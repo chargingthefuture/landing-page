@@ -1249,7 +1249,7 @@ function AskHubDemo() {
   // Auto-play pacing: a longer "thinking" beat, then a long pause so each
   // answer is readable before the next question scrolls in.
   const THINK_MS = 1300;
-  const PAUSE_MS = 3600;
+  const PAUSE_MS = 7000;
 
   const ask = (id: string) =>
     new Promise<void>((resolve) => {
