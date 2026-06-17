@@ -1492,12 +1492,14 @@ function HubLandingPage() {
               >
                 Claim Your Access <ArrowRight strokeWidth={3} size={20} />
               </a>
+              {/* Hidden per request — preserved, not deleted.
               <Link
                 href="/demos"
                 className="brutal-border brutal-shadow brutal-shadow-hover bg-transparent text-foreground font-bold py-4 px-8 text-lg uppercase tracking-widest text-center flex items-center justify-center gap-3"
               >
                 See All 18 Apps
               </Link>
+              */}
             </div>
             <div className="mb-6">
               <ServiceCreditsBounty />
