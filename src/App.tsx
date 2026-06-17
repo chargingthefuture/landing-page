@@ -60,86 +60,86 @@ const FEATURES: {
 ];
 
 const LOOK_MA_ITEMS: { q: string; solutions: string[] }[] = [
-  { q: "Do idiots constantly try to get close to you physically, while aiming their cell phones at you and/or staring at their cell phones while invading your personal space?", solutions: ["Hub", "Chyme", "PeerProgramming", "GentlePulse", "Mood"] },
-  { q: "Do your co-workers that you have always been friendly with, suddenly start acting strange towards you and distancing themselves from you? Or they begin to lie about your work performance, try to get you to quit or begin bumping shoulders with you?", solutions: ["Directory", "PeerProgramming", "Workforce", "GentlePulse", "Mood", "LevelUp"] },
-  { q: "Do idiots sit parked in their cars outside your home all the time?", solutions: ["Hub", "Chyme", "LightHouse", "PeerProgramming"] },
-  { q: "Do morons constantly get in your way and block you from where you are going out in public? / cut you in line? / hold up the line?", solutions: ["ServiceCredits", "GentlePulse", "Mood", "SocketRelay"] },
-  { q: "Did all your neighbors suddenly move, have their houses quickly sold and construction work done on them, then quickly have 'new neighbors' (who don't seem to live there) move in?", solutions: ["LightHouse", "GentlePulse", "Mood"] },
-  { q: "Have any new street lamps/antennas been installed around your home/work recently?", solutions: ["LightHouse", "GentlePulse", "Mood"] },
-  { q: "Do drones hover around you/your home/work all the time?", solutions: ["LightHouse", "GentlePulse", "Mood"] },
-  { q: "Do you experience tinnitus/ringing in ears?", solutions: ["Directory", "Foundation", "PeerProgramming", "GentlePulse", "Mood"] },
-  { q: "Do police officers follow/harass you for no good reason?", solutions: ["Hub", "Chyme", "LightHouse", "GentlePulse", "Mood"] },
-  { q: "Do your neighbors always seem to come outside when you are there, then go inside when you do?", solutions: ["LightHouse", "GentlePulse"] },
-  { q: "Do different people seem to be coming and going from neighbors houses around you all the time?", solutions: ["Hub", "Chyme", "LightHouse", "Directory", "Foundation", "PeerProgramming", "GentlePulse", "Mood", "SocketRelay"] },
-  { q: "Do several of your neighbors have strange colored lights coming out their windows at night?", solutions: ["LightHouse", "Foundation", "PeerProgramming"] },
-  { q: "Do people you don't know stare at you strangely/treat you bad for no reason?", solutions: ["Hub", "Chyme", "Directory", "Foundation", "PeerProgramming", "GentlePulse", "Mood", "Trust"] },
-  { q: "Are new people pushing hard for you to be their new friend/roommate/romantic partner?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "WhatWorks", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "Do idiots constantly try to get close to you physically, while aiming their cell phones at you and/or staring at their cell phones while invading your personal space?", solutions: ["ClickLog", "Mood"] },
+  { q: "Do your co-workers that you have always been friendly with, suddenly start acting strange towards you and distancing themselves from you? Or they begin to lie about your work performance, try to get you to quit or begin bumping shoulders with you?", solutions: ["Workforce", "ClickLog"] },
+  { q: "Do idiots sit parked in their cars outside your home all the time?", solutions: ["ClickLog", "LightHouse"] },
+  { q: "Do morons constantly get in your way and block you from where you are going out in public? / cut you in line? / hold up the line?", solutions: ["ClickLog", "GentlePulse"] },
+  { q: "Did all your neighbors suddenly move, have their houses quickly sold and construction work done on them, then quickly have 'new neighbors' (who don't seem to live there) move in?", solutions: ["LightHouse", "ClickLog"] },
+  { q: "Have any new street lamps/antennas been installed around your home/work recently?", solutions: ["ClickLog"] },
+  { q: "Do drones hover around you/your home/work all the time?", solutions: ["ClickLog"] },
+  { q: "Do you experience tinnitus/ringing in ears?", solutions: ["Directory", "WhatWorks"] },
+  { q: "Do police officers follow/harass you for no good reason?", solutions: ["ClickLog"] },
+  { q: "Do your neighbors always seem to come outside when you are there, then go inside when you do?", solutions: ["ClickLog", "LightHouse"] },
+  { q: "Do different people seem to be coming and going from neighbors houses around you all the time?", solutions: ["ClickLog"] },
+  { q: "Do several of your neighbors have strange colored lights coming out their windows at night?", solutions: ["ClickLog"] },
+  { q: "Do people you don't know stare at you strangely/treat you bad for no reason?", solutions: ["Mood", "GentlePulse"] },
+  { q: "Are new people pushing hard for you to be their new friend/roommate/romantic partner?", solutions: ["Trust", "LightHouse"] },
 
-  { q: "Do people seem to know things about you that you have never told them before?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "WhatWorks", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "Do people seem to know things about you that you have never told them before?", solutions: ["ClickLog", "Trust"] },
 
-  { q: "Do people you don't know constantly try to talk to you/befriend you while you are out in public?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "WhatWorks", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "Do people you don't know constantly try to talk to you/befriend you while you are out in public?", solutions: ["ClickLog", "Mood"] },
 
-  { q: "Do strange things happen around you a lot? People fighting/arguing in the streets/causing scenes that are scripted/staged? With occasional onlookers smirking or re-enacting the scripted scenes?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "WhatWorks", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "Do strange things happen around you a lot? People fighting/arguing in the streets/causing scenes that are scripted/staged? With occasional onlookers smirking or re-enacting the scripted scenes?", solutions: ["ClickLog"] },
 
-  { q: "Do you get denied jobs/housing for no good reason?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "WhatWorks", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "Do you get denied jobs/housing for no good reason?", solutions: ["Workforce", "LightHouse"] },
 
-  { q: "Do you live close to a freemason lodge? Or know someone who is a freemason?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "WhatWorks", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "Do you live close to a freemason lodge? Or know someone who is a freemason?", solutions: ["Hub"] },
 
-  { q: "Does trying to do simple things like fill out an online job application become an ordeal due to endless clicking that brings you nowhere? Or website conveniently won't load when you try to submit applications or important documents?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "WhatWorks", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "Does trying to do simple things like fill out an online job application become an ordeal due to endless clicking that brings you nowhere? Or website conveniently won't load when you try to submit applications or important documents?", solutions: ["Workforce"] },
 
-  { q: "Do doctors deny you proper care? / ghost you? / tell you you are fine when you know something is wrong? / not get back to you with test results, then claim to have never received them, or have 'no record' of them?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "WhatWorks", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "Do doctors deny you proper care? / ghost you? / tell you you are fine when you know something is wrong? / not get back to you with test results, then claim to have never received them, or have 'no record' of them?", solutions: ["Directory", "WhatWorks"] },
 
-  { q: "Do you hear strange humming/buzzing noises/sound of a machine running around you a lot, but can't pinpoint exactly where it's coming from?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "WhatWorks", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "Do you hear strange humming/buzzing noises/sound of a machine running around you a lot, but can't pinpoint exactly where it's coming from?", solutions: ["ClickLog"] },
 
-  { q: "Does your mail get lost/tampered with a lot?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "WhatWorks", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "Does your mail get lost/tampered with a lot?", solutions: ["ClickLog"] },
 
-  { q: "Do you get tired more than you should?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "WhatWorks", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "Do you get tired more than you should?", solutions: ["Mood", "GentlePulse"] },
 
-  { q: "Do people try to bait you into doing drugs? Buying a gun? Buying self-defense gear? Drinking? Committing illegal acts?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "WhatWorks", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "Do people try to bait you into doing drugs? Buying a gun? Buying self-defense gear? Drinking? Committing illegal acts?", solutions: ["Trust", "PeerProgramming"] },
 
-  { q: "If you are a woman, do perverted guys you don't know or just met straight up ask you for sex?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "WhatWorks", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "If you are a woman, do perverted guys you don't know or just met straight up ask you for sex?", solutions: ["ClickLog", "Trust"] },
 
-  { q: "If you are sitting in your car minding your own business do idiots come and park right by/next to you and sit there too? Usually buried in their phone? Even if you are parked in an isolated area?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "WhatWorks", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "If you are sitting in your car minding your own business do idiots come and park right by/next to you and sit there too? Usually buried in their phone? Even if you are parked in an isolated area?", solutions: ["ClickLog"] },
 
-  { q: "Do idiots constantly shine their bright headlights/flashlights/DEWs on you?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "WhatWorks", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "Do idiots constantly shine their bright headlights/flashlights/DEWs on you?", solutions: ["ClickLog"] },
 
-  { q: "Do you often pull up to an empty store, and then it suddenly becomes busy after you go in? Even at non busy business hours?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "WhatWorks", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "Do you often pull up to an empty store, and then it suddenly becomes busy after you go in? Even at non busy business hours?", solutions: ["ClickLog", "Mood"] },
 
-  { q: "Do weirdos try to get you to say bad things about other people? Or force a conversation about sex, politics or celebrities as if they are recording you?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "WhatWorks", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "Do weirdos try to get you to say bad things about other people? Or force a conversation about sex, politics or celebrities as if they are recording you?", solutions: ["ClickLog"] },
 
-  { q: "Have you been falsely accused of shoplifting, then still treated like a criminal after you have proven you did not steal anything?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "WhatWorks", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "Have you been falsely accused of shoplifting, then still treated like a criminal after you have proven you did not steal anything?", solutions: ["ClickLog", "WhatWorks"] },
 
-  { q: "Do you notice strange flashes of light wherever you go? Or at home/work?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "WhatWorks", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "Do you notice strange flashes of light wherever you go? Or at home/work?", solutions: ["ClickLog"] },
 
-  { q: "Does everyone around you seem to be keeping some sort of a secret?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "WhatWorks", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "Does everyone around you seem to be keeping some sort of a secret?", solutions: ["Mood", "Chyme"] },
 
-  { q: "Do weirdos offer you rides/solicit you for prostitution when you are just trying to walk down the street? Even during the day?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "WhatWorks", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "Do weirdos offer you rides/solicit you for prostitution when you are just trying to walk down the street? Even during the day?", solutions: ["TrustTransport", "ClickLog"] },
 
-  { q: "Do you get strange phone calls/texts from numbers you don't know a lot?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "WhatWorks", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "Do you get strange phone calls/texts from numbers you don't know a lot?", solutions: ["WhatWorks", "ClickLog"] },
 
-  { q: "Do your pets seem to sense that something is off/someone you don't know is near?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "WhatWorks", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "Do your pets seem to sense that something is off/someone you don't know is near?", solutions: ["ClickLog"] },
   
-  { q: "Do people seem like they are only pretending to be your friend/partner?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "WhatWorks", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "Do people seem like they are only pretending to be your friend/partner?", solutions: ["Trust", "Mood"] },
 
-  { q: "Do store/hotel clerks suddenly act strangely when you give your name/id?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "WhatWorks", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "Do store/hotel clerks suddenly act strangely when you give your name/id?", solutions: ["ClickLog"] },
 
-  { q: "If you go to Walmart/Target do the theft detectors beep once quickly when you walk in?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "WhatWorks", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "If you go to Walmart/Target do the theft detectors beep once quickly when you walk in?", solutions: ["ClickLog"] },
 
-  { q: "Do people like to waste your time, sending you on wild goose chases to accomplish simple tasks/appointments?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "WhatWorks", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "Do people like to waste your time, sending you on wild goose chases to accomplish simple tasks/appointments?", solutions: ["WhatWorks", "GentlePulse"] },
 
-  { q: "Anytime you have to call a customer service you are put on hold forever only to be hung up on and start the cycle again and again?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "WhatWorks", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "Anytime you have to call a customer service you are put on hold forever only to be hung up on and start the cycle again and again?", solutions: ["WhatWorks", "GentlePulse"] },
 
-  { q: "Do you have an unusually large amount of car problems?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "WhatWorks", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "Do you have an unusually large amount of car problems?", solutions: ["TrustTransport", "Directory"] },
 
-  { q: "Do items disappear, then reappear weeks/months later?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "WhatWorks", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "Do items disappear, then reappear weeks/months later?", solutions: ["ClickLog"] },
 
-  { q: "Do people you've never introduced yourself to somehow already know your name?", solutions: ["Chyme", "Directory", "GentlePulse", "Mood", "Trust"] },
-  { q: "Do you experience unexplained bruising/cuts/pain/injuries?", solutions: ["Hub", "Directory", "Foundation", "PeerProgramming", "GentlePulse", "Mood", "SocketRelay"] },
-  { q: "Do you notice Jehovah Witnesses following you and/or lurking in your neighborhood that were not there previously?", solutions: ["LightHouse"] },
-  { q: "Do motorcycles, fire trucks and police cars with sirens circle around you?", solutions: ["LightHouse", "TrustTransport"] },
-  { q: "Do idiots mirror your behavior and how you dress and follow you around in public?", solutions: ["Hub", "Chyme", "TrustTransport", "Directory", "GentlePulse", "Mood", "Trust"] },
-  { q: "Do idiot acquaintances/family you have not seen in decades, or family members you never met, try to force their way into your life?", solutions: ["Hub", "Chyme", "Directory","PeerProgramming", "GentlePulse", "Mood", "Trust"] },
-  { q: "Do weirdos issue attack or guard commands to have dogs bark or whimper at your presence?", solutions: ["Hub", "Chyme", "LightHouse", "GentlePulse", "Mood"] },
+  { q: "Do people you've never introduced yourself to somehow already know your name?", solutions: ["ClickLog", "Trust"] },
+  { q: "Do you experience unexplained bruising/cuts/pain/injuries?", solutions: ["ClickLog", "Directory"] },
+  { q: "Do you notice Jehovah Witnesses following you and/or lurking in your neighborhood that were not there previously?", solutions: ["ClickLog", "LightHouse"] },
+  { q: "Do motorcycles, fire trucks and police cars with sirens circle around you?", solutions: ["ClickLog"] },
+  { q: "Do idiots mirror your behavior and how you dress and follow you around in public?", solutions: ["ClickLog"] },
+  { q: "Do idiot acquaintances/family you have not seen in decades, or family members you never met, try to force their way into your life?", solutions: ["Trust"] },
+  { q: "Do weirdos issue attack or guard commands to have dogs bark or whimper at your presence?", solutions: ["ClickLog"] },
   { q: "Do your banking (i.e. checking accounts) and finanical accounts (i.e. Cashapp) stop working, transactions cancelled or declined when you have funds or are closed with false reports of fraud?", solutions: ["ServiceCredits", "SocketRelay"] },
 ];
 
