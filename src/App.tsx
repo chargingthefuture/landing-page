@@ -136,6 +136,25 @@ const FEATURE_COLOR_MAP: Record<string, string> = {
   "ClickLog":       "#EC4899",
 };
 
+// Map feature names to their live app URLs for the solution badges. Signed-out
+// visitors on the Look Ma page tap a badge to open that feature in the app.
+// Only features that appear in LOOK_MA_ITEMS solutions are mapped.
+const FEATURE_URL_MAP: Record<string, string> = {
+  "Chyme":          `${APP_URL}/apps/chyme`,
+  "LightHouse":     `${APP_URL}/apps/lighthouse`,
+  "Lighthouse":     `${APP_URL}/apps/lighthouse`,
+  "TrustTransport": `${APP_URL}/apps/trust-transport`,
+  "Directory":      `${APP_URL}/apps/directory`,
+  "Foundation":     `${APP_URL}/apps/foundation`,
+  "PeerProgramming": `${APP_URL}/apps/peer-programming`,
+  "ServiceCredits": `${APP_URL}/apps/service-credit`,
+  "Workforce":      `${APP_URL}/apps/workforce`,
+  "SocketRelay":    `${APP_URL}/apps/socket-relay`,
+  "WhatWorks":      `${APP_URL}/apps/what-works`,
+  "LevelUp":        `${APP_URL}/apps/level-up`,
+  "Trust":          `${APP_URL}/apps/trust`,
+};
+
 // Lookup feature metadata by id (color, icon, name) for the chat variant.
 const FEATURE_BY_ID: Record<string, (typeof FEATURES)[number]> = Object.fromEntries(
   FEATURES.map((f) => [f.id, f]),
@@ -787,6 +806,22 @@ function LookMaPage() {
                       <div className="flex flex-wrap gap-2">
                         {item.solutions.map((sol) => {
                           const c = FEATURE_COLOR_MAP[sol] || "#9CA3AF";
+                          const url = FEATURE_URL_MAP[sol];
+                          if (url) {
+                            return (
+                              <a
+                                key={sol}
+                                href={url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                className="font-bold px-3 py-1 text-sm uppercase tracking-widest border-2 transition-transform hover:-translate-y-0.5"
+                                style={{ borderColor: c, color: c, background: `${c}18` }}
+                              >
+                                {sol}
+                              </a>
+                            );
+                          }
                           return (
                             <span
                               key={sol}
