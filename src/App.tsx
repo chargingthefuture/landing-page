@@ -457,7 +457,7 @@ function LandingPage() {
             </div>
             <div className="flex flex-wrap gap-4 text-sm font-bold uppercase tracking-widest text-muted-foreground">
               <span className="flex items-center gap-2"><span className="text-primary">✓</span> Invite Only</span>
-              <span className="flex items-center gap-2"><span className="text-primary">✓</span> WCAG AAA</span>
+              <span className="flex items-center gap-2"><span className="text-primary">✓</span> WCAG 2.2 AA</span>
               <span className="flex items-center gap-2"><span className="text-primary">✓</span> 5M Survivors</span>
             </div>
           </motion.div>
@@ -1476,7 +1476,7 @@ function HubLandingPage() {
             </div>
             <div className="flex flex-wrap gap-4 text-sm font-bold uppercase tracking-widest text-muted-foreground">
               <span className="flex items-center gap-2"><span className="text-primary">✓</span> Invite Only</span>
-              <span className="flex items-center gap-2"><span className="text-primary">✓</span> WCAG AAA</span>
+              <span className="flex items-center gap-2"><span className="text-primary">✓</span> WCAG 2.2 AA</span>
               <span className="flex items-center gap-2"><span className="text-primary">✓</span> 5M Survivors</span>
             </div>
           </motion.div>
