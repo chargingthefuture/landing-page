@@ -16,6 +16,8 @@ import NotFound from "@/pages/not-found";
 const queryClient = new QueryClient();
 const BASE = import.meta.env.BASE_URL;
 const APP_URL = "https://app.chargingthefuture.com";
+const GUIDE_URL = `${APP_URL}/guide`;
+const TERMS_URL = `${APP_URL}/terms`;
 const ANDROID_URL = "https://github.com/chargingthefuture/chargingthefuture/releases";
 const HERO_IMG = `${BASE}hero-image.png`;
 
@@ -403,6 +405,8 @@ function Footer() {
           <Link href="/look-ma" className="hover:text-foreground transition-colors">Look Ma, I Fixed It</Link>
           <a href="https://github.com/chargingthefuture/chargingthefuture" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">GitHub ↗</a>
           <a href="https://chargingthefuture.github.io/chargingthefuture/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Blog ↗</a>
+          <a href={GUIDE_URL} className="hover:text-foreground transition-colors">Guide</a>
+          <a href={TERMS_URL} className="hover:text-foreground transition-colors">Terms</a>
           <a href={ANDROID_URL} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors flex items-center gap-1.5"><Download size={13} /> Android APK</a>
           <a href={APP_URL} className="hover:text-primary transition-colors text-primary">Open App →</a>
         </div>
