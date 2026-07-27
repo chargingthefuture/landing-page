@@ -1629,7 +1629,6 @@ function Router() {
       <Route path="/" component={HubLandingPage} />
       <Route path="/classic" component={LandingPage} />
       <Route path="/commons" component={HubLandingPage} />
-      <Route path="/hub" component={HubLandingPage} />
       <Route path="/chat" component={ChatLandingPage} />
       <Route path="/demos" component={DemosPage} />
       <Route path="/look-ma" component={LookMaPage} />
