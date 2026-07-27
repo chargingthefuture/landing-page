@@ -42,7 +42,7 @@ const FEATURES: {
   color: string; bg: string; desc: string;
   youtubeId?: string; protonLink?: string;
 }[] = [
-  { id: "hub",           name: "Hub",             emoji: "🏠", icon: Users,      color: "#7C3AED", bg: "#0E061A", desc: "Ask a question and get AI-powered answers from our community. Your base camp.", youtubeId: "Z9Gw3Jz0ids" },
+  { id: "hub",           name: "Commons",         emoji: "🏠", icon: Users,      color: "#7C3AED", bg: "#0E061A", desc: "Ask a question and get AI-powered answers from our community. Your base camp.", youtubeId: "Z9Gw3Jz0ids" },
   { id: "chyme",         name: "Chyme",            emoji: "🎙️", icon: Radio,      color: "#22C55E", bg: "#04160A", desc: "Live social audio rooms. Broadcast, listen, and connect in real time.", youtubeId: "oVESU60zbPg" },
   { id: "lighthouse",    name: "LightHouse",       emoji: "🏠", icon: HomeIcon,   color: "#3B82F6", bg: "#060E1B", desc: "Verified survivor housing listings.", youtubeId: "KfyZsemVU8A" },
   { id: "trusttransport",name: "TrustTransport",   emoji: "📦", icon: Navigation, color: "#67E8F9", bg: "#0B1A1B", desc: "Vetted transportation for safe travel. Drivers screened by the community, for the community.", youtubeId: "myHI3xB-fMQ" },
@@ -121,7 +121,7 @@ const LOOK_MA_ITEMS: { q: string; solutions: string[] }[] = [
 
 // Map feature names to their colors for the solution badges
 const FEATURE_COLOR_MAP: Record<string, string> = {
-  "Hub":            "#7C3AED",
+  "Commons":        "#7C3AED",
   "Chyme":          "#22C55E",
   "LightHouse":     "#3B82F6",
   "Lighthouse":     "#3B82F6",
@@ -667,7 +667,7 @@ function DemosPage() {
             21 Apps.<br /><span className="text-secondary">One</span> Account.<br />All Demos.
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mb-4 leading-relaxed">
-            Every feature of Survivor Hub has its own walkthrough demo. Watch how each tool works — built by survivors, for survivors.
+            Every feature of Survivor Commons has its own walkthrough demo. Watch how each tool works — built by survivors, for survivors.
           </p>
           <a href={APP_URL} className="inline-flex items-center gap-2 text-primary font-bold uppercase tracking-widest text-sm underline decoration-2 underline-offset-4 hover:text-white transition-colors">
             Ready? Open the App <ArrowRight size={14} />
@@ -770,7 +770,7 @@ function LookMaPage() {
               <span className="text-accent">Look Ma,</span><br />I Fixed It!
             </h1>
             <p className="text-base md:text-xl lg:text-2xl text-muted-foreground max-w-3xl leading-relaxed">
-              50+ problems. 50+ answers. Everything you've experienced — the stalking, the workplace sabotage, the neighbors, the lights, the vehicles — we built a feature in Survivor Hub for every single one. Click any problem to see the fix.
+              50+ problems. 50+ answers. Everything you've experienced — the stalking, the workplace sabotage, the neighbors, the lights, the vehicles — we built a feature in Survivor Commons for every single one. Click any problem to see the fix.
             </p>
           </motion.div>
         </div>
@@ -892,7 +892,7 @@ type ChatMessage = { role: "user" | "bot"; text: string; id?: string };
 
 const HUB_INTRO: ChatMessage = {
   role: "bot",
-  text: "Hey. I'm the Hub. Don't worry about learning the app — just tell me what's going on. Housing, a ride, paid work, or someone to talk to at 2am. Tap a question below to see how this works.",
+  text: "Hey. I'm the Commons. Don't worry about learning the app — just tell me what's going on. Housing, a ride, paid work, or someone to talk to at 2am. Tap a question below to see how this works.",
 };
 
 function HubChatDemo() {
@@ -976,7 +976,7 @@ function HubChatDemo() {
         {/* Status bar */}
         <div className="flex items-center justify-between px-4 py-2 bg-[#0E061A] border-b-4 border-foreground text-[10px] font-bold uppercase tracking-widest text-white/50">
           <span>9:41</span>
-          <span className="text-primary">●●●●● Survivor Hub</span>
+          <span className="text-primary">●●●●● Survivor Commons</span>
           <span>100%</span>
         </div>
 
@@ -986,7 +986,7 @@ function HubChatDemo() {
             <Users size={18} style={{ color: "#7C3AED" }} />
           </div>
           <div className="leading-tight">
-            <div className="font-display text-lg uppercase tracking-wide text-white">Hub</div>
+            <div className="font-display text-lg uppercase tracking-wide text-white">Commons</div>
             <div className="text-[10px] font-bold uppercase tracking-widest text-primary flex items-center gap-1">
               <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block" /> Online · always
             </div>
@@ -1069,7 +1069,7 @@ function HubChatDemo() {
               value={draft}
               onChange={(e) => setDraft(e.target.value)}
               onKeyDown={(e) => { if (e.key === "Enter") sendDraft(); }}
-              placeholder="Ask the Hub anything…"
+              placeholder="Ask the Commons anything…"
               disabled={thinking || autoPlaying}
               className="flex-1 border-2 border-foreground bg-background px-3 py-2 text-xs text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary disabled:opacity-40"
             />
@@ -1137,14 +1137,14 @@ function ChatLandingPage() {
               Don't learn<br />21 apps.<br /><span className="text-primary">Just ask.</span>
             </h1>
             <p className="text-base md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-xl">
-              21 features is a lot to face when you're already overwhelmed. So we put one chat in front of all of them. Tell the Hub what's wrong — a ride, a safe place, paid work, a panic at 2am — and it quietly pulls the right tool. No menus. No choosing. And anytime you want, you can skip the chat and open a feature directly.
+              21 features is a lot to face when you're already overwhelmed. So we put one chat in front of all of them. Tell the Commons what's wrong — a ride, a safe place, paid work, a panic at 2am — and it quietly pulls the right tool. No menus. No choosing. And anytime you want, you can skip the chat and open a feature directly.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href={APP_URL}
                 className="brutal-border brutal-shadow-primary brutal-shadow-hover bg-primary text-black font-bold py-4 px-8 text-lg uppercase tracking-widest text-center flex items-center justify-center gap-3"
               >
-                Open The Hub <ArrowRight strokeWidth={3} size={20} />
+                Open The Commons <ArrowRight strokeWidth={3} size={20} />
               </a>
               <Link
                 href="/demos"
@@ -1173,7 +1173,7 @@ function ChatLandingPage() {
             One chat.<br /><span className="text-primary">Seventeen</span> tools doing the work.
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-            Every "random" question in the demo above quietly reached a different part of the platform — housing, transport, paid work, repairs, breathing, mood patterns, safety logging — without ever asking you to learn its name. The Hub does the navigating. You just talk.
+            Every "random" question in the demo above quietly reached a different part of the platform — housing, transport, paid work, repairs, breathing, mood patterns, safety logging — without ever asking you to learn its name. The Commons does the navigating. You just talk.
           </p>
         </motion.div>
       </section>
@@ -1218,13 +1218,13 @@ function ChatLandingPage() {
             Less to learn.<br />More that helps.
           </h2>
           <p className="text-lg md:text-2xl font-bold mb-10 max-w-2xl mx-auto">
-            Start with a single question. The Hub handles the rest.
+            Start with a single question. The Commons handles the rest.
           </p>
           <a
             href={APP_URL}
             className="inline-flex items-center gap-3 border-4 border-black bg-white text-black font-bold py-4 px-8 md:py-6 md:px-12 text-lg md:text-2xl uppercase tracking-widest hover:bg-black hover:text-white transition-colors brutal-shadow"
           >
-            Ask The Hub <ArrowRight strokeWidth={3} size={22} />
+            Ask The Commons <ArrowRight strokeWidth={3} size={22} />
           </a>
         </div>
         <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: "radial-gradient(#000 2px, transparent 2px)", backgroundSize: "30px 30px" }} />
@@ -1330,7 +1330,7 @@ function AskHubDemo() {
         {/* Status bar */}
         <div className="flex items-center justify-between px-4 py-2 bg-[#0E061A] border-b-4 border-foreground text-[10px] font-bold uppercase tracking-widest text-white/50">
           <span>9:41</span>
-          <span className="text-primary">●●●●● Survivor Hub</span>
+          <span className="text-primary">●●●●● Survivor Commons</span>
           <span>100%</span>
         </div>
 
@@ -1628,6 +1628,7 @@ function Router() {
     <Switch>
       <Route path="/" component={HubLandingPage} />
       <Route path="/classic" component={LandingPage} />
+      <Route path="/commons" component={HubLandingPage} />
       <Route path="/hub" component={HubLandingPage} />
       <Route path="/chat" component={ChatLandingPage} />
       <Route path="/demos" component={DemosPage} />
