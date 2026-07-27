@@ -667,7 +667,7 @@ function DemosPage() {
             21 Apps.<br /><span className="text-secondary">One</span> Account.<br />All Demos.
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mb-4 leading-relaxed">
-            Every feature of Survivor Commons has its own walkthrough demo. Watch how each tool works — built by survivors, for survivors.
+            Every feature of Skills Economy has its own walkthrough demo. Watch how each tool works — built by survivors, for survivors.
           </p>
           <a href={APP_URL} className="inline-flex items-center gap-2 text-primary font-bold uppercase tracking-widest text-sm underline decoration-2 underline-offset-4 hover:text-white transition-colors">
             Ready? Open the App <ArrowRight size={14} />
@@ -770,7 +770,7 @@ function LookMaPage() {
               <span className="text-accent">Look Ma,</span><br />I Fixed It!
             </h1>
             <p className="text-base md:text-xl lg:text-2xl text-muted-foreground max-w-3xl leading-relaxed">
-              50+ problems. 50+ answers. Everything you've experienced — the stalking, the workplace sabotage, the neighbors, the lights, the vehicles — we built a feature in Survivor Commons for every single one. Click any problem to see the fix.
+              50+ problems. 50+ answers. Everything you've experienced — the stalking, the workplace sabotage, the neighbors, the lights, the vehicles — we built a feature in Skills Economy for every single one. Click any problem to see the fix.
             </p>
           </motion.div>
         </div>
@@ -976,7 +976,7 @@ function HubChatDemo() {
         {/* Status bar */}
         <div className="flex items-center justify-between px-4 py-2 bg-[#0E061A] border-b-4 border-foreground text-[10px] font-bold uppercase tracking-widest text-white/50">
           <span>9:41</span>
-          <span className="text-primary">●●●●● Survivor Commons</span>
+          <span className="text-primary">●●●●● Skills Economy</span>
           <span>100%</span>
         </div>
 
@@ -1330,7 +1330,7 @@ function AskHubDemo() {
         {/* Status bar */}
         <div className="flex items-center justify-between px-4 py-2 bg-[#0E061A] border-b-4 border-foreground text-[10px] font-bold uppercase tracking-widest text-white/50">
           <span>9:41</span>
-          <span className="text-primary">●●●●● Survivor Commons</span>
+          <span className="text-primary">●●●●● Skills Economy</span>
           <span>100%</span>
         </div>
 
