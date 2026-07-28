@@ -19,6 +19,7 @@ const BASE = import.meta.env.BASE_URL;
 const APP_URL = "https://app.chargingthefuture.com";
 const GUIDE_URL = `${APP_URL}/guide`;
 const TERMS_URL = `${APP_URL}/terms`;
+const REVIEWS_URL = `${APP_URL}/reviews`;
 const ANDROID_URL = "https://github.com/chargingthefuture/chargingthefuture/releases";
 const HERO_IMG = `${BASE}hero-image.png`;
 
@@ -413,6 +414,7 @@ function Footer() {
           <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
           <Link href="/demos" className="hover:text-foreground transition-colors">21 Demos</Link>
           <Link href="/look-ma" className="hover:text-foreground transition-colors">Look Ma, I Fixed It</Link>
+          <a href={REVIEWS_URL} className="hover:text-foreground transition-colors">What survivors are saying</a>
           <a href="https://github.com/chargingthefuture/chargingthefuture" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">GitHub ↗</a>
           <a href="https://chargingthefuture.github.io/chargingthefuture/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Blog ↗</a>
           <a href={GUIDE_URL} className="hover:text-foreground transition-colors">Guide</a>
