@@ -52,7 +52,7 @@ const FEATURES: {
   { id: "peerprog",      name: "PeerProgramming",  emoji: "🏘️", icon: Code,       color: "#16A34A", bg: "#021208", desc: "Weekly global mastermind sessions.", youtubeId: "ReJ-HjM4dvo" },
   { id: "gdp",           name: "GDP",              emoji: "🗺️", icon: Globe,      color: "#06B6D4", bg: "#011417", desc: "Real time $300B global survivor economic tracker. Your contributions counted, recorded, visible.", youtubeId: "cBdspGWldE4" },
   { id: "credits",       name: "ServiceCredits",   emoji: "⚙️", icon: Coins,      color: "#A855F7", bg: "#12091B", desc: "Alternative economy and credits exchange. Trade value inside the network — no outside systems needed.", youtubeId: "KytNHghNtQ8" },
-  { id: "workforce",     name: "Workforce",        emoji: "💼", icon: Briefcase,  color: "#F97316", bg: "#1B0D02", desc: "Real-time work and skills distribution amongst 5 million survivors globally.", protonLink: "https://drive.proton.me/urls/2C3V6KQZDC#IPmuHxdRmzOh" },
+  { id: "workforce",     name: "Workforce",        emoji: "💼", icon: Briefcase,  color: "#F97316", bg: "#1B0D02", desc: "Real-time work and skills distribution among 5 million survivors globally.", protonLink: "https://drive.proton.me/urls/2C3V6KQZDC#IPmuHxdRmzOh" },
   { id: "mood",          name: "Mood",             emoji: "😁", icon: Smile,      color: "#BEF264", bg: "#151B0B", desc: "Anonymous mood tracking and pattern awareness. Know yourself. See patterns. Take back control.", youtubeId: "BtUp06iEXTc" },
   { id: "socketrelay",   name: "SocketRelay",      emoji: "🔂", icon: Share2,     color: "#FDBA74", bg: "#1C140D", desc: "Real-time resource sharing across the network.", youtubeId: "WTXpioRV2Bw" },
   { id: "whatworks",     name: "WhatWorks",        emoji: "✅", icon: ListChecks, color: "#84CC16", bg: "#0F1602", desc: "One shared, survivor-verified list of tools — organized by the exact problems survivors face. No ads, no affiliates.", youtubeId: "No968A18v6Q" },
@@ -117,7 +117,7 @@ const LOOK_MA_ITEMS: { q: string; solutions: string[] }[] = [
   { q: "Do idiots mirror your behavior and how you dress and follow you around in public?", solutions: ["Chyme", "Trust"] },
   { q: "Do idiot acquaintances/family you have not seen in decades, or family members you never met, try to force their way into your life?", solutions: ["Trust", "LightHouse"] },
   { q: "Do weirdos issue attack or guard commands to have dogs bark or whimper at your presence?", solutions: ["LightHouse", "Chyme"] },
-  { q: "Do your banking (i.e. checking accounts) and finanical accounts (i.e. Cashapp) stop working, transactions cancelled or declined when you have funds or are closed with false reports of fraud?", solutions: ["ServiceCredits", "SocketRelay"] },
+  { q: "Do your banking (i.e. checking accounts) and finanical accounts (i.e. Cashapp) stop working, transactions canceled or declined when you have funds or are closed with false reports of fraud?", solutions: ["ServiceCredits", "SocketRelay"] },
 ];
 
 // Map feature names to their colors for the solution badges
