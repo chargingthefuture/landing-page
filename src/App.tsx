@@ -20,6 +20,7 @@ const APP_URL = "https://app.chargingthefuture.com";
 const GUIDE_URL = `${APP_URL}/guide`;
 const TERMS_URL = `${APP_URL}/terms`;
 const REVIEWS_URL = `${APP_URL}/reviews`;
+const CLICKLOG_URL = `${APP_URL}/apps/click-log`;
 const ANDROID_URL = "https://github.com/chargingthefuture/chargingthefuture/releases";
 const HERO_IMG = `${BASE}hero-image.png`;
 
@@ -120,6 +121,30 @@ const LOOK_MA_ITEMS: { q: string; solutions: string[] }[] = [
   { q: "Do your banking (i.e. checking accounts) and finanical accounts (i.e. Cashapp) stop working, transactions canceled or declined when you have funds or are closed with false reports of fraud?", solutions: ["ServiceCredits", "SocketRelay"] },
 ];
 
+// SOURCE OF TRUTH NOTE (schemes):
+//   • Scheme NAMES are canonical in the app repo:
+//     chargingthefuture/chargingthefuture → ctf/packages/web/lib/click-log/tags.ts
+//     (CLICK_LOG_SCHEME_TAGS). ClickLog validates incident tags against that list.
+//   • This page must list the SAME names, one-for-one. When tags.ts gains a scheme,
+//     add it here in the same order; never rename or drop one that shipped.
+//   • The names started from the Discourse thread "A post for each gang stalker game",
+//     which is deprecated (still valid, no longer updated) — the app list is the living one.
+//   • Descriptions below are owned here, written from the founder's archived posts.
+const SCHEMES: { name: string; desc: string }[] = [
+  { name: "The Scapegoating by Proxy", desc: "They sync their location to yours and create chaos wherever you are — so it looks like you are the source of the problem, and getting rid of you 'solves' it for everyone." },
+  { name: "The Mail Mirage", desc: "Your mail is never quite delivered: delayed, lost, opened, damaged, or 'attempted' precisely when you are not there — timed to a Friday or Saturday so you can't recover it for days." },
+  { name: "The Conspiracy Carousel", desc: "Falsely labeling a survivor with mental-health issues — their favorite is schizophrenia — and playing every side, including your own family, to push you toward involuntary commitment." },
+  { name: "The \"That's a nice ____\"", desc: "Strangers keep complimenting what you own or wear, to sensitize you to it. The goal is that you second-guess your reality and fixate all day on who is 'in on it'." },
+  { name: "Honey Pot", desc: "A fake friend, roommate, or romantic partner pushed hard into your life — to entrap you, extract information, or attach themselves to the people around you." },
+  { name: "Entrapment / Bait", desc: "Baiting you into drugs, a gun purchase, spending, or anything illegal or discrediting. The default answer to whatever they ask: don't do it." },
+  { name: "Staged \"Needing Help\"", desc: "Theater of someone needing rescue — a fall, a crisis, a fight — staged near you to provoke a reaction they can film, frame, or use." },
+  { name: "Good Cop, Bad Cop", desc: "One harasses you while another plays your friend. Both are the same setup — the friendly one is collecting what the hostile one couldn't." },
+  { name: "Fake Counselor / Fake Help", desc: "A 'counselor', advocate, or helper who is really a paid vigilante — building a case to set you up for an institution or slander instead of helping." },
+  { name: "Lure to a Location", desc: "Pushing you to go somewhere specific — a shelter, an office, a meetup — where a setup is already waiting for you." },
+  { name: "Staged Narratives / Loud \"Podcasts\"", desc: "Loud pre-recorded 'podcasts' or scripted conversations played near you, carrying handler-approved messages meant to provoke you or steer your decisions." },
+  { name: "Other / not named yet", desc: "A scheme that doesn't fit the named list yet. Log it anyway — tagged incidents are how new schemes earn a name." },
+];
+
 // Map feature names to their colors for the solution badges
 const FEATURE_COLOR_MAP: Record<string, string> = {
   "Commons":        "#7C3AED",
@@ -205,6 +230,7 @@ function NavBar() {
   const links = [
     { href: "/", label: "Home", icon: Home },
     { href: "/look-ma", label: "Look Ma, I Fixed It", icon: FixIt },
+    { href: "/schemes", label: "The Schemes", icon: Target },
     { href: "/demos", label: "21 Demos", icon: Tv },
   ];
 
@@ -414,6 +440,7 @@ function Footer() {
           <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
           <Link href="/demos" className="hover:text-foreground transition-colors">21 Demos</Link>
           <Link href="/look-ma" className="hover:text-foreground transition-colors">Look Ma, I Fixed It</Link>
+          <Link href="/schemes" className="hover:text-foreground transition-colors">The Schemes</Link>
           <a href={REVIEWS_URL} className="hover:text-foreground transition-colors">What survivors are saying</a>
           <a href="https://github.com/chargingthefuture/chargingthefuture" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">GitHub ↗</a>
           <a href="https://chargingthefuture.github.io/chargingthefuture/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Blog ↗</a>
@@ -874,6 +901,130 @@ function LookMaPage() {
               className="brutal-border brutal-shadow-primary brutal-shadow-hover bg-primary text-black font-bold py-4 px-8 text-lg uppercase tracking-widest flex items-center justify-center gap-3"
             >
               Watch All 21 Demos <ArrowRight strokeWidth={3} />
+            </Link>
+            <a
+              href={APP_URL}
+              className="brutal-border brutal-shadow brutal-shadow-hover bg-transparent text-foreground font-bold py-4 px-8 text-lg uppercase tracking-widest flex items-center justify-center gap-3"
+            >
+              Join The App <ArrowRight strokeWidth={3} />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+}
+
+function SchemesPage() {
+  const [active, setActive] = useState<number | null>(null);
+
+  return (
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden font-sans">
+      <NavBar />
+
+      <section className="pt-32 pb-12 px-6 md:px-12 lg:px-24 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[50vw] h-[50vw] rounded-full bg-accent/10 blur-[120px] pointer-events-none" />
+        <div className="max-w-7xl mx-auto relative z-10">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+            <div className="inline-block border-4 border-accent bg-accent/10 text-accent font-bold px-4 py-2 uppercase tracking-widest mb-6 brutal-shadow text-sm">
+              Know Their Playbook
+            </div>
+            <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-display uppercase mb-6 md:mb-8 leading-[0.88]">
+              <span className="text-accent">The</span> Schemes
+            </h1>
+            <p className="text-base md:text-xl lg:text-2xl text-muted-foreground max-w-3xl leading-relaxed">
+              Every scheme has a name. These are the plays run on survivors — cataloged so you can
+              recognize them, name them, and log them. The names below match the scheme tags in
+              ClickLog, the incident log inside Skills Economy: tag an incident with the scheme
+              used (and the problem it caused) and it feeds the trend reporting. Click a scheme to
+              see how it works.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="px-6 md:px-12 lg:px-24 pb-20 max-w-7xl mx-auto">
+        <div className="flex flex-col gap-3">
+          {SCHEMES.map((scheme, i) => (
+            <motion.div
+              key={scheme.name}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: Math.min(i * 0.03, 0.4) }}
+              className="border-4 border-foreground bg-card cursor-pointer transition-all duration-200"
+              style={active === i ? { boxShadow: `6px 6px 0px 0px hsl(var(--accent))` } : { boxShadow: `4px 4px 0px 0px hsl(var(--foreground))` }}
+              onClick={() => setActive(active === i ? null : i)}
+            >
+              <div className="p-5 md:p-6 flex justify-between items-center gap-4">
+                <div className="flex items-start gap-4">
+                  <span className="font-display text-3xl text-accent flex-shrink-0 leading-none mt-1 min-w-[2rem]">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="font-bold text-base md:text-lg leading-snug">
+                    {scheme.name}
+                  </h3>
+                </div>
+                <div
+                  className="w-9 h-9 flex-shrink-0 flex items-center justify-center border-4 border-foreground text-xl font-bold transition-all duration-300"
+                  style={active === i ? { background: "hsl(var(--accent))", color: "black", transform: "rotate(45deg)" } : {}}
+                >
+                  +
+                </div>
+              </div>
+
+              <AnimatePresence>
+                {active === i && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.22 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="border-t-4 border-foreground bg-accent/10 p-5 md:p-6">
+                      <p className="text-sm md:text-base leading-relaxed mb-4">{scheme.desc}</p>
+                      <a
+                        href={CLICKLOG_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="font-bold px-3 py-1 text-sm uppercase tracking-widest border-2 inline-flex items-center gap-2 transition-transform hover:-translate-y-0.5"
+                        style={{ borderColor: "#EC4899", color: "#EC4899", background: "#EC489918" }}
+                      >
+                        <AlertTriangle size={14} /> Log it in ClickLog
+                      </a>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          ))}
+        </div>
+        <p className="text-sm text-muted-foreground mt-6 leading-relaxed">
+          This list grows as new schemes get named. The in-app ClickLog tag list is the canonical
+          version — this page mirrors it one-for-one.
+        </p>
+      </section>
+
+      <section className="py-20 px-6 md:px-12 lg:px-24 border-t-4 border-foreground bg-card/40">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+          <div>
+            <h2 className="text-4xl md:text-5xl font-display uppercase mb-4 leading-[0.9]">
+              Schemes cause<br /><span className="text-primary">problems.</span> We fixed those too.
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-lg">
+              50+ problems survivors experience — and the feature built to answer every single one.
+            </p>
+          </div>
+          <div className="flex flex-col gap-4 flex-shrink-0">
+            <Link
+              href="/look-ma"
+              className="brutal-border brutal-shadow-primary brutal-shadow-hover bg-primary text-black font-bold py-4 px-8 text-lg uppercase tracking-widest flex items-center justify-center gap-3"
+            >
+              See The 50+ Problems <ArrowRight strokeWidth={3} />
             </Link>
             <a
               href={APP_URL}
@@ -1634,6 +1785,7 @@ function Router() {
       <Route path="/chat" component={ChatLandingPage} />
       <Route path="/demos" component={DemosPage} />
       <Route path="/look-ma" component={LookMaPage} />
+      <Route path="/schemes" component={SchemesPage} />
       <Route component={NotFound} />
     </Switch>
   );
