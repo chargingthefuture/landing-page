@@ -445,7 +445,7 @@ function LandingPage() {
           />
           <div className="absolute top-6 left-6 bg-white text-black border-4 border-black p-3 max-w-[200px] brutal-shadow">
             <p className="font-bold text-xs uppercase leading-tight">CHAPTER ONE:</p>
-            <p className="text-xs leading-tight mt-1">The people around us changed. But we survived.</p>
+            <p className="text-xs leading-tight mt-1">The people around us changed. And we survived.</p>
           </div>
           <div className="absolute inset-0 bg-gradient-to-r from-transparent to-background hidden md:block" />
         </div>
@@ -1478,7 +1478,7 @@ function HubLandingPage() {
           />
           <div className="absolute top-6 left-6 bg-white text-black border-4 border-black p-3 max-w-[200px] brutal-shadow">
             <p className="font-bold text-xs uppercase leading-tight">CHAPTER ONE:</p>
-            <p className="text-xs leading-tight mt-1">The people around us changed. But we survived.</p>
+            <p className="text-xs leading-tight mt-1">The people around us changed. And we survived.</p>
           </div>
           <div className="absolute inset-0 bg-gradient-to-r from-transparent to-background hidden md:block" />
         </div>
