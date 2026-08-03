@@ -143,6 +143,10 @@ const SCHEMES: { name: string; desc: string }[] = [
   { name: "Lure to a Location", desc: "Pushing you to go somewhere specific — a shelter, an office, a meetup — where a setup is already waiting for you." },
   { name: "Staged Narratives / Loud \"Podcasts\"", desc: "Loud pre-recorded 'podcasts' or scripted conversations played near you, carrying handler-approved messages meant to provoke you or steer your decisions." },
   { name: "The Fabricated Flaw", desc: "They invent a flaw and hammer it with staged criticism timed to be absurd — told \"you stink\" on your way to the shower after hours in 100-degree heat. The goal is to make you overly self-critical, and to record the remark so operatives who know nothing believe the \"problem\" is real and recurring." },
+  { name: "The Pot and Kettle", desc: "The insult comes from someone who visibly is the thing they are accusing you of — a fat person calling you fat, a disabled person mocking your disability. The mismatch is deliberate and obnoxious: it forces the operative to live a lie while still aiming at your self-esteem." },
+  { name: "Staged Road Rage", desc: "A cyclist or pedestrian steps in front of your car at the last second — usually a pump fake, sometimes a real strike — to provoke a reaction someone is already filming. Footage of a survivor \"raging\" is what they show people to recruit them." },
+  { name: "The Insurance Bleed", desc: "Your car gets hit again and again. Every claim raises your premium until you are bleeding money or cannot stay insured at all. The damage is the point, not the accident." },
+  { name: "Road Sensitization", desc: "High beams flashed in your mirror, brake checks, cars pacing you or boxing you in — repeated until every drive is something you have to read and second-guess." },
   { name: "Not listed", desc: "A scheme that doesn't fit the named list yet. Weavers of the Commons can pick it in ClickLog and describe what happened — that description goes to the owner, and it's how new schemes earn a name." },
 ];
 
