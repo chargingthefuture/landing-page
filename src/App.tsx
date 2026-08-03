@@ -142,6 +142,7 @@ const SCHEMES: { name: string; desc: string }[] = [
   { name: "Fake Counselor / Fake Help", desc: "A 'counselor', advocate, or helper who is really a paid vigilante — building a case to set you up for an institution or slander instead of helping." },
   { name: "Lure to a Location", desc: "Pushing you to go somewhere specific — a shelter, an office, a meetup — where a setup is already waiting for you." },
   { name: "Staged Narratives / Loud \"Podcasts\"", desc: "Loud pre-recorded 'podcasts' or scripted conversations played near you, carrying handler-approved messages meant to provoke you or steer your decisions." },
+  { name: "The Fabricated Flaw", desc: "They invent a flaw and hammer it with staged criticism timed to be absurd — told \"you stink\" on your way to the shower after hours in 100-degree heat. The goal is to make you overly self-critical, and to record the remark so operatives who know nothing believe the \"problem\" is real and recurring." },
   { name: "Not listed", desc: "A scheme that doesn't fit the named list yet. Weavers of the Commons can pick it in ClickLog and describe what happened — that description goes to the owner, and it's how new schemes earn a name." },
 ];
 
