@@ -151,6 +151,7 @@ const SCHEMES: { name: string; desc: string }[] = [
   { name: "The Windfall", desc: "Someone around you suddenly gets lucky — a scholarship, a job, a whirlwind marriage or baby. It lifts them above you so they read you as the incompetent one when it is often the reverse, surrounds them with new \"friends\" who are there to use them, and leaves you second-guessing yourself. A flattered person is easy to recruit." },
   { name: "The Jinx", desc: "Someone around you gets hit — a costly ticket, a crash, stolen items, a repair bill — and is then told that you are the reason it happened. They cut you off, which was the point. They cause the problem, then sell the story that explains it." },
   { name: "The Fake Job", desc: "An offer good enough to leave your current job for, and then you are let go shortly after. The old job is gone, the next one is harder to reach, and you are worse off than before you moved." },
+  { name: "The Warm Spell", desc: "Weeks or months of them acting friendly, then the harassment resumes — the name-calling, the violence, all of it. The kind stretch is not a break, it is part of it. It lowers your guard so someone can collect new information, it keeps you swinging between relief and dread, and it hands everyone else a reason to doubt you: they were nice to you last month." },
   { name: "Not listed", desc: "A scheme that doesn't fit the named list yet. Weavers of the Commons can pick it in ClickLog and describe what happened — that description goes to the owner, and it's how new schemes earn a name." },
 ];
 
