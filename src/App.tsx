@@ -810,6 +810,15 @@ function LookMaPage() {
             <p className="text-base md:text-xl lg:text-2xl text-muted-foreground max-w-3xl leading-relaxed">
               50+ problems. 50+ answers. Everything you've experienced — the stalking, the workplace sabotage, the neighbors, the lights, the vehicles — we built a feature in Skills Economy for every single one. Click any problem to see the fix.
             </p>
+            <p className="text-sm md:text-base text-muted-foreground max-w-3xl leading-relaxed mt-4">
+              This list is what you notice, and each item points to the feature that answers it. For
+              the play behind the problem — what they were running and why — every one of those has a
+              name on{" "}
+              <Link href="/schemes" className="text-accent underline underline-offset-4 hover:opacity-80">
+                The Schemes
+              </Link>
+              .
+            </p>
           </motion.div>
         </div>
       </section>
@@ -949,6 +958,15 @@ function SchemesPage() {
               ClickLog, the incident log inside Skills Economy: tag an incident with the scheme
               used (and the problem it caused) and it feeds the trend reporting. Click a scheme to
               see how it works.
+            </p>
+            <p className="text-sm md:text-base text-muted-foreground max-w-3xl leading-relaxed mt-4">
+              These are the plays behind the problems on{" "}
+              <Link href="/look-ma" className="text-accent underline underline-offset-4 hover:opacity-80">
+                Look Ma, I Fixed It
+              </Link>
+              : that list is what you notice, this one is what they are doing and why. Logging them
+              in ClickLog is what turns single incidents into a picture of what is happening, and
+              where.
             </p>
           </motion.div>
         </div>
