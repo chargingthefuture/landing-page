@@ -1,4 +1,11 @@
 {
+  "redirects": [
+    {
+      "source": "/feed",
+      "destination": "https://chargingthefuture.github.io/chargingthefuture/feed",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
