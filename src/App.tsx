@@ -22,6 +22,8 @@ const TERMS_URL = `${APP_URL}/terms`;
 const REVIEWS_URL = `${APP_URL}/reviews`;
 const CLICKLOG_URL = `${APP_URL}/apps/click-log`;
 const ANDROID_URL = "https://github.com/chargingthefuture/chargingthefuture/releases";
+// Wallpapers download from the same GitHub Releases page as the APK, pre-filtered to wallpapers-v* releases.
+const WALLPAPERS_URL = "https://github.com/chargingthefuture/chargingthefuture/releases?q=wallpapers";
 const HERO_IMG = `${BASE}hero-image.png`;
 
 // Plugin accent (color) and background (bg) values match the canonical
@@ -467,6 +469,7 @@ function Footer() {
           <a href={GUIDE_URL} className="hover:text-foreground transition-colors">Guide</a>
           <a href={TERMS_URL} className="hover:text-foreground transition-colors">Terms</a>
           <a href={ANDROID_URL} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors flex items-center gap-1.5"><Download size={13} /> Android APK</a>
+          <a href={WALLPAPERS_URL} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors flex items-center gap-1.5"><Download size={13} /> Wallpapers</a>
           <a href={APP_URL} className="hover:text-primary transition-colors text-primary">Open App →</a>
         </div>
         <p className="text-muted-foreground uppercase font-bold tracking-widest text-xs">
