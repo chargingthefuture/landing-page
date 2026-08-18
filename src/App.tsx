@@ -21,7 +21,8 @@ const GUIDE_URL = `${APP_URL}/guide`;
 const TERMS_URL = `${APP_URL}/terms`;
 const REVIEWS_URL = `${APP_URL}/reviews`;
 const CLICKLOG_URL = `${APP_URL}/apps/click-log`;
-const ANDROID_URL = "https://github.com/chargingthefuture/chargingthefuture/releases";
+// Filtered to mobile-v* releases so the newest APK sits at the top (the page also carries wallpaper releases).
+const ANDROID_URL = "https://github.com/chargingthefuture/chargingthefuture/releases?q=mobile";
 // Wallpapers download from the same GitHub Releases page as the APK, pre-filtered to wallpapers-v* releases.
 const WALLPAPERS_URL = "https://github.com/chargingthefuture/chargingthefuture/releases?q=wallpapers";
 const HERO_IMG = `${BASE}hero-image.png`;
