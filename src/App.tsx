@@ -231,7 +231,7 @@ const HUB_QA: { id: string; q: string; a: string }[] = [
   { id: "foundation",    q: "I need a drill and someone who can mount a security camera by tomorrow.", a: "There's a loanable drill 2 blocks away and a member who's done 40+ camera installs. They're open tomorrow afternoon. Want the intro?" },
   { id: "peerprog",      q: "I keep starting things and never finishing them. I do better around other people.", a: "There's a weekly small-group session — same time, every week, global. Next one is Sunday. I can save you a seat." },
   { id: "gdp",           q: "Does any of the work we all do here actually add up to anything?", a: "It does. The network has tracked $300B in survivor economic activity. Your part this month: 12 hours, logged and counted. Here's the live tracker." },
-  { id: "credits",       q: "I'm broke but I can fix bikes. Any way to get groceries without cash?", a: "Yes — log your repairs and you earn credits you can spend inside the network. A member nearby will do a grocery run for 40 credits. Two repairs covers it." },
+  { id: "credits",       q: "I'm broke but I can fix bikes. Any way to get groceries without cash?", a: "Yes — log your repairs and you earn credits you can exchange inside the network. A member nearby will do a grocery run for 40 credits. Two repairs covers it." },
   { id: "workforce",     q: "I lost my job last week. I need paid work I can start right away.", a: "Six paid tasks matched to your skills are open right now. Two can start today. Want me to put you forward for the closest one?" },
   { id: "mood",          q: "I've felt off for weeks. I can't tell if it's getting worse or I'm imagining it.", a: "You're not imagining it. Your last 30 private check-ins show a clear dip every Sunday night. Here's the pattern — naming it is how you start to take control." },
   { id: "socketrelay",   q: "Someone gave me 200 masks. I don't need them all and don't want them wasted.", a: "Three members within 5 miles need exactly these right now. I can relay it — pickup or drop-off. Post it to the live share board?" },
@@ -445,7 +445,7 @@ function ServiceCreditsBounty() {
           100 ServiceCredits — Yours On Day One
         </p>
         <p className="text-sm leading-snug" style={{ color: "rgba(245,158,11,0.6)" }}>
-          The psyop-free utility token. Spend on housing, rides, repairs, or skills inside the network. No bank. No exchange.
+          The community's psyop-free credits unit. Exchange for housing, rides, repairs, or skills inside the network. Not money. No bank. No cash-out.
         </p>
       </div>
     </a>
