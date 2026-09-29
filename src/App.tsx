@@ -339,7 +339,7 @@ function NavBar() {
   );
 }
 
-const DEFAULT_STATS = ["5M Survivors", "127 Countries", "25 Apps, One Account", "Free to join", "Reviewed One at a Time"];
+const DEFAULT_STATS = ["5M Survivors", "300B Economy", "127 Countries", "25 Apps, One Account", "Free to join", "Reviewed One at a Time"];
 
 function StatMarquee({ stats = DEFAULT_STATS }: { stats?: string[] } = {}) {
   const doubled = [...stats, ...stats];
@@ -538,7 +538,7 @@ function LandingPage() {
               Corner.
             </h1>
             <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-xl mb-8 md:mb-10 leading-relaxed">
-              Not a charity. Not a support group. A circular economy that turns survivors into active participants in an economy of their own — built from the ground up with 25 features.
+              Not a charity. Not a support group. A circular economy that turns survivors into active participants in a 300B opportunity — built from the ground up with 25 features.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-6">
               <a
@@ -1716,7 +1716,7 @@ function HubLandingPage() {
               Corner.
             </h1>
             <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-xl mb-8 md:mb-10 leading-relaxed">
-              Not a charity. Not a support group. A circular economy that turns survivors into active participants in an economy of their own — built from the ground up with 25 features.
+              Not a charity. Not a support group. A circular economy that turns survivors into active participants in a 300B opportunity — built from the ground up with 25 features.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-6">
               <a
@@ -1746,7 +1746,7 @@ function HubLandingPage() {
         </div>
       </section>
 
-      <StatMarquee stats={["5M Survivors", "127 Countries", "Free to join", "Reviewed One at a Time"]} />
+      <StatMarquee stats={["5M Survivors", "300B Economy", "127 Countries", "Free to join", "Reviewed One at a Time"]} />
 
       {/* The Arsenal — replaced with the hub chat as the single focal point */}
       <section className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
