@@ -11,7 +11,7 @@ import {
   Code, Globe, Coins, Briefcase, Heart, Smile, Share2,
   ListChecks, Award, Target, ShieldCheck, UsersRound, AlertTriangle,
   Download, MessageSquare, Send, RotateCcw, Sparkles,
-  Puzzle, Gift, Rss, Repeat,
+  Puzzle, Gift, Rss, Repeat, Library, Flame, CalendarClock, Newspaper,
 } from "lucide-react";
 import NotFound from "@/pages/not-found";
 
@@ -50,30 +50,34 @@ const FEATURES: {
 }[] = [
   { id: "hub",           name: "Commons",         emoji: "🏠", icon: Users,      color: "#7C3AED", bg: "#0E061A", desc: "Ask a question and get AI-powered answers from our community. Your base camp.", youtubeId: "Z9Gw3Jz0ids" },
   { id: "chyme",         name: "Chyme",            emoji: "🎙️", icon: Radio,      color: "#22C55E", bg: "#04160A", desc: "Live social audio rooms. Broadcast, listen, and connect in real time.", youtubeId: "oVESU60zbPg" },
-  { id: "lighthouse",    name: "LightHouse",       emoji: "🏠", icon: HomeIcon,   color: "#3B82F6", bg: "#060E1B", desc: "Verified survivor housing listings.", youtubeId: "KfyZsemVU8A" },
-  { id: "trusttransport",name: "TrustTransport",   emoji: "📦", icon: Navigation, color: "#67E8F9", bg: "#0B1A1B", desc: "Vetted transportation for safe travel. Drivers screened by the community, for the community.", youtubeId: "myHI3xB-fMQ" },
+  { id: "lighthouse",    name: "LightHouse",       emoji: "🏠", icon: HomeIcon,   color: "#3B82F6", bg: "#060E1B", desc: "Find housing, list a place you own, and connect with hosts or seekers. Owners list their own places with no approval step.", youtubeId: "KfyZsemVU8A" },
+  { id: "trusttransport",name: "TrustTransport",   emoji: "📦", icon: Navigation, color: "#67E8F9", bg: "#0B1A1B", desc: "Request and offer rides, package delivery, and food orders between members. Each trip has a private chat that closes when it is done.", youtubeId: "myHI3xB-fMQ" },
   { id: "directory",     name: "Directory",        emoji: "📇", icon: BookOpen,   color: "#93C5FD", bg: "#10161C", desc: "Browse skills across the survivor community.", youtubeId: "W1cZm9F0D78" },
   { id: "foundation",    name: "Foundation",       emoji: "🪛", icon: Hammer,     color: "#F59E0B", bg: "#1B1101", desc: "Find talent, tools, repairs, and infrastructure support in real time.", youtubeId: "n4Tkw01PmX8" },
   { id: "peerprog",      name: "PeerProgramming",  emoji: "🏘️", icon: Code,       color: "#16A34A", bg: "#021208", desc: "Weekly global mastermind sessions.", youtubeId: "ReJ-HjM4dvo" },
-  { id: "gdp",           name: "GDP",              emoji: "🗺️", icon: Globe,      color: "#06B6D4", bg: "#011417", desc: "Real time $300B global survivor economic tracker. Your contributions counted, recorded, visible.", youtubeId: "cBdspGWldE4" },
+  { id: "gdp",           name: "GDP",              emoji: "🗺️", icon: Globe,      color: "#06B6D4", bg: "#011417", desc: "The Community Value Index: value actually exchanged and settled in the community, counted since launch. A relative index, never money.", youtubeId: "cBdspGWldE4" },
   { id: "credits",       name: "ServiceCredits",   emoji: "⚙️", icon: Coins,      color: "#A855F7", bg: "#12091B", desc: "Alternative economy and credits exchange. Trade value inside the network — no outside systems needed.", youtubeId: "KytNHghNtQ8" },
   { id: "workforce",     name: "Workforce",        emoji: "💼", icon: Briefcase,  color: "#F97316", bg: "#1B0D02", desc: "Real-time work and skills distribution among 5 million survivors globally.", protonLink: "https://drive.proton.me/urls/2C3V6KQZDC#IPmuHxdRmzOh" },
   { id: "mood",          name: "Mood",             emoji: "😁", icon: Smile,      color: "#BEF264", bg: "#151B0B", desc: "Anonymous mood tracking and pattern awareness. Know yourself. See patterns. Take back control.", youtubeId: "BtUp06iEXTc" },
   { id: "socketrelay",   name: "SocketRelay",      emoji: "🔂", icon: Share2,     color: "#FDBA74", bg: "#1C140D", desc: "Real-time resource sharing across the network.", youtubeId: "WTXpioRV2Bw" },
   { id: "whatworks",     name: "WhatWorks",        emoji: "✅", icon: ListChecks, color: "#84CC16", bg: "#0F1602", desc: "One shared, survivor-verified list of tools — organized by the exact problems survivors face. No ads, no affiliates.", youtubeId: "No968A18v6Q" },
   { id: "skillshunt",    name: "SkillsHunt",       emoji: "🎓", icon: Award,      color: "#FACC15", bg: "#1C1602", desc: "Nominate survivors to build the Directory and grow the economy.", youtubeId: "OfojmleoDEc" },
-  { id: "levelup",       name: "LevelUp",          emoji: "🎯", icon: Target,     color: "#10B981", bg: "#02140E", desc: "Paid skills-training cohorts — learn a skill with a trainer and earn stipends as you reach each milestone.", youtubeId: "sZZMyDVdEvA" },
-  { id: "trust",         name: "Trust",            emoji: "🛡️", icon: ShieldCheck,color: "#0EA5E9", bg: "#02121A", desc: "Community reputation and verification. Trust signals built through real participation — your credibility, visible and portable.", youtubeId: "OuPnVsQ4PnE" },
-  { id: "clicklog",      name: "ClickLog",         emoji: "🚨", icon: AlertTriangle, color: "#EC4899", bg: "#1A0811", desc: "Safety check-in and incident logging — location optional. Log what happened, check in when you're safe." },
+  { id: "skillup",       name: "SkillUp",          emoji: "🎯", icon: Target,     color: "#10B981", bg: "#02140E", desc: "Skills-training cohorts — learn a skill with a trainer and receive credits as you reach each milestone.", youtubeId: "sZZMyDVdEvA" },
+  { id: "trust",         name: "Trust",            emoji: "🛡️", icon: ShieldCheck,color: "#0EA5E9", bg: "#02121A", desc: "What you have actually done in the app, written as plain lines other members can read. No score, no badge, and no identity check.", youtubeId: "OuPnVsQ4PnE" },
+  { id: "clicklog",      name: "ClickLog",         emoji: "🚨", icon: AlertTriangle, color: "#EC4899", bg: "#1A0811", desc: "Incident logging — privately for your own pattern-spotting, or, if you choose, as shared trend data. Your notes are never shared." },
   { id: "skillstaxonomy",name: "Skills Taxonomy",  emoji: "🧩", icon: Puzzle,     color: "#8B5CF6", bg: "#0F0A1B", desc: "Browse the shared catalog of sectors, job titles, and skills." },
   { id: "contributions", name: "Contributions",    emoji: "🎁", icon: Gift,       color: "#FB7185", bg: "#1C0C0F", desc: "Voluntary fundraiser drives — gift-card, Quora-comment, and GitHub-star contributions with service-credit thank-you grants." },
   { id: "beacon",        name: "Beacon",           emoji: "📡", icon: Rss,        color: "#B91C1C", bg: "#140303", desc: "Live one-way broadcasts from Farah. Watch publicly with just a link; sign in to chat and react." },
   { id: "recurringactivity", name: "Recurring Activity", emoji: "🔁", icon: Repeat, color: "#14B8A6", bg: "#021412", desc: "Acknowledge an ongoing activity with another member — one tap, no amounts to report. Recognition of your everyday ties, never a bill." },
+  { id: "knowledge",     name: "Knowledge Library", emoji: "📚", icon: Library,  color: "#D946EF", bg: "#17061A", desc: "Lend your own public Quora writing to the assistant, so it can answer from more than one person's experience. You can take it back." },
+  { id: "fireside",      name: "Fireside",         emoji: "🔥", icon: Flame,      color: "#EF4444", bg: "#1A0505", desc: "The conversation under each post on the blog. Reading it needs no account; what you write becomes publicly visible once you are approved." },
+  { id: "tiradio",       name: "TI Radio",         emoji: "📻", icon: CalendarClock, color: "#6366F1", bg: "#0A0A1C", desc: "A published schedule of live discussions members host in Chyme. Reading it needs no account; taking a slot needs an approved one." },
+  { id: "reader",        name: "Reader",           emoji: "📰", icon: Newspaper,  color: "#94A3B8", bg: "#0E1114", desc: "A feed reader on a server this project pays for. Sign in with the account you already have; what you subscribe to is yours alone." },
 ];
 
 const LOOK_MA_ITEMS: { q: string; solutions: string[] }[] = [
   { q: "Do idiots constantly try to get close to you physically, while aiming their cell phones at you and/or staring at their cell phones while invading your personal space?", solutions: ["SocketRelay", "Chyme"] },
-  { q: "Do your co-workers that you have always been friendly with, suddenly start acting strange towards you and distancing themselves from you? Or they begin to lie about your work performance, try to get you to quit or begin bumping shoulders with you?", solutions: ["Workforce", "LevelUp"] },
+  { q: "Do your co-workers that you have always been friendly with, suddenly start acting strange towards you and distancing themselves from you? Or they begin to lie about your work performance, try to get you to quit or begin bumping shoulders with you?", solutions: ["Workforce", "SkillUp"] },
   { q: "Do idiots sit parked in their cars outside your home all the time?", solutions: ["LightHouse", "Chyme"] },
   { q: "Do morons constantly get in your way and block you from where you are going out in public? / cut you in line? / hold up the line?", solutions: ["SocketRelay", "TrustTransport"] },
   { q: "Did all your neighbors suddenly move, have their houses quickly sold and construction work done on them, then quickly have 'new neighbors' (who don't seem to live there) move in?", solutions: ["LightHouse", "Chyme"] },
@@ -193,7 +197,7 @@ const FEATURE_COLOR_MAP: Record<string, string> = {
   "SocketRelay":    "#FDBA74",
   "WhatWorks":      "#84CC16",
   "SkillsHunt":     "#FACC15",
-  "LevelUp":        "#10B981",
+  "SkillUp":        "#10B981",
   "Trust":          "#0EA5E9",
   "ClickLog":       "#EC4899",
   "Skills Taxonomy": "#8B5CF6",
@@ -213,11 +217,11 @@ const FEATURE_URL_MAP: Record<string, string> = {
   "Directory":      `${APP_URL}/apps/directory`,
   "Foundation":     `${APP_URL}/apps/foundation`,
   "PeerProgramming": `${APP_URL}/apps/peer-programming`,
-  "ServiceCredits": `${APP_URL}/apps/service-credit`,
+  "ServiceCredits": `${APP_URL}/apps/service-credits`,
   "Workforce":      `${APP_URL}/apps/workforce`,
   "SocketRelay":    `${APP_URL}/apps/socket-relay`,
   "WhatWorks":      `${APP_URL}/apps/what-works`,
-  "LevelUp":        `${APP_URL}/apps/level-up`,
+  "SkillUp":        `${APP_URL}/apps/skill-up`,
   "Trust":          `${APP_URL}/apps/trust`,
 };
 
@@ -227,31 +231,35 @@ const FEATURE_BY_ID: Record<string, (typeof FEATURES)[number]> = Object.fromEntr
 );
 
 // Chat variant data. ONE app (the Hub chat) that quietly does the work of the
-// other 20 features. Each entry is a "random" question a survivor might type on
+// other 24 features. Each entry is a "random" question a survivor might type on
 // mobile, paired with an actionable answer that demonstrates one feature WITHOUT
 // naming or pitching it. Order mirrors FEATURES (excluding Hub). The `id` links
 // each answer to its feature for color + an optional "open it" handoff.
 const HUB_QA: { id: string; q: string; a: string }[] = [
   { id: "chyme",         q: "I feel really isolated tonight and just want to hear another human voice.", a: "There's a live audio room going right now — 14 people listening, no pressure to talk. You can just listen, or take the mic whenever you're ready. Want me to drop you in?" },
-  { id: "lighthouse",    q: "I need to leave my place fast. Where's somewhere safe I can actually stay?", a: "Found 3 safe listings within 20 miles, each one vouched for by people who've stayed there. The closest has a private entrance and is open this week. Want me to flag your interest?" },
-  { id: "trusttransport",q: "My car broke down and I start work at 8 tomorrow — I don't trust rideshare apps with a stranger.", a: "Two community-screened drivers are open tomorrow morning near you — both vetted by people in the network. I can hold a 7:15 pickup to get you there by 8. Book it?" },
+  { id: "lighthouse",    q: "I need to leave my place fast. Where's somewhere safe I can actually stay?", a: "Found 3 listings within 20 miles, each posted by the owner. The closest has a private entrance and is open this week. Want me to flag your interest?" },
+  { id: "trusttransport",q: "My car broke down and I start work at 8 tomorrow — I don't trust rideshare apps with a stranger.", a: "Two members are offering rides near you tomorrow morning. I can request a 7:15 pickup to get you there by 8, with a private chat between the two of you. Book it?" },
   { id: "directory",     q: "My laptop keeps overheating and I can't afford a repair shop.", a: "Three people near you list hardware repair — one is 6 miles out and handles overheating specifically. Here's their availability this week." },
   { id: "foundation",    q: "I need a drill and someone who can mount a security camera by tomorrow.", a: "There's a loanable drill 2 blocks away and a member who's done 40+ camera installs. They're open tomorrow afternoon. Want the intro?" },
   { id: "peerprog",      q: "I keep starting things and never finishing them. I do better around other people.", a: "There's a weekly small-group session — same time, every week, global. Next one is Sunday. I can save you a seat." },
-  { id: "gdp",           q: "Does any of the work we all do here actually add up to anything?", a: "It does. The network has tracked $300B in survivor economic activity. Your part this month: 12 hours, logged and counted. Here's the live tracker." },
+  { id: "gdp",           q: "Does any of the work we all do here actually add up to anything?", a: "It does. Everything exchanged and settled here adds up in the Community Value Index, counted since launch. It's an index, not money. Here's the live dashboard." },
   { id: "credits",       q: "I'm broke but I can fix bikes. Any way to get groceries without cash?", a: "Yes — log your repairs and you earn credits you can exchange inside the network. A member nearby will do a grocery run for 40 credits. Two repairs covers it." },
   { id: "workforce",     q: "I lost my job last week. I need paid work I can start right away.", a: "Six paid tasks matched to your skills are open right now. Two can start today. Want me to put you forward for the closest one?" },
   { id: "mood",          q: "I've felt off for weeks. I can't tell if it's getting worse or I'm imagining it.", a: "You're not imagining it. Your last 30 private check-ins show a clear dip every Sunday night. Here's the pattern — naming it is how you start to take control." },
   { id: "socketrelay",   q: "Someone gave me 200 masks. I don't need them all and don't want them wasted.", a: "Three members within 5 miles need exactly these right now. I can relay it — pickup or drop-off. Post it to the live share board?" },
   { id: "whatworks",     q: "What actually works for blocking unknown numbers that keep harassing me?", a: "Verified by people who faced the same thing — no ads, no affiliates. 4 tools, ranked. The top one is free and works on your phone. Here's the short list." },
   { id: "skillshunt",    q: "I want to learn something new but I don't even know what's out there.", a: "Members teach everything from welding to grant-writing. Based on what you've asked before, here are 5 skills you could start this week — free, peer-taught." },
-  { id: "levelup",       q: "I got pushed out of my job and need new skills I can actually trade inside the network.", a: "Done — a 90-day plan to build a skill the network needs, broken into weekly milestones. I'll check in and keep score. Day 1 of 90 starts now." },
-  { id: "trust",         q: "Someone offered to help me move but I just met them. How do I know they're real?", a: "They check out — 23 vouches, 0 flags, active 2 years. Their trust score is visible and portable. Here's the profile." },
-  { id: "clicklog",      q: "Something happened on my walk home. I want a record, but I don't want to call police.", a: "Logged — time-stamped, location optional, private to you. Want a safety check-in for when you get home? No one's alerted unless you miss it." },
+  { id: "skillup",       q: "I got pushed out of my job and need new skills I can actually trade inside the network.", a: "Done — a 90-day plan to build a skill the network needs, broken into weekly milestones. I'll check in and keep score. Day 1 of 90 starts now." },
+  { id: "trust",         q: "Someone offered to help me move but I just met them. How do I know they're real?", a: "Their trust card lists what they have actually done here: two years of sign-ins, finished cohorts, connections with members. Plain lines, no score, and nothing on it says anyone checked them out. Here's the card, so you can judge for yourself." },
+  { id: "clicklog",      q: "Something happened on my walk home. I want a record, but I don't want to call police.", a: "Logged — time-stamped and private to you, and your notes are never shared. Kept untagged, it needs no location. Want to add it to the trend map too?" },
   { id: "skillstaxonomy",q: "I want to find work but I don't even know what job titles fit what I can do.", a: "Here's the shared catalog — sectors, roles, and the skills each one needs, all mapped. Three roles line up with what you've told me. Want to see the paths?" },
   { id: "contributions", q: "I've gotten a lot from this network. Is there a way to give something back?", a: "There's an open drive right now — chip in a gift card, a Quora comment, or a GitHub star. Every contribution earns a service-credit thank-you. Want the current list?" },
   { id: "beacon",        q: "Is there any way to hear directly from whoever's running this?", a: "Farah's broadcasting live right now — watch with just a link, no account needed. Sign in if you want to chat or react. Want me to open it?" },
   { id: "recurringactivity", q: "Someone's been checking on me every week and I want them to know it matters.", a: "One tap acknowledges it — no amounts, no bill, just recognition of an ongoing tie. I can log this week's. Want to confirm?" },
+  { id: "knowledge",     q: "I've written a lot about this on Quora over the years. Could any of it help somebody else?", a: "It can. Lend your public posts to the Knowledge Library and I can answer from your experience as well as other people's. You can take them back whenever you like. Want to pick a few posts?" },
+  { id: "fireside",      q: "I just read a post on the blog and I have something to add.", a: "Every post has a conversation underneath it, and anyone can read it. Write yours here; it shows publicly once you're approved. Want me to open that post's conversation?" },
+  { id: "tiradio",       q: "Is anybody talking about this live tonight?", a: "Here's the TI Radio schedule for the next seven days, in your own time zone. One discussion is on air in Chyme right now. Want to listen in, or take a slot of your own?" },
+  { id: "reader",        q: "I follow a few sites, but I don't want an algorithm deciding what I see.", a: "Reader shows what those sites publish, in the order they published it, and nothing decides what you see first. You sign in with the account you already have. Want me to open it?" },
 ];
 
 function NavBar() {
@@ -331,7 +339,7 @@ function NavBar() {
   );
 }
 
-const DEFAULT_STATS = ["5M Survivors", "$300B Economy", "127 Countries", "21 Apps, One Account", "Free to join", "Invite Only"];
+const DEFAULT_STATS = ["5M Survivors", "300B Economy", "127 Countries", "25 Apps, One Account", "Free to join", "Reviewed One at a Time"];
 
 function StatMarquee({ stats = DEFAULT_STATS }: { stats?: string[] } = {}) {
   const doubled = [...stats, ...stats];
@@ -530,7 +538,7 @@ function LandingPage() {
               Corner.
             </h1>
             <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-xl mb-8 md:mb-10 leading-relaxed">
-              Not a charity. Not a support group. An invite-only circular economy that turns survivors into active participants in a $300B opportunity — built from the ground up with 21 features.
+              Not a charity. Not a support group. A circular economy that turns survivors into active participants in a 300B opportunity — built from the ground up with 25 features.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-6">
               <a
@@ -543,14 +551,14 @@ function LandingPage() {
                 href="/demos"
                 className="brutal-border brutal-shadow brutal-shadow-hover bg-transparent text-foreground font-bold py-4 px-8 text-lg uppercase tracking-widest text-center flex items-center justify-center gap-3"
               >
-                See All 21 Apps
+                See All 25 Apps
               </Link>
             </div>
             <div className="mb-6">
               <ServiceCreditsBounty />
             </div>
             <div className="flex flex-wrap gap-4 text-sm font-bold uppercase tracking-widest text-muted-foreground">
-              <span className="flex items-center gap-2"><span className="text-primary">✓</span> Invite Only</span>
+              <span className="flex items-center gap-2"><span className="text-primary">✓</span> Reviewed One at a Time</span>
               <span className="flex items-center gap-2"><span className="text-primary">✓</span> WCAG 2.2 AA</span>
               <span className="flex items-center gap-2"><span className="text-primary">✓</span> 5M Survivors</span>
             </div>
@@ -563,7 +571,7 @@ function LandingPage() {
       {/* The blog's invite cards: who is already listed, written up one at a time. */}
       <InviteStrip />
 
-      {/* 21 Apps teaser */}
+      {/* 25 Apps teaser */}
       <section className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -576,7 +584,7 @@ function LandingPage() {
               The Arsenal
             </div>
             <h2 className="text-5xl md:text-6xl font-display uppercase mb-6 leading-[0.9]">
-              21 Apps.<br /><span className="text-secondary">One</span> Account.
+              25 Apps.<br /><span className="text-secondary">One</span> Account.
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed">
               We don't need another forum. We need infrastructure. Every feature is a shield against isolation, financial drain, and exploitation. We built all 21. Watch them in action.
@@ -636,7 +644,7 @@ function LandingPage() {
         </div>
         <div className="mt-4 text-center">
           <Link href="/demos" className="text-muted-foreground hover:text-foreground font-bold uppercase tracking-widest text-sm underline decoration-2 underline-offset-4 inline-flex items-center gap-2">
-            + 13 more apps — see all 21 demos<ArrowRight size={14} />
+            + {FEATURES.length - 8} more apps — see all {FEATURES.length} demos<ArrowRight size={14} />
           </Link>
         </div>
       </section>
@@ -728,7 +736,7 @@ function DemosPage() {
             The Arsenal — All 21
           </div>
           <h1 className="text-4xl sm:text-6xl md:text-8xl font-display uppercase mb-6 leading-[0.9]">
-            21 Apps.<br /><span className="text-secondary">One</span> Account.<br />All Demos.
+            25 Apps.<br /><span className="text-secondary">One</span> Account.<br />All Demos.
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mb-4 leading-relaxed">
             Every feature of Skills Economy has its own walkthrough demo. Watch how each tool works — built by survivors, for survivors.
@@ -761,7 +769,7 @@ function DemosPage() {
                 </div>
                 <div>
                   <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1">
-                    App {String(i + 1).padStart(2, "0")} of 21
+                    App {String(i + 1).padStart(2, "0")} of {FEATURES.length}
                   </div>
                   <h3 className="text-2xl font-display uppercase leading-none" style={{ color: feat.color }}>
                     {feat.emoji} {feat.name}
@@ -933,7 +941,7 @@ function LookMaPage() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
             <h2 className="text-4xl md:text-5xl font-display uppercase mb-4 leading-[0.9]">
-              Want to see<br /><span className="text-primary">all 21 apps</span> in action?
+              Want to see<br /><span className="text-primary">all 25 apps</span> in action?
             </h2>
             <p className="text-lg text-muted-foreground max-w-lg">
               Every feature above has a full walkthrough demo. Watch how it works before you join.
@@ -1340,10 +1348,10 @@ function ChatLandingPage() {
               New · Chat-First Experience
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-display uppercase leading-[0.9] mb-6">
-              Don't learn<br />21 apps.<br /><span className="text-primary">Just ask.</span>
+              Don't learn<br />25 apps.<br /><span className="text-primary">Just ask.</span>
             </h1>
             <p className="text-base md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-xl">
-              21 features is a lot to face when you're already overwhelmed. So we put one chat in front of all of them. Tell the Commons what's wrong — a ride, a safe place, paid work, a panic at 2am — and it quietly pulls the right tool. No menus. No choosing. And anytime you want, you can skip the chat and open a feature directly.
+              25 features is a lot to face when you're already overwhelmed. So we put one chat in front of all of them. Tell the Commons what's wrong — a ride, a safe place, paid work, a panic at 2am — and it quietly pulls the right tool. No menus. No choosing. And anytime you want, you can skip the chat and open a feature directly.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
@@ -1413,7 +1421,7 @@ function ChatLandingPage() {
           })}
         </div>
         <p className="mt-6 text-center text-sm font-bold uppercase tracking-widest text-muted-foreground">
-          20 features, reachable through one conversation — or opened directly, your call.
+          24 features, reachable through one conversation — or opened directly, your call.
         </p>
       </section>
 
@@ -1708,7 +1716,7 @@ function HubLandingPage() {
               Corner.
             </h1>
             <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-xl mb-8 md:mb-10 leading-relaxed">
-              Not a charity. Not a support group. An invite-only circular economy that turns survivors into active participants in a $300B opportunity — built from the ground up with 21 features.
+              Not a charity. Not a support group. A circular economy that turns survivors into active participants in a 300B opportunity — built from the ground up with 25 features.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-6">
               <a
@@ -1722,7 +1730,7 @@ function HubLandingPage() {
                 href="/demos"
                 className="brutal-border brutal-shadow brutal-shadow-hover bg-transparent text-foreground font-bold py-4 px-8 text-lg uppercase tracking-widest text-center flex items-center justify-center gap-3"
               >
-                See All 21 Apps
+                See All 25 Apps
               </Link>
               */}
             </div>
@@ -1730,7 +1738,7 @@ function HubLandingPage() {
               <ServiceCreditsBounty />
             </div>
             <div className="flex flex-wrap gap-4 text-sm font-bold uppercase tracking-widest text-muted-foreground">
-              <span className="flex items-center gap-2"><span className="text-primary">✓</span> Invite Only</span>
+              <span className="flex items-center gap-2"><span className="text-primary">✓</span> Reviewed One at a Time</span>
               <span className="flex items-center gap-2"><span className="text-primary">✓</span> WCAG 2.2 AA</span>
               <span className="flex items-center gap-2"><span className="text-primary">✓</span> 5M Survivors</span>
             </div>
@@ -1738,7 +1746,7 @@ function HubLandingPage() {
         </div>
       </section>
 
-      <StatMarquee stats={["5M Survivors", "$300B Economy", "127 Countries", "Free to join", "Invite Only"]} />
+      <StatMarquee stats={["5M Survivors", "300B Economy", "127 Countries", "Free to join", "Reviewed One at a Time"]} />
 
       {/* The Arsenal — replaced with the hub chat as the single focal point */}
       <section className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
