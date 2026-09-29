@@ -231,7 +231,7 @@ const FEATURE_BY_ID: Record<string, (typeof FEATURES)[number]> = Object.fromEntr
 );
 
 // Chat variant data. ONE app (the Hub chat) that quietly does the work of the
-// other 20 features. Each entry is a "random" question a survivor might type on
+// other 24 features. Each entry is a "random" question a survivor might type on
 // mobile, paired with an actionable answer that demonstrates one feature WITHOUT
 // naming or pitching it. Order mirrors FEATURES (excluding Hub). The `id` links
 // each answer to its feature for color + an optional "open it" handoff.
@@ -256,6 +256,10 @@ const HUB_QA: { id: string; q: string; a: string }[] = [
   { id: "contributions", q: "I've gotten a lot from this network. Is there a way to give something back?", a: "There's an open drive right now — chip in a gift card, a Quora comment, or a GitHub star. Every contribution earns a service-credit thank-you. Want the current list?" },
   { id: "beacon",        q: "Is there any way to hear directly from whoever's running this?", a: "Farah's broadcasting live right now — watch with just a link, no account needed. Sign in if you want to chat or react. Want me to open it?" },
   { id: "recurringactivity", q: "Someone's been checking on me every week and I want them to know it matters.", a: "One tap acknowledges it — no amounts, no bill, just recognition of an ongoing tie. I can log this week's. Want to confirm?" },
+  { id: "knowledge",     q: "I've written a lot about this on Quora over the years. Could any of it help somebody else?", a: "It can. Lend your public posts to the Knowledge Library and I can answer from your experience as well as other people's. You can take them back whenever you like. Want to pick a few posts?" },
+  { id: "fireside",      q: "I just read a post on the blog and I have something to add.", a: "Every post has a conversation underneath it, and anyone can read it. Write yours here; it shows publicly once you're approved. Want me to open that post's conversation?" },
+  { id: "tiradio",       q: "Is anybody talking about this live tonight?", a: "Here's the TI Radio schedule for the next seven days, in your own time zone. One discussion is on air in Chyme right now. Want to listen in, or take a slot of your own?" },
+  { id: "reader",        q: "I follow a few sites, but I don't want an algorithm deciding what I see.", a: "Reader shows what those sites publish, in the order they published it, and nothing decides what you see first. You sign in with the account you already have. Want me to open it?" },
 ];
 
 function NavBar() {
@@ -1417,7 +1421,7 @@ function ChatLandingPage() {
           })}
         </div>
         <p className="mt-6 text-center text-sm font-bold uppercase tracking-widest text-muted-foreground">
-          20 features, reachable through one conversation — or opened directly, your call.
+          24 features, reachable through one conversation — or opened directly, your call.
         </p>
       </section>
 
