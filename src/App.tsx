@@ -11,7 +11,7 @@ import {
   Code, Globe, Coins, Briefcase, Heart, Smile, Share2,
   ListChecks, Award, Target, ShieldCheck, UsersRound, AlertTriangle,
   Download, MessageSquare, Send, RotateCcw, Sparkles,
-  Puzzle, Gift, Rss, Repeat,
+  Puzzle, Gift, Rss, Repeat, Library, Flame, CalendarClock, Newspaper,
 } from "lucide-react";
 import NotFound from "@/pages/not-found";
 
@@ -69,6 +69,10 @@ const FEATURES: {
   { id: "contributions", name: "Contributions",    emoji: "🎁", icon: Gift,       color: "#FB7185", bg: "#1C0C0F", desc: "Voluntary fundraiser drives — gift-card, Quora-comment, and GitHub-star contributions with service-credit thank-you grants." },
   { id: "beacon",        name: "Beacon",           emoji: "📡", icon: Rss,        color: "#B91C1C", bg: "#140303", desc: "Live one-way broadcasts from Farah. Watch publicly with just a link; sign in to chat and react." },
   { id: "recurringactivity", name: "Recurring Activity", emoji: "🔁", icon: Repeat, color: "#14B8A6", bg: "#021412", desc: "Acknowledge an ongoing activity with another member — one tap, no amounts to report. Recognition of your everyday ties, never a bill." },
+  { id: "knowledge",     name: "Knowledge Library", emoji: "📚", icon: Library,  color: "#D946EF", bg: "#17061A", desc: "Lend your own public Quora writing to the assistant, so it can answer from more than one person's experience. You can take it back." },
+  { id: "fireside",      name: "Fireside",         emoji: "🔥", icon: Flame,      color: "#EF4444", bg: "#1A0505", desc: "The conversation under each post on the blog. Reading it needs no account; what you write becomes publicly visible once you are approved." },
+  { id: "tiradio",       name: "TI Radio",         emoji: "📻", icon: CalendarClock, color: "#6366F1", bg: "#0A0A1C", desc: "A published schedule of live discussions members host in Chyme. Reading it needs no account; taking a slot needs an approved one." },
+  { id: "reader",        name: "Reader",           emoji: "📰", icon: Newspaper,  color: "#94A3B8", bg: "#0E1114", desc: "A feed reader on a server this project pays for. Sign in with the account you already have; what you subscribe to is yours alone." },
 ];
 
 const LOOK_MA_ITEMS: { q: string; solutions: string[] }[] = [
@@ -331,7 +335,7 @@ function NavBar() {
   );
 }
 
-const DEFAULT_STATS = ["5M Survivors", "$300B Economy", "127 Countries", "21 Apps, One Account", "Free to join", "Reviewed One at a Time"];
+const DEFAULT_STATS = ["5M Survivors", "$300B Economy", "127 Countries", "25 Apps, One Account", "Free to join", "Reviewed One at a Time"];
 
 function StatMarquee({ stats = DEFAULT_STATS }: { stats?: string[] } = {}) {
   const doubled = [...stats, ...stats];
@@ -530,7 +534,7 @@ function LandingPage() {
               Corner.
             </h1>
             <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-xl mb-8 md:mb-10 leading-relaxed">
-              Not a charity. Not a support group. A circular economy that turns survivors into active participants in a $300B opportunity — built from the ground up with 21 features.
+              Not a charity. Not a support group. A circular economy that turns survivors into active participants in a $300B opportunity — built from the ground up with 25 features.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-6">
               <a
@@ -543,7 +547,7 @@ function LandingPage() {
                 href="/demos"
                 className="brutal-border brutal-shadow brutal-shadow-hover bg-transparent text-foreground font-bold py-4 px-8 text-lg uppercase tracking-widest text-center flex items-center justify-center gap-3"
               >
-                See All 21 Apps
+                See All 25 Apps
               </Link>
             </div>
             <div className="mb-6">
@@ -563,7 +567,7 @@ function LandingPage() {
       {/* The blog's invite cards: who is already listed, written up one at a time. */}
       <InviteStrip />
 
-      {/* 21 Apps teaser */}
+      {/* 25 Apps teaser */}
       <section className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -576,7 +580,7 @@ function LandingPage() {
               The Arsenal
             </div>
             <h2 className="text-5xl md:text-6xl font-display uppercase mb-6 leading-[0.9]">
-              21 Apps.<br /><span className="text-secondary">One</span> Account.
+              25 Apps.<br /><span className="text-secondary">One</span> Account.
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed">
               We don't need another forum. We need infrastructure. Every feature is a shield against isolation, financial drain, and exploitation. We built all 21. Watch them in action.
@@ -636,7 +640,7 @@ function LandingPage() {
         </div>
         <div className="mt-4 text-center">
           <Link href="/demos" className="text-muted-foreground hover:text-foreground font-bold uppercase tracking-widest text-sm underline decoration-2 underline-offset-4 inline-flex items-center gap-2">
-            + 13 more apps — see all 21 demos<ArrowRight size={14} />
+            + {FEATURES.length - 8} more apps — see all {FEATURES.length} demos<ArrowRight size={14} />
           </Link>
         </div>
       </section>
@@ -728,7 +732,7 @@ function DemosPage() {
             The Arsenal — All 21
           </div>
           <h1 className="text-4xl sm:text-6xl md:text-8xl font-display uppercase mb-6 leading-[0.9]">
-            21 Apps.<br /><span className="text-secondary">One</span> Account.<br />All Demos.
+            25 Apps.<br /><span className="text-secondary">One</span> Account.<br />All Demos.
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mb-4 leading-relaxed">
             Every feature of Skills Economy has its own walkthrough demo. Watch how each tool works — built by survivors, for survivors.
@@ -761,7 +765,7 @@ function DemosPage() {
                 </div>
                 <div>
                   <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1">
-                    App {String(i + 1).padStart(2, "0")} of 21
+                    App {String(i + 1).padStart(2, "0")} of {FEATURES.length}
                   </div>
                   <h3 className="text-2xl font-display uppercase leading-none" style={{ color: feat.color }}>
                     {feat.emoji} {feat.name}
@@ -933,7 +937,7 @@ function LookMaPage() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
             <h2 className="text-4xl md:text-5xl font-display uppercase mb-4 leading-[0.9]">
-              Want to see<br /><span className="text-primary">all 21 apps</span> in action?
+              Want to see<br /><span className="text-primary">all 25 apps</span> in action?
             </h2>
             <p className="text-lg text-muted-foreground max-w-lg">
               Every feature above has a full walkthrough demo. Watch how it works before you join.
@@ -1340,10 +1344,10 @@ function ChatLandingPage() {
               New · Chat-First Experience
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-display uppercase leading-[0.9] mb-6">
-              Don't learn<br />21 apps.<br /><span className="text-primary">Just ask.</span>
+              Don't learn<br />25 apps.<br /><span className="text-primary">Just ask.</span>
             </h1>
             <p className="text-base md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-xl">
-              21 features is a lot to face when you're already overwhelmed. So we put one chat in front of all of them. Tell the Commons what's wrong — a ride, a safe place, paid work, a panic at 2am — and it quietly pulls the right tool. No menus. No choosing. And anytime you want, you can skip the chat and open a feature directly.
+              25 features is a lot to face when you're already overwhelmed. So we put one chat in front of all of them. Tell the Commons what's wrong — a ride, a safe place, paid work, a panic at 2am — and it quietly pulls the right tool. No menus. No choosing. And anytime you want, you can skip the chat and open a feature directly.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
@@ -1708,7 +1712,7 @@ function HubLandingPage() {
               Corner.
             </h1>
             <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-xl mb-8 md:mb-10 leading-relaxed">
-              Not a charity. Not a support group. A circular economy that turns survivors into active participants in a $300B opportunity — built from the ground up with 21 features.
+              Not a charity. Not a support group. A circular economy that turns survivors into active participants in a $300B opportunity — built from the ground up with 25 features.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-6">
               <a
@@ -1722,7 +1726,7 @@ function HubLandingPage() {
                 href="/demos"
                 className="brutal-border brutal-shadow brutal-shadow-hover bg-transparent text-foreground font-bold py-4 px-8 text-lg uppercase tracking-widest text-center flex items-center justify-center gap-3"
               >
-                See All 21 Apps
+                See All 25 Apps
               </Link>
               */}
             </div>
