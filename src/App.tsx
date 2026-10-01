@@ -270,7 +270,7 @@ function NavBar() {
     { href: "/", label: "Home", icon: Home },
     { href: "/look-ma", label: "Look Ma, I Fixed It", icon: FixIt },
     { href: "/schemes", label: "The Schemes", icon: Target },
-    { href: "/demos", label: "21 Demos", icon: Tv },
+    { href: "/demos", label: `${FEATURES.length} Demos`, icon: Tv },
   ];
 
   return (
@@ -339,7 +339,7 @@ function NavBar() {
   );
 }
 
-const DEFAULT_STATS = ["5M Survivors", "300B Economy", "127 Countries", "25 Apps, One Account", "Free to join", "Reviewed One at a Time"];
+const DEFAULT_STATS = ["5M Survivors", "300B Economy", "127 Countries", `${FEATURES.length} Apps, One Account`, "Free to join", "Reviewed One at a Time"];
 
 function StatMarquee({ stats = DEFAULT_STATS }: { stats?: string[] } = {}) {
   const doubled = [...stats, ...stats];
@@ -477,7 +477,7 @@ function Footer() {
         </div>
         <div className="flex flex-wrap gap-4 text-sm font-bold uppercase tracking-widest text-muted-foreground">
           <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
-          <Link href="/demos" className="hover:text-foreground transition-colors">21 Demos</Link>
+          <Link href="/demos" className="hover:text-foreground transition-colors">{FEATURES.length} Demos</Link>
           <Link href="/look-ma" className="hover:text-foreground transition-colors">Look Ma, I Fixed It</Link>
           <Link href="/schemes" className="hover:text-foreground transition-colors">The Schemes</Link>
           <a href={INVITES_URL} className="hover:text-foreground transition-colors">People on the list</a>
@@ -538,7 +538,7 @@ function LandingPage() {
               Corner.
             </h1>
             <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-xl mb-8 md:mb-10 leading-relaxed">
-              Not a charity. Not a support group. A circular economy that turns survivors into active participants in a 300B opportunity — built from the ground up with 25 features.
+              Not a charity. Not a support group. A circular economy that turns survivors into active participants in a 300B opportunity — built from the ground up with {FEATURES.length} features.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-6">
               <a
@@ -551,7 +551,7 @@ function LandingPage() {
                 href="/demos"
                 className="brutal-border brutal-shadow brutal-shadow-hover bg-transparent text-foreground font-bold py-4 px-8 text-lg uppercase tracking-widest text-center flex items-center justify-center gap-3"
               >
-                See All 25 Apps
+                See All {FEATURES.length} Apps
               </Link>
             </div>
             <div className="mb-6">
@@ -571,7 +571,7 @@ function LandingPage() {
       {/* The blog's invite cards: who is already listed, written up one at a time. */}
       <InviteStrip />
 
-      {/* 25 Apps teaser */}
+      {/* Apps teaser */}
       <section className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -584,17 +584,17 @@ function LandingPage() {
               The Arsenal
             </div>
             <h2 className="text-5xl md:text-6xl font-display uppercase mb-6 leading-[0.9]">
-              25 Apps.<br /><span className="text-secondary">One</span> Account.
+              {FEATURES.length} Apps.<br /><span className="text-secondary">One</span> Account.
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              We don't need another forum. We need infrastructure. Every feature is a shield against isolation, financial drain, and exploitation. We built all 21. Watch them in action.
+              We don't need another forum. We need infrastructure. Every feature is a shield against isolation, financial drain, and exploitation. We built all {FEATURES.length}. Watch them in action.
             </p>
           </div>
           <Link
             href="/demos"
             className="w-full lg:w-auto flex-shrink-0 brutal-border brutal-shadow-secondary brutal-shadow-hover bg-secondary text-white font-bold py-4 px-8 text-lg uppercase tracking-widest flex items-center justify-center gap-3"
           >
-            Watch All 21 Demos <ArrowRight strokeWidth={3} size={20} />
+            Watch All {FEATURES.length} Demos <ArrowRight strokeWidth={3} size={20} />
           </Link>
         </motion.div>
 
@@ -733,10 +733,10 @@ function DemosPage() {
       <div className="pt-32 pb-8 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
           <div className="inline-block border-4 border-secondary bg-secondary/10 text-secondary font-bold px-4 py-2 uppercase tracking-widest mb-6 brutal-shadow text-sm">
-            The Arsenal — All 21
+            The Arsenal — All {FEATURES.length}
           </div>
           <h1 className="text-4xl sm:text-6xl md:text-8xl font-display uppercase mb-6 leading-[0.9]">
-            25 Apps.<br /><span className="text-secondary">One</span> Account.<br />All Demos.
+            {FEATURES.length} Apps.<br /><span className="text-secondary">One</span> Account.<br />All Demos.
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mb-4 leading-relaxed">
             Every feature of Skills Economy has its own walkthrough demo. Watch how each tool works — built by survivors, for survivors.
@@ -941,7 +941,7 @@ function LookMaPage() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
             <h2 className="text-4xl md:text-5xl font-display uppercase mb-4 leading-[0.9]">
-              Want to see<br /><span className="text-primary">all 25 apps</span> in action?
+              Want to see<br /><span className="text-primary">all {FEATURES.length} apps</span> in action?
             </h2>
             <p className="text-lg text-muted-foreground max-w-lg">
               Every feature above has a full walkthrough demo. Watch how it works before you join.
@@ -952,7 +952,7 @@ function LookMaPage() {
               href="/demos"
               className="brutal-border brutal-shadow-primary brutal-shadow-hover bg-primary text-black font-bold py-4 px-8 text-lg uppercase tracking-widest flex items-center justify-center gap-3"
             >
-              Watch All 21 Demos <ArrowRight strokeWidth={3} />
+              Watch All {FEATURES.length} Demos <ArrowRight strokeWidth={3} />
             </Link>
             <a
               href={APP_URL}
@@ -1348,10 +1348,10 @@ function ChatLandingPage() {
               New · Chat-First Experience
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-display uppercase leading-[0.9] mb-6">
-              Don't learn<br />25 apps.<br /><span className="text-primary">Just ask.</span>
+              Don't learn<br />{FEATURES.length} apps.<br /><span className="text-primary">Just ask.</span>
             </h1>
             <p className="text-base md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-xl">
-              25 features is a lot to face when you're already overwhelmed. So we put one chat in front of all of them. Tell the Commons what's wrong — a ride, a safe place, paid work, a panic at 2am — and it quietly pulls the right tool. No menus. No choosing. And anytime you want, you can skip the chat and open a feature directly.
+              {FEATURES.length} features is a lot to face when you're already overwhelmed. So we put one chat in front of all of them. Tell the Commons what's wrong — a ride, a safe place, paid work, a panic at 2am — and it quietly pulls the right tool. No menus. No choosing. And anytime you want, you can skip the chat and open a feature directly.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
@@ -1421,7 +1421,7 @@ function ChatLandingPage() {
           })}
         </div>
         <p className="mt-6 text-center text-sm font-bold uppercase tracking-widest text-muted-foreground">
-          24 features, reachable through one conversation — or opened directly, your call.
+          {HUB_QA.length} features, reachable through one conversation — or opened directly, your call.
         </p>
       </section>
 
@@ -1716,7 +1716,7 @@ function HubLandingPage() {
               Corner.
             </h1>
             <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-xl mb-8 md:mb-10 leading-relaxed">
-              Not a charity. Not a support group. A circular economy that turns survivors into active participants in a 300B opportunity — built from the ground up with 25 features.
+              Not a charity. Not a support group. A circular economy that turns survivors into active participants in a 300B opportunity — built from the ground up with {FEATURES.length} features.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-6">
               <a
@@ -1730,7 +1730,7 @@ function HubLandingPage() {
                 href="/demos"
                 className="brutal-border brutal-shadow brutal-shadow-hover bg-transparent text-foreground font-bold py-4 px-8 text-lg uppercase tracking-widest text-center flex items-center justify-center gap-3"
               >
-                See All 25 Apps
+                See All {FEATURES.length} Apps
               </Link>
               */}
             </div>
