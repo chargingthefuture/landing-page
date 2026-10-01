@@ -21,7 +21,7 @@ Canonical source: [`chargingthefuture/chargingthefuture` → `.github/instructio
 
 ### Text Formatting
 - Minimize bold text. Applies to both chat responses and any `.md` (or other) files agents create or edit.
-- Do not bold for emphasis, do not bold every list-item label, and do not bold whole sentences. Bold has no logical value when overused; it adds visual noise without adding information.
+- Do not bold for emphasis, do not bold every list-item label, and do not bold entire sentences. Bold has no logical value when overused; it adds visual noise without adding information.
 - Acceptable bold use is rare and structural only: e.g. a single table header or a one-word inline label where the surrounding document already uses that convention. When in doubt, do not bold.
 - Prefer plain prose, lists, headings, and tables to carry structure instead of bold.
 
@@ -42,7 +42,7 @@ Canonical source: [`chargingthefuture/chargingthefuture` → `.github/instructio
 | Do not use | Use instead | Reason |
 |---|---|---|
 | punch list | list | Jargon; unclear meaning. |
-| stale | deprecated | "Stale" is consistently misused; "deprecated" is the intended meaning. |
+| stale | drop it; if you mean something specific, name it (out-of-date, superseded, no longer current) | "Deprecated" means retired, not out of date, so it is not a substitute. |
 
 ## Architecture
 
