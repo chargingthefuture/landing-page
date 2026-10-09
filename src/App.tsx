@@ -20,7 +20,6 @@ const BASE = import.meta.env.BASE_URL;
 const APP_URL = "https://app.chargingthefuture.com";
 const GUIDE_URL = `${APP_URL}/guide`;
 const TERMS_URL = `${APP_URL}/terms`;
-const INVITES_URL = "https://chargingthefuture.github.io/chargingthefuture/feed";
 const CLICKLOG_URL = `${APP_URL}/apps/click-log`;
 // Filtered to mobile-v* releases so the newest APK sits at the top (the page also carries wallpaper releases).
 const ANDROID_URL = "https://github.com/chargingthefuture/chargingthefuture/releases?q=mobile";
@@ -480,7 +479,6 @@ function Footer() {
           <Link href="/demos" className="hover:text-foreground transition-colors">{FEATURES.length} Demos</Link>
           <Link href="/look-ma" className="hover:text-foreground transition-colors">Look Ma, I Fixed It</Link>
           <Link href="/schemes" className="hover:text-foreground transition-colors">The Schemes</Link>
-          <a href={INVITES_URL} className="hover:text-foreground transition-colors">People on the list</a>
           <a href="https://github.com/chargingthefuture/chargingthefuture" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">GitHub ↗</a>
           <a href="https://chargingthefuture.github.io/chargingthefuture/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Blog ↗</a>
           <a href={GUIDE_URL} className="hover:text-foreground transition-colors">Guide</a>
